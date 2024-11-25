@@ -1,0 +1,251 @@
+%---------------------------------------------------------------------
+%			Preamble
+%---------------------------------------------------------------------
+
+% This thesis template has been prepared by:
+
+	% Monika Bialy
+	% Department of Computing and Software
+	% Faculty of Engineering
+	% McMaster University
+	% 1280 Main St W, Hamilton, ON L8S 4L8
+	% bialym2@mcmaster.ca
+
+
+% Formatting of this document conforms to the "Guide for the Preparation of Master's and Doctoral Theses" as defined by McMaster University's School of Graduate Studies. The aforementioned guide may be found at http://graduate.mcmaster.ca/images/2014_uploads/Guide_for_the_Preparation_of_Theses_May2014.pdf
+
+% 2015-07-23: Fixed DescriptiveNote TOC link and removed supefluous options - Alexander Schaap
+% 2019-01-29: Updated with the latest requirements from the 2016 version of the guide (https://gs.mcmaster.ca/sites/default/files/resources/guide_for_the_preparation_of_masters_and_doctoral_theses-_december_2016.pdf) - Syed Asim Shah
+
+%---------------------------------------------------------------------
+
+\documentclass[12pt, oneside]{book}
+
+\setcounter{secnumdepth}{3}	% Make sub subsections numbered
+\setcounter{tocdepth}{3}
+
+%---------------------------------------------------------------------
+%			Packages
+%---------------------------------------------------------------------
+
+% -- For Formatting --
+%For students who wish to send a copy  (or  copies)  of  their  finally-approved thesis  for  binding,  the  following should be noted. To ensure sufficient space on the page for  binding,  the  TOP and LEFT margins  should  be 3.8 cm, and the RIGHT and BOTTOM margins should be 2.5 cm. If the thesis is to be back printed, both LEFT and RIGHT margins should be 3.8 cm. These margins also apply to all illustrative material, including diagrams, maps, photographs, charts, tables, and computer printouts.
+\usepackage[top=3.8cm, bottom=2.5cm, left=3.8cm, right=3.8cm]{geometry}
+\usepackage{setspace}	% For changing the line spacing. Already included for the markup, so commented out for now
+\usepackage{xspace}
+\usepackage{fancyhdr}
+\usepackage[nottoc]{tocbibind}	%  Adds bib, list of figs, and list of tables to the table of contents
+\usepackage[linktocpage, colorlinks, linkcolor=blue, citecolor=blue]{hyperref}	% Links page numbers to their pages, and include page nuns in bib
+\usepackage[printonlyused,withpage]{acronym} 
+\usepackage[toc,page]{appendix}
+\usepackage{booktabs}
+\usepackage{csquotes}
+\usepackage{array}
+\usepackage{longtable}
+\usepackage{rotating}
+\usepackage[tableposition=t]{caption}
+
+% -- For Bibliography --
+\usepackage[style=numeric, sorting=none, backend=bibtex, backref, doi=false]{biblatex}	% Use Biblatex for customization of bib
+\addbibresource{Thesis.bib}
+
+% -- For Figures --
+\usepackage{graphicx}
+\graphicspath{{Figures/}}
+\usepackage{float}
+
+% -- For Math --
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{tipa}
+\usepackage{cleveref}
+
+
+%---------------------------------------------------------------------
+%			 Hacks 
+%---------------------------------------------------------------------
+
+% -- Make citation author names link to bibliography entry. Biblatex only does year links by default --
+\DeclareFieldFormat{citehyperref}{%
+  \DeclareFieldAlias{bibhyperref}{noformat}% Avoid nested links
+  \bibhyperref{#1}}
+
+\DeclareFieldFormat{textcitehyperref}{%
+  \DeclareFieldAlias{bibhyperref}{noformat}% Avoid nested links
+  \bibhyperref{%
+    #1%
+    \ifbool{cbx:parens}
+      {\bibcloseparen\global\boolfalse{cbx:parens}}
+      {}}}
+
+\savebibmacro{cite}
+\savebibmacro{textcite}
+
+\renewbibmacro*{cite}{%
+  \printtext[citehyperref]{%
+    \restorebibmacro{cite}%
+    \usebibmacro{cite}}}
+
+\renewbibmacro*{textcite}{%
+  \ifboolexpr{
+    ( not test {\iffieldundef{prenote}} and
+      test {\ifnumequal{\value{citecount}}{1}} )
+    or
+    ( not test {\iffieldundef{postnote}} and
+      test {\ifnumequal{\value{citecount}}{\value{citetotal}}} )
+  }
+    {\DeclareFieldAlias{textcitehyperref}{noformat}}
+    {}%
+  \printtext[textcitehyperref]{%
+    \restorebibmacro{textcite}%
+    \usebibmacro{textcite}}}
+    
+% -- Remove colour of acronym hyperlinks --
+\makeatletter
+\AtBeginDocument{%
+  \renewcommand*{\AC@hyperlink}[2]{%
+    \begingroup
+      \hypersetup{hidelinks}%
+      \hyperlink{#1}{#2}%
+    \endgroup
+  }%
+}
+\makeatother
+ 
+%---------------------------------------------------------------------
+%		     Macros for Writing
+%---------------------------------------------------------------------
+
+\newcommand{\ThesisTitle}{CyclicL - An Approach to Automated Requirement Traceability in Product Line Engineering}
+\newcommand{\Author}{Thomas Chiang}
+\newcommand{\Supervisors}{Richard Paige, Alan Wassyng}
+\newcommand{\DegreeName}{PhD}
+\newcommand{\DegreeAbbr}{PhD}
+\newcommand{\PastDegrees}{B.Eng Computer Engineering, M.A.Sc Software Engineering}
+\newcommand{\PastUniversity}{McMaster University}
+\newcommand{\UniversityName}{McMaster University}
+\newcommand{\UniversityDept}{Computing and Software}
+\newcommand{\MonthYearOfSubmission}{Jan, 2021}
+\newcommand{\FigureLoc}{}
+
+\newcommand{\tool}{CyclicL}
+
+
+
+
+
+%---------------------------------------------------------------------
+%			 Document 
+%---------------------------------------------------------------------
+
+\begin{document}
+
+%---------------------------------------------------------------------
+%			Frontmatter
+%---------------------------------------------------------------------
+
+\frontmatter   
+\doublespacing
+	
+	\input{TitlePage}
+	
+	\setcounter{page}{2}
+	\pagestyle{plain}
+	
+	\input{DescriptiveNote}
+	\addcontentsline{toc}{chapter}{Descriptive Note}	% DONE: This line now links correctly (\phantomsection)
+
+	\input{LayAbstract}
+	\addcontentsline{toc}{chapter}{Lay Abstract}
+	
+	\input{Abstract}
+	\addcontentsline{toc}{chapter}{Abstract}
+
+	\input{Acknowledgments}
+	\addcontentsline{toc}{chapter}{Acknowledgments}
+
+
+	
+\onehalfspacing
+	\tableofcontents
+	\addcontentsline{toc}{chapter}{Table of Contents}
+	\label{ContentStart}	% Denotes where the thesis content starts, i.e. after the table of contents
+
+	\listoffigures
+	
+	\listoftables
+	
+	\clearpage
+	
+	\section*{List of Acronyms}
+	\addcontentsline{toc}{chapter}{List of Acronyms}
+		\begin{acronym}
+			\acro{MDE}[MDE]{Model-Driven Engineering}
+			\acro{EMF}[EMF]{Eclipse Modeling Framework}
+			\acro{DSL}[DSL]{Domain Specific Language}
+			\acro{EOL}{Epsilon Object Language}
+			\acro{MOF}{Meta-Object Facility}
+			\acro{OMG}{Object Management Group}
+			\acro{OCL}{Object Constraint Language}
+			\acro{ETL}{Epsilon Transformation Language}
+			\acro{EML}{Epsilon Merging Language}
+			\acro{GMF}{Graphical Modeling Framework}
+			\acro{DSM}{Domain Specific Model}
+			\acro{PLE}{Product Line Engineering}
+			\acro{CIA}{Change Impact Anlaysis}
+			\acro{FDD}{Feature-Driven Development}
+			\acro{FODA}{Feature-Oriented Domain Analysis}
+			\acro{FORM}{Feature-Oriented Reuse Method}
+			\acro{UCD}{Use Case Diagram}
+			%Define acronyms here
+			%Use intext with \ac{}. Look at reference for the acronym package for a full guide
+		\end{acronym}
+
+	\input{Declaration}
+	\addcontentsline{toc}{chapter}{Declaration of Academic Achievement}
+
+	\clearpage
+
+%---------------------------------------------------------------------
+%			Mainmatter
+%---------------------------------------------------------------------
+\mainmatter
+\doublespacing
+
+	%---------------------------------------------------------------------
+	%		Custom headers/footers for mainmatter
+	%---------------------------------------------------------------------
+	
+	\fancypagestyle{fancyplain}{
+		\fancyhf{}
+		\fancyfoot[C]{\thepage}
+		\fancyhead[L]{\footnotesize \DegreeAbbr~ Thesis -- \Author}
+		\fancyhead[R]{\footnotesize   \UniversityName~-- \UniversityDept}
+	}
+	\pagestyle{fancyplain}	% Use fancyplain style henceforth
+
+	\fancypagestyle{plain}{ 	% Redefinition of plain for the chapter pages
+		\fancyhf{}
+		\fancyfoot[C]{\thepage}
+		\fancyhead[L]{\footnotesize \DegreeAbbr~ Thesis -- \Author}
+		\fancyhead[R]{\footnotesize   \UniversityName~-- \UniversityDept}
+	}
+	%---------------------------------------------------------------------
+	\input{Chapters/Introduction}
+	\input{Chapters/Literature_Review}
+	\input{Chapters/Methodology}
+	\input{Chapters/Implementation}
+	\input{Chapters/Evaluation}
+	\input{Chapters/Conclusion}
+%---------------------------------------------------------------------
+%			Backmatter
+%---------------------------------------------------------------------
+
+\begin{appendices}
+	%\include{Chapters/HazardAppendix}
+\end{appendices}
+
+\printbibliography
+\label{ContentEnd}
+\end{document}
+%---------------------------------------------------------------------
