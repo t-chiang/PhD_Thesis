@@ -1,5 +1,42 @@
 \chapter{Methodology}
 
+For this work we focus our attention on the automotive domain as it is both safety-critical and complex with many product variants. The overall methodology is heavily inspired by the Goals and Systems books from Meyer's requirement engineering book~\cite{meyer2022handbook}. The steps of the methodology are as follows:
+\begin{enumerate}
+	\item Identify stakeholders, users, and customers.
+	\item Identify stakeholder, user, and customer goals.
+	\item Identify stakeholder, user, and customer use cases for a designated system. Each use case should work to satisfy at least one goal.
+	\item Identify system features based on use cases. These are the high-level features for our system.
+	\item Refine goals to requirements.
+	\item Decompose high-level features into feature model.
+	\item Map features from feature model to goals.
+	\item Use features to encapsulate requirements.
+\end{enumerate}
+
+
+
+Once we have identified our stakeholders, we then consider their goals. This also ties into the categories we define. The goal of a pedestrian is different than that of a driver. While a stakeholder can be both a driver or a pedestrian, their goals will likely be very different based on their current role. However the goals between various stakeholder within a category, such as a 20-year-old male or a one-armed 25-year-old female may be quite similar. As such, by identifying the goals of the categories should facilitate eliciting requirements of the stakeholders in each role.
+
+
+
+\section{Domain Analysis}
+
+Before any engineering work can take place, we must answer the question of who we are building this system for. Without knowing who we are building for it is impossible to properly identify features of the system as we will have no idea who will be interfacing with our system. Further, without knowing who we are building for we have no idea what goals the system will satisfy, and therefore what requirements we want to implement. This is evermore important as we consider the safety implications of who will be using our system and who will be affected by our system. In the case of the automotive domain, at least two of our stakeholders would be the driver and a pedestrian. Driver as a category however is still quite broad; drivers come in all sorts of different shapes and sizes. Would a young 20 year old male interact with a vehicle the same way a 40 year old female would? What about a 80 year old, healthy male compared to a 30-year-old, overweight male? Or perhaps a 25-year-old female with dwarfism compared to a 25-year-old female with only 1 hand. In all these examples would they all interact with the vehicle the same way? When we consider how they may all use a vehicle, their use cases, these will eventually be refined into features. The features identified should allow for the widest range of stakeholders to interface with the vehicle. A unique part of the automotive domain is that all stakeholders identified as a driver are equally pedestrians. Therefore we must consider not only how they will interact with the vehicle, but also how the vehicle will interact with them. Would a blind spot sensor identify only vehicles or also pedestrians. How big does a pedestrian need to be for the front object detection system to recognize it as a person? 
+
+As such there are some clarifying assumptions that we must make as part of our stakeholder identification. For automotive we can make some of the following simplifying assumptions (as these are assumptions we anticipate the possibility they may change as development continues or new information is gathered):
+\begin{itemize}
+	\item We assume that drivers are at or above the legal driving age in Canada (16 years old).
+	\item We assume that drivers are at or below 80 years old.
+	\item We assume that drivers are able bodied enough to legally operate a motor vehicle.
+	\item Assume height between 151.895cm and 183.24cm.~\cite{AgeHeightStats} Average range determined between 5th and 95th percentile of male and female population in Canada.
+	\item Assume weight between 48.82kg and 106.60kg.~\cite{AgeWeightStats} Average range determined between 5th and 95th percentile of male and female population in Canada.
+\end{itemize}
+
+\subsection{Goals}
+
+Once we have identified our stakeholders, we then consider their goals. This also ties into the categories we define. The goal of a pedestrian is different than that of a driver. While a stakeholder can be both a driver or a pedestrian, their goals will likely be very different based on their current role. However the goals between various stakeholder within a category, such as a 20-year-old male or a one-armed 25-year-old female may be quite similar. As such, by identifying the goals of the categories should facilitate eliciting requirements of the stakeholders in each role.
+
+This is where we propose the use of goal diagrams to capture this knowledge and information. 
+
 \section{Goals, Use Cases, and Features}
 
 \section{Feature-Requirement Traceability}
