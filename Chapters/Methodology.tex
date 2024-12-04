@@ -33,11 +33,56 @@ As such there are some clarifying assumptions that we must make as part of our s
 
 \subsection{Goals}
 
-Once we have identified our stakeholders, we then consider their goals. This also ties into the categories we define. The goal of a pedestrian is different than that of a driver. While a stakeholder can be both a driver or a pedestrian, their goals will likely be very different based on their current role. However the goals between various stakeholder within a category, such as a 20-year-old male or a one-armed 25-year-old female may be quite similar. As such, by identifying the goals of the categories should facilitate eliciting requirements of the stakeholders in each role.
+Once we have identified our stakeholders, we then consider their goals. This also ties into the categories we define. The goal of a pedestrian is different than that of a driver. While a stakeholder can be both a driver or a pedestrian, their goals will likely be very different based on their current role. However the goals between various stakeholders within a category, such as a 20-year-old male or a one-armed 25-year-old female may be quite similar. As such, identifying the goals of the categories should facilitate eliciting requirements of the stakeholders in each role.
 
-This is where we propose the use of goal diagrams to capture this knowledge and information. 
+This is where we propose the use of goal diagrams to capture this knowledge and information. Goal diagrams present a unique method of capturing this knowledge as it can be both formal or informal to suit the engineers needs. This flexibility supports the notion of formal picnics explained in Meyer's requirement engineering book~\cite{meyer2022handbook}. The engineer can start informal if needed and can later formalize the model if required to support further analysis. 
 
-\section{Goals, Use Cases, and Features}
+According to Lamsweerde, ``a goal is a prescriptive statement of intent that the system should satisfy through the cooperation of its agents", where an agent can be a human, a device such as sensors or actuators, existing software, or new software~\cite{lamsweerde2009requirements}. Based on our interpretations, we equate these definitions of an agent to our stakeholders of the system so we will carry on referring to them as stakeholders. Thus for a high-level of abstraction at the vehicle-level, we consider the driver, the pedestrian, and the vehicle as agents of our system. As we reduce the scope of our system to smaller portions of a vehicle, to automatic braking, cruise control, or lane-keeping assist, we may consider other sub-systems in the vehicle as our stakeholder and consider what goals those agents may have for the new system boundary.
+
+For an informal approach, we propose a syntax which loosely follows the syntax from i* Strategic Rational Diagram~\cite{wautelet2016building, lopez2012specialization}. The legend is shown in figure \ref{fig:legend}. As we are initially using an informal approach we are not as concerned with how the model elements work together or patterns. What we want to convey at this point is what the goals of a stakeholder are, what they might be informed by, and what they might do or use to satisfy those goals. An example goal diagram at the vehicle level can be found in figure \ref{fig:goal_diagram_example}. This goal diagram captures, at a high-level, what the goals of a driver might be when using their vehicle. 
+
+\begin{figure}
+	\centering
+	\includesvg[width=\textwidth]{Legend}
+	\caption{Legend of goal diagram elements.}
+	\label{fig:legend}
+\end{figure}
+
+\begin{figure}
+	\centering
+	\includesvg[width=\textwidth]{DriverGoalDiagram}
+	\caption{Example goal diagram outlining the goals of a driver using a vehicle.}
+	\label{fig:goal_diagram_example}
+\end{figure}
+
+Generally, we propose that a driver will use their vehicle to go from one place to another. They are also likely to either carry cargo, people, or both during the commute. They may have some variation in terms of how much cargo or how many people as well. They will also have to drive the vehicle as a task since that is still the main way that people use their vehicle. As part of that task, they will typically want to drive safely to make sure that they get to their destination without issue. While still relatively simple, and without diving very deeply into formally defining the relationship between the model elements we have been able to convey what the goals of a driver could be, introduce some possible variations in goals, and highlight possible goal decompositions. As this is still informal a different engineer may come up with a different goal model for what a driver might do, but they can still be relatively easily merged manually and convey the story of what goals a driver might have as a stakeholder for a vehicle.
+
+As we we will be introducing more formalism later on with the feature modelling and requirement modelling, there is little benefit to introducing that complexity in this stage of development in comparison to the ease of use that we can have with an informal approach to goal modelling.
+
+\section{Use Cases}
+
+The purpose of the goal diagram is to provide the context of why our identified stakeholders would want to use our system, it does give us answer to what the connections are between our stakeholders and the system. In other words, along with the goals of the stakeholders and our system, we need to identify how the stakeholders will use our system to satisfy their goals. This allows us to capture what the stakeholders will use the system for, supported by the goals of both parties. We may find during this stage that we missed some goals to provide context for some use cases identified. This is also the first opportunity for iteration in the methodology. As we explore the problem space more thoroughly we hope to fill in these gaps as much as possible before we get to the feature modelling and requirement modelling.
+
+\begin{figure}
+	\centering
+	\includesvg[width=\textwidth]{Driver_UCD}
+	\caption{A use case diagram outlining what parts of the vehicle a driver will use.}
+	\label{fig:Driver_UCD}
+\end{figure} 
+
+In figure \ref{fig:Driver_UCD}, we show the parts of the cabin that a driver is likely to use. It is easier to justify some of the use cases compared to others based on the goal diagram we have already created. For example, the goal of 'have fun` is hard to trace to any single use case and can be ambiguous with traceability and justification. Drive safely however can be traced to several use cases, such as brakes, gas pedal, and steering wheel. We can see our goals of `Transport stuff' and `Transport people' are also untraceable to the current \ac{UCD} as we have not specified any use cases around cargo space or passengers. This highlights the first possibility for misalignment between these two modelling efforts; system scoping. The goals of the driver are focused primarily around why they would use a vehicle. However the \ac{UCD} has been written with an implied assumption; a driver only interacts with the driver cabin. During its inception it did not consider what other parts of the vehicle might interact with outside of the driver cabin. These kinds of assumptions are typically easy to make and hard to detect. As a helpful convention to handle complexity, we consider scoping the system boundary based around the individual goals from the goal diagram. Thus we can re-title the system boundary from figure \ref{fig:Driver_UCD} to `Vehicle - Drive Vehicle'.
+
+\begin{figure}
+	\centering
+	\includesvg[width=\textwidth]{Cargo_UCD}
+	\caption{\ac{UCD} scoped by the loading cargo goals}
+	\label{fig:Cargo_UCD}
+\end{figure}
+
+This is a simple convention that helps with limiting state space explosion with a \ac{UCD} of complex system, such as a vehicle, and also helps with scoping the \ac{UCD} to facilitate traceability to the goal diagram for justification. We can create another \ac{UCD} to specifically target another goal; 'Transport stuff'. For this convention we recommend maintaining a syntactic match between the goal and the system boundary, however this is not always possible. For the \ac{UCD} in figure \ref{fig:Cargo_UCD}, we label the boundary `Loading Cargo' as this is the specific portion of the goal that we are focused on; the original goal of `Transport stuff' also has the implication of driving built into it. With this we can separate the \ac{UCD} by goals to identify what use cases will work together to satisfy a goal. This is critical as with this proposed methodology, the identified use cases will be equivalently treated as the features of our system. The requirements for the features can therefore also be traced directly to the goals that are used to scope them. 
+
+
+
 
 \section{Feature-Requirement Traceability}
 
