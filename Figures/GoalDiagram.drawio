@@ -1,0 +1,141 @@
+<mxfile host="Electron" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) draw.io/24.7.17 Chrome/128.0.6613.36 Electron/32.0.1 Safari/537.36" version="24.7.17">
+  <diagram name="Page-1" id="YQDAjjqWB8EMjMGpJ8fG">
+    <mxGraphModel dx="2538" dy="683" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="Oxw01_fahM2bYxv7TEcn-1" value="Driver" style="ellipse;whiteSpace=wrap;html=1;dashed=1;verticalAlign=top;" vertex="1" parent="1">
+          <mxGeometry x="-290" y="250" width="880" height="570" as="geometry" />
+        </mxCell>
+        <mxCell id="Oxw01_fahM2bYxv7TEcn-2" value="Pedestrian" style="ellipse;whiteSpace=wrap;html=1;dashed=1;verticalAlign=top;" vertex="1" parent="1">
+          <mxGeometry x="730" y="180" width="880" height="570" as="geometry" />
+        </mxCell>
+        <mxCell id="Oxw01_fahM2bYxv7TEcn-3" value="Vehicle" style="ellipse;whiteSpace=wrap;html=1;dashed=1;verticalAlign=top;" vertex="1" parent="1">
+          <mxGeometry x="350" y="710" width="880" height="570" as="geometry" />
+        </mxCell>
+        <mxCell id="Oxw01_fahM2bYxv7TEcn-21" style="edgeStyle=none;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="Oxw01_fahM2bYxv7TEcn-4" target="Oxw01_fahM2bYxv7TEcn-12">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="Oxw01_fahM2bYxv7TEcn-4" value="Have fun" style="ellipse;shape=cloud;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="290" y="310" width="120" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="Oxw01_fahM2bYxv7TEcn-5" value="Belief" style="ellipse;shape=cloud;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="-590" y="130" width="120" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="Oxw01_fahM2bYxv7TEcn-6" value="Task" style="shape=hexagon;perimeter=hexagonPerimeter2;whiteSpace=wrap;html=1;fixedSize=1;" vertex="1" parent="1">
+          <mxGeometry x="-450" y="130" width="120" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="Oxw01_fahM2bYxv7TEcn-8" value="Hard goal" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="-300" y="140" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="Oxw01_fahM2bYxv7TEcn-9" value="Soft goal" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="-140" y="140" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="Oxw01_fahM2bYxv7TEcn-10" value="Resource" style="shape=parallelogram;perimeter=parallelogramPerimeter;whiteSpace=wrap;html=1;fixedSize=1;" vertex="1" parent="1">
+          <mxGeometry x="10" y="140" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="Oxw01_fahM2bYxv7TEcn-11" value="Stakeholder" style="ellipse;whiteSpace=wrap;html=1;dashed=1;" vertex="1" parent="1">
+          <mxGeometry x="160" y="130" width="120" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="Oxw01_fahM2bYxv7TEcn-17" style="rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="Oxw01_fahM2bYxv7TEcn-12" target="Oxw01_fahM2bYxv7TEcn-34">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="77" y="420" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="Oxw01_fahM2bYxv7TEcn-18" style="edgeStyle=none;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="Oxw01_fahM2bYxv7TEcn-36">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="217" y="420" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="Oxw01_fahM2bYxv7TEcn-12" value="Commute from source to destination" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="80" y="320" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="Oxw01_fahM2bYxv7TEcn-22" style="edgeStyle=none;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="Oxw01_fahM2bYxv7TEcn-13" target="Oxw01_fahM2bYxv7TEcn-12">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="Oxw01_fahM2bYxv7TEcn-13" value="Save time" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="-160" y="360" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="Oxw01_fahM2bYxv7TEcn-20" style="edgeStyle=none;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="Oxw01_fahM2bYxv7TEcn-34" target="Oxw01_fahM2bYxv7TEcn-16">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="77.27272727272748" y="480" as="sourcePoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="Oxw01_fahM2bYxv7TEcn-27" style="edgeStyle=none;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="Oxw01_fahM2bYxv7TEcn-34" target="Oxw01_fahM2bYxv7TEcn-26">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="-10" y="468" as="sourcePoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="Oxw01_fahM2bYxv7TEcn-29" style="edgeStyle=none;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="Oxw01_fahM2bYxv7TEcn-34" target="Oxw01_fahM2bYxv7TEcn-28">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="15.3846153846157" y="480" as="sourcePoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="Oxw01_fahM2bYxv7TEcn-19" style="edgeStyle=none;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="Oxw01_fahM2bYxv7TEcn-36" target="Oxw01_fahM2bYxv7TEcn-16">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="222.72727272727252" y="480" as="sourcePoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="Oxw01_fahM2bYxv7TEcn-32" style="edgeStyle=none;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="Oxw01_fahM2bYxv7TEcn-36" target="Oxw01_fahM2bYxv7TEcn-31">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="310" y="468.9473684210527" as="sourcePoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="Oxw01_fahM2bYxv7TEcn-24" style="edgeStyle=none;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="Oxw01_fahM2bYxv7TEcn-16" target="Oxw01_fahM2bYxv7TEcn-23">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="Oxw01_fahM2bYxv7TEcn-16" value="Drive vehicle" style="shape=hexagon;perimeter=hexagonPerimeter2;whiteSpace=wrap;html=1;fixedSize=1;" vertex="1" parent="1">
+          <mxGeometry x="90" y="520" width="120" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="Oxw01_fahM2bYxv7TEcn-23" value="Drive safely" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="90" y="660" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="Oxw01_fahM2bYxv7TEcn-26" value="Transport large cargo" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="-230" y="440" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="Oxw01_fahM2bYxv7TEcn-28" value="Transport medium cargo&lt;span style=&quot;color: rgba(0, 0, 0, 0); font-family: monospace; font-size: 0px; text-align: start; text-wrap: nowrap;&quot;&gt;%3CmxGraphModel%3E%3Croot%3E%3CmxCell%20id%3D%220%22%2F%3E%3CmxCell%20id%3D%221%22%20parent%3D%220%22%2F%3E%3CmxCell%20id%3D%222%22%20value%3D%22Hard%20goal%22%20style%3D%22rounded%3D0%3BwhiteSpace%3Dwrap%3Bhtml%3D1%3B%22%20vertex%3D%221%22%20parent%3D%221%22%3E%3CmxGeometry%20x%3D%22-290%22%20y%3D%22150%22%20width%3D%22120%22%20height%3D%2260%22%20as%3D%22geometry%22%2F%3E%3C%2FmxCell%3E%3C%2Froot%3E%3C%2FmxGraphModel%3E&lt;/span&gt;" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="-210" y="520" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="Oxw01_fahM2bYxv7TEcn-30" value="Transport small cargo" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="-60" y="530" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="Oxw01_fahM2bYxv7TEcn-31" value="Transport up to 6 people" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="390" y="390" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="Oxw01_fahM2bYxv7TEcn-33" value="Transport up to 4 people" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="380" y="470" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="Oxw01_fahM2bYxv7TEcn-35" style="edgeStyle=none;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="Oxw01_fahM2bYxv7TEcn-34" target="Oxw01_fahM2bYxv7TEcn-30">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="Oxw01_fahM2bYxv7TEcn-34" value="Transport stuff" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="-10" y="420" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="Oxw01_fahM2bYxv7TEcn-37" value="" style="edgeStyle=none;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="Oxw01_fahM2bYxv7TEcn-12" target="Oxw01_fahM2bYxv7TEcn-36">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="173" y="380" as="sourcePoint" />
+            <mxPoint x="217" y="420" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="Oxw01_fahM2bYxv7TEcn-38" style="edgeStyle=none;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="Oxw01_fahM2bYxv7TEcn-36" target="Oxw01_fahM2bYxv7TEcn-33">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="Oxw01_fahM2bYxv7TEcn-40" style="edgeStyle=none;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="Oxw01_fahM2bYxv7TEcn-36" target="Oxw01_fahM2bYxv7TEcn-39">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="Oxw01_fahM2bYxv7TEcn-42" style="edgeStyle=none;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="Oxw01_fahM2bYxv7TEcn-36" target="Oxw01_fahM2bYxv7TEcn-41">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="Oxw01_fahM2bYxv7TEcn-36" value="Transport people" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="190" y="420" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="Oxw01_fahM2bYxv7TEcn-39" value="Transport up to 3 people" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="370" y="540" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="Oxw01_fahM2bYxv7TEcn-41" value="Transport up to 1 other person" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="310" y="610" width="120" height="60" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
