@@ -81,8 +81,32 @@ In figure \ref{fig:Driver_UCD}, we show the parts of the cabin that a driver is 
 
 This is a simple convention that helps with limiting state space explosion with a \ac{UCD} of complex system, such as a vehicle, and also helps with scoping the \ac{UCD} to facilitate traceability to the goal diagram for justification. We can create another \ac{UCD} to specifically target another goal; 'Transport stuff'. For this convention we recommend maintaining a syntactic match between the goal and the system boundary, however this is not always possible. For the \ac{UCD} in figure \ref{fig:Cargo_UCD}, we label the boundary `Loading Cargo' as this is the specific portion of the goal that we are focused on; the original goal of `Transport stuff' also has the implication of driving built into it. With this we can separate the \ac{UCD} by goals to identify what use cases will work together to satisfy a goal. This is critical as with this proposed methodology, the identified use cases will be equivalently treated as the features of our system. The requirements for the features can therefore also be traced directly to the goals that are used to scope them. 
 
+\section{Features}
 
+With some preliminary work done to identify stakeholders, goals, and use cases, we can begin to identify features of the system. Generally, we want an equivalency mapping between use cases and features. Therefore the \ac{UCD} serves two purposes: it identifies what parts of our system a stakeholder will use to satisfy a goal and what features are likely to exist in our system. However, in feature modelling we can have more granularity in how we decompose features compared to in a \ac{UCD}. This mapping only holds true at the top-level as the \ac{UCD} is not meant to handle use case decomposition beyond the inclusion and extension relationships as is shown in figure \ref{fig:Cargo_UCD}. These relationships can sometimes show a use case composition, and by extension a a feature composition, but we do not have any semantics around mandatory and optional features. We define the relationship between use cases and features as follows:
 
+\begin{gather}
+	\text{Let } \mathcal{U} \text{ be the set of all use cases.}\\
+	\text{Let } \mathcal{F} \text{ be the set of all features.}\\
+	\text{We define } \mathcal{U} \subseteq \mathcal{F} 
+\end{gather}
+We get the definition above based on system complexity. For a simple system, it may be that no further decomposition of features are required after equating use cases to features. However, for the majority of system development we find that feature decomposition is necessary to create a sufficiently complete feature model and capture all components and configuration possibilities of a system. What the mapping between \ac{UCD}s and features enables is the identification of the features closest to the root of the feature model, the top-most layer. We can see in figure \ref{fig:FM_init} what a possible initial feature model can look like based on the previous \ac{UCD}s.
+
+\begin{figure}
+	\centering
+	\includesvg[angle=90, origin=c,scale=0.4]{FM_init}
+	\caption{Initial attempt at a feature model based on use cases identified in \ac{UCD}.}
+	\label{fig:FM_init}
+\end{figure}
+
+%\begin{figure}
+%	\centering
+%	\includesvg[width=\textwidth]{FM_init}
+%	\caption{Initial attempt at a feature model based on use cases identified in \ac{UCD}.}
+%	\label{fig:FM_init}
+%\end{figure}
+
+We have defined the clutch as optional, along with both the rear door features and the back seat features. This is where traditional feature modelling takes over.
 
 \section{Feature-Requirement Traceability}
 
