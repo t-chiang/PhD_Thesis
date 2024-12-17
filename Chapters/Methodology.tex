@@ -106,7 +106,66 @@ We get the definition above based on system complexity. For a simple system, it 
 %	\label{fig:FM_init}
 %\end{figure}
 
-We have defined the clutch as optional, along with both the rear door features and the back seat features. This is where traditional feature modelling takes over.
+We have defined the clutch as optional, along with both the rear door features and the back seat features. This is where traditional feature modelling takes over. These are optional features of our vehicle but there hasn't been and compositions relationship defined yet between them, or the other optional features of our system. We can now define conditions around how the various features should be mixed together to create our system, also known as product, as we transition to the world of \ac{PLE}. The various versions of the vehicle that we can create based on figure \ref{fig:FM_init} are known as product variants. These variants are determined based on what optional features we have in a given product.
+
+At a glance, one product variant might be a vehicle with no back seats, a trunk, and a clutch (a typical coupe style vehicle). Another might be a vehicle with one row for a back seat, no clutch, and a tailgate (A truck for example). We can see what these variants might look like in figure \ref{fig:veh_variants}. It shows just the optional features that become mandatory for the new variants. As previously mentioned, there are rules that we can define in order to make sure the product variants are semantically and syntactically valid. For example we could have:
+%\begin{gather}
+%	\text{vehicle.backseats == null} \implies \text{vehicle.clutch == true}
+%\end{gather}
+
+\begin{gather}
+	\text{vehicle.backseats == false} \rightarrow \text{vehicle.clutch == true}\\
+	\text{vehicle.rearcargodoor.tailgate == true} \rightarrow \text{vehicle.clutch == false}
+\end{gather}
+
+Where these conditions state that anytime we have no back seats for a vehicle we must include a clutch pedal in the vehicle or anytime there is a tailgate selected there will be no clutch pedal. This translates to all coupe product variants being manual and all truck product variants being automatic. Naturally, there are requirements for each of these features that we need to capture to support development of these product variants. Since the features are mappings from the use cases, and the use cases are supported by the goals we have outlined, the features are also supported by the goals we have outlined. These next need to be refined to more usable requirement specifications.
+
+\begin{figure}
+	\centering
+	\includesvg[width=\textwidth]{veh_variants}
+	\caption{Product variants for the initial vehicle feature model. Model is simplified to just the optional features that are mandatory for the variant.}
+	\label{fig:veh_variants}
+\end{figure}
+
+\section{Goal Refinement}
+
+The goals from the goal diagram are used to justify the use cases and features because they can be refined to create our requirements. This refinement process takes shape by finding an answer to how the goals are meant to be satisfied and what they are meant to do Using the goal of `Transport stuff', we rewrite it as a high-level requirement; vehicle shall enable the transportation of stuff for stakeholder. We ask the next question; how will the vehicle enable the transportation of stuff? If there is a goal decomposition, we can also correlate the answer to the question of how to a decomposed goals. How will the vehicle enable the transportation of stuff; the vehicle shall have a large/medium, small cargo space. What is a large/medium/small cargo space? This question is generally up to the engineers and can be arbitrarily or by data research. For this example we go with an arbitrary decision. Large cargo space shall be in the range of 140-150 cubic feet, medium cargo space shall be in the range of 120-139 cubic feet, small cargo space shall be less than 119 cubic feet.
+
+While these help to provide requirements from the vehicle perspective, they do not help to determine the requirements from the perspective of the stakeholder. For this, we want to decompose our high-level requirements, identified from our goals, into user stories following Meyer's style of requirements in chapter S4) from his system book; user stories~\cite{meyer2022handbook}. We thus create the following user story around the high-level requirement of the vehicle shall enable the transportation of stuff for the stakeholder:
+\begin{itemize}
+	\item \textbf{Use Case:} Rear cargo door
+	\item \textbf{Actor:} Driver, passenger
+	\item \textbf{Trigger:} Stakeholder wants to transport stuff
+	\item \textbf{Success Scenario:}
+	\begin{enumerate}
+		\item Stakeholder identifies access latch to rear cargo area.
+		\item Stakeholder uses access latch to open rear cargo door.
+		\item Stakeholder is able to lift stuff into rear cargo area.
+		\item Stakeholder fits all stuff into rear cargo area.
+		\item Stakeholder is able to close rear cargo door.
+	\end{enumerate}
+	\item \textbf{Secondary Scenarios:}
+	\begin{enumerate}
+		\item Stakeholder unable to open rear cargo door.
+		\item Stakeholder unable to lift stuff into rear cargo area.
+		\item Stakeholder unable to fit stuff into rear cargo area.
+		\item Stakeholder unable to close rear cargo door.
+		\item Stakeholder gets limb or end appendages stuck in door when closing. Door does not close and stakeholder has suffered harm.
+	\end{enumerate}
+	\item \textbf{Success postcondition:} Stakeholder is safely able to load stuff into rear cargo area.
+\end{itemize}
+
+From this user story we can identify many more requirements around the feature of the rear cargo door and we can identify the goal that this story is connected to. The points from the user success scenario become the functional requirements for the feature. The secondary scenario outlines other requirements for the feature, both functional and non-functional. Finally the success post condition highlights the satisfaction of the goal if all requirements are met. In summary, from this user story we elicit the following requirements for the rear cargo door and its sub-features:
+\begin{itemize}
+	\item Stakeholder shall be able to identify rear cargo door access mechanism.
+	\item Stakeholder shall be able to open rear cargo door.
+	\item Stakeholder shall be able to shall be able to load rear cargo space with stuff.
+	\item Stakeholder shall be able to close rear cargo door.
+	\item Door system shall detect object obstructing door closing path. 
+	\item Door shall remain open when object is detected obstructing door path.
+\end{itemize}
+
+\section{Requirement Modelling}
 
 \section{Feature-Requirement Traceability}
 
