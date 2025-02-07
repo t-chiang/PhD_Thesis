@@ -1,18 +1,129 @@
 \chapter{Implementation}
 
+As a proof of concept, we have implemented a \ac{DSL} to show the feasibility of automated traceability between features and requirements. Supported by the entire methodology, the tool \tool\ is a model-based tool to support to creation of feature models, requirement models, and leveraging the relationship between them to support automated traceability generation and maintenance throughout a products life-cycle.
+
+\tool\ is also where we have been exploring potential composition strategies. We expected that traditional composition techniques from \ac{PLE} may require some modifications as a result of the relationship we have introduced between features and requirements. 
+
 \section{Implementation Objectives}
+
+\tool\ has two main modelling environments that are distinct and connected. The first is the feature modelling half of the tool. The purpose of this modelling environment is to allow the user to define their product in terms of features. The second modelling environment is the requirement canvas environment. This environment enables the user to specify their requirements, associate requirements to design elements, and assign reviewers and test cases to requirements. This is also where the majority of the traceability in \tool\ is defined. These two modelling environments are connected through the features in the feature modelling portion. We use features to encapsulate the requirements. Each feature owns its requirements, allowing for a strong hierarchy between features and requirements. By connecting the two modelling environments we end up with a couple of different forms of traceability. Using the requirement canvases alone we can get a simple requirement traceability matrix. Using just the feature modelling environment we can generate feature traceability. And when we combine both environments we get a feature-requirement traceability matrix that shows what features own what requirements, and how they trace and relate to other requirements and features in the system. 
+
+For the feature modelling portion of the tool, our specification is based on the same algebraic specification from Peter H\"{o}fner \textit{et al}~\cite{hofner2006feature,hofner2011algebra}, with a small extension to account for requirement encapsulation. We use this specification instead of making a new one to leverage previous proofs and work done on formal specifications for feature modelling. It saved us time and let us begin development much sooner. 
+% \begin{align}
+	%     \text{Let } \mathbb{F} \text{ be a set of arbitrary elements that we call features.}\\
+	%     \text{We can call a collection (set) of features a product.}\\
+	%     \text{The set of all possible products is } \mathbb{P} \overset{\mathrm{def}}{=} \mathcal{P}(\mathbb{F})\\
+	%     \text{A collection of products (an element of } \mathcal{P}(\mathbb{P})\text{)}\\
+	%     \text{is called a product line (or product family)}\\
+	%     \text{This model does not capture feature duplication}\\
+	%     +:\mathcal{P}(\mathbb{P}) \times \mathcal{P}(\mathbb{P}) \implies \mathcal{P}(\mathbb{P})\\
+	%     P + Q = P \cup Q\\
+	%     \therefore \mathcal{P}(\mathbb{P}) \times \mathcal{P}(\mathbb{P}) \implies \mathcal{P}(\mathbb{P})\\
+	%     P \cdot Q = \{p \cup q : p \in P, q \in Q\}\\ 
+	%     1 = \{\emptyset\} \text{ denotes the product line consisting}\\
+	%     \text{ of the empty product that has no features}\\
+	%     \emptyset \text{ is the zero}\\
+	%     \text{The structure:}\\
+	%     \mathbb{P}FS \overset{\mathrm{def}}{=} (\mathcal{P}(\mathbb{P}), +, \emptyset, \cdot, \{\emptyset\})\\
+	%     \text{forms a product line algebra}\\
+	%     \text{Let } \mathbb{R} \text{ be a set of arbitrary elements that we call}\\
+	%     \text{requirements.}\\
+	%     \text{We can call a collection (set) of requirements a feature.}\\
+	%     \text{The set of all possible features is: } \mathbb{F} \overset{\mathrm{def}}{=} \mathcal{P}(\mathbb{R})\\
+	%     \text{This model does not capture requirement duplication.}
+	% \end{align}
+
+\begin{figure}[hbt!]
+	\centering
+	\includegraphics[width=\columnwidth]{Figures/CoffeCup_ReqModel.jpg}
+	\caption{Example of a requirement canvas concrete syntax. The example uses a disposable coffee cup with a handle as the focus of the diagram.}
+	\label{fig:CoffeCup_ReqModel}
+\end{figure}
+
+We extracted high-level requirements from the previous work in building a product line and requirements for a coffee cup to guide initial development plans for \tool~\cite{chiang2024mapping}. We also included the goal of supporting iterative and incremental development life cycles. We define an iterative change as a change based on feedback from later stages of development or stakeholders. These are usually larger changes relative to an incremental change. Examples of an iterative change can include a new version of a development artifact or a redesign of a development artifact. Incremental changes are changes that are usually smaller in scope, and bound within a single development phase. Examples of an incremental change can be a refactoring change, updating a definition, or changing a connection between components. Our initial list of requirements was as follows:
+
+\begin{itemize}
+	\item Tool shall provide the user with an environment for defining requirements.
+	\item Tool shall provide the user with an environment for defining features.
+	\item Tool shall allow the user to specify design elements.
+	\item Tool shall allow the user to relate one or more requirements to one or more design elements.
+	\item Tool shall allow the user to use features to capture and own requirements.
+	\item Tool shall automatically create and maintain a traceability matrix.
+	\item Tool shall facilitate iterative development of the requirements canvases (\textit{note:} this remains as ongoing work).
+	\item Tool shall facilitate incremental development of the requirements canvases.
+\end{itemize}
+
+Under these specifications, we allow for requirement encapsulation. We treat the requirements encapsulated by a feature as attributes and are considered feature requirements, thus scoped by the feature. For the structure to define the requirements within a feature, we decided to use requirement diagrams from the SysML specification~\cite{sysml2019omg} as inspiration for creating our requirement canvas. For a rough idea of what we wanted the requirement canvases to look like we sketched requirements for a disposable coffee cup with a handle, shown in Figure \ref{fig:CoffeCup_ReqModel}.
+
+Our main reason for using requirement diagrams as a starting point to capture requirements is the semi-formal specification in SysML for requirement diagrams. We found enough semantics in the specification to enable traceability automation using the connections between elements. Furthermore, requirement diagrams are a generally under-explored means of requirement engineering based on our literature review, especially when compared to feature modelling and product line engineering. Thus, our design decision to use features to encapsulate requirements seemed the easiest way to remain faithful to feature modelling and still give us flexibility with our approach to requirement diagrams. In this process, we diverged significantly from the original specification for requirement diagrams while pursuing traceability. As a result, we named our new modelling approach to requirements within \tool\ as requirement canvases.
+
+An existing tool for PLE and feature modelling such as FeatureIDE~\cite{kastner2009featureide, thum2014featureide} allows for product generation by weaving software defined in the features together. GEARS~\cite{GEARS} has a three-tiered approach to PLE that can help with software management. However, neither of those tools has an explicit focus on traceability between features and requirements. The requirements are housed separately from the feature model and necessitate user intervention to pull requirements from another source, if at all since the tools can function fine without requirements. However, in \tool\ the requirements are necessary to build out the full traceability that the tool is focused on generating and maintaining, functionality that is lacking or not the primary focus in other PLE tools. Thus, we position \tool\ as a development tool that automates traceability generation and maintenance between PLE and requirement engineering by purpose-building it for feature model and requirement canvas creation.
 
 \subsection{Goals and Limitations}
 
-\subsection{Use Cases and Features}
-
 \subsection{Requirements}
+
+
 
 \section{Abstract Syntax}
 
+The metamodel shown in figure~\ref{fig:metamodel} is what was used for building \tool. The abstract syntax can be roughly divided into two main portions; the feature model and the requirement canvas, mirroring our requirement decisions for \tool. The requirement canvas portion of the metamodel is not a complete implementation of the SysML specification for requirement diagrams. We decided to implement enough to allow us to model requirements sufficiently to get traceability. To enable features to encapsulate requirements, the \texttt{FeatureEntity} class inherits from the \texttt{Requirement\_Canvas} class. Thus, every feature in the feature model can become a requirement canvas, allowing us to capture the requirements for each feature as attributes of said feature. There are three defined relationships for features; mandatory, alternative, and optional. These are specified with bidirectional references to allow visibility in either direction from any feature. This decision was made to enhance the traceability available in the modelling environment and simplify development for the traceability matrices. The multiplicities are also defined with 0..1 at the top end to limit how the feature composition will work. This limits how many nodes a leaf element can be connected to, constraining what models can be built and simplifying the feature composition. The requirement canvas also has a containment relationship with the model root, \texttt{RMDL\_Project}. This is carried over from earlier development and was left in the tool, for now, to allow users to define a requirement canvas for the entire system they are specifying without being tied to specific features. The justification for this structure is to provide a kind of doodle space for requirement specification that can later be refined by copying and pasting some model elements into a requirement canvas encapsulated by a feature. However, to prevent cluttering instantiated projects with too many disconnected drawing spaces we limit the multiplicity to [0..1].
+
+Next, for the requirements in the requirement canvas, we identified four requirement categories; \texttt{Functional}, \texttt{Qualitative}, \texttt{Constraint}, and \texttt{Safety}. Functional requirements follow their traditional definition; things that a product or system must do. Qualitative requirements are identified as requirements that affect the way a product or system accomplishes its function. These include the look, feel, usability, humanity, and some performance requirements that are not categorized as functional. Constraint requirements are identified as requirements that add limitations of some type to a product or system. These include operational, environmental, maintainability, support, security, cultural, political, and legal requirements. These requirement definitions can be found in James and Suzanne Robertson Volere requirements~\cite{robertson2000volere}. Finally, safety requirements are critical as they identify all requirements that have to do with the safety of users or stakeholders involved in the function of a product or system. We highlight safety requirements as a separate requirement category as our target domain for \tool\ is safety-critical development. It is important to note that requirement categorization relies heavily upon system, or in \tool, feature scoping. For a safety feature, a safety requirement may be considered a functional requirement due to the feature scope. A functional feature, however, may contain safety requirements that are distinctly different from the functional requirements. This distinction relies heavily upon the capabilities of the engineer creating the models.
+
+We also added three more classes besides the requirements; \texttt{DesignElement}, \texttt{Review}, and \texttt{TestCase}. The test case and review classes are for verification and validation book-keeping respectively. This is also one of the reasons why we include design elements within the requirement canvas. The test cases are meant to determine if a requirement has been verified against its traced design elements while the review represents if the requirement has been validated. Currently, the verification and validation are expected to happen outside of \tool\ as it was out of scope for initial development. Design elements are also meant to be black boxes as we do not want to pollute our requirement environment with design aspects. We have limited it to determining if a design element is hardware, software, or neither (undetermined when building the requirements or an integrated system). Another reason for having design elements within the requirement canvas is to allow an opportunity for future development for design generation based on the requirements specified in \tool. We also have an enum \texttt{TestType}. This enum allows users to categorize the test users may want to apply to their requirements. At this time in development, only \texttt{UnitTest} is implemented as a type, but more can be added in future revisions.
+
 \section{Concrete Syntax}
 
-\subsection{Design Decisions}
+The design decisions towards the development of the concrete syntax for the requirement canvas follows the ideas from the Physics of Notation~\cite{5353439}. Various colors and shapes were used to maintain a bijective relationship between the concrete syntax and intended semantics. For example, in figure~\ref{fig:concrete_syntax_req_diag} all of the requirements have the same shape to show they have commonality as they inherit from the \texttt{Requirement} type, but use different colors to differentiate themselves from each other. Similarly, \texttt{Test Cases} and \texttt{Reviews} are dynamically colored to show when they pass/fail and approved/unapproved respectively. Finally, the \texttt{Design Element} symbols dynamically change color if they are stereotyped as software, hardware, or black-boxed.
 
-\section{Composition Implementations}
+\begin{figure*}[hbt!]
+	\centering
+	\includegraphics[scale=0.043]{Figures/Requirement Diagram_SteeringWheel.jpg}
+	\caption{An example of the concrete syntax for the requirement canvas using requirements from the automotive domain.}
+	\label{fig:concrete_syntax_req_diag}
+\end{figure*}
+
+For the feature modelling portion of \tool, we maintained as close to traditional syntax as possible. This is due to the objective of maintaining the original specification for feature modelling to our best ability during implementation. Given some of the default limitations of Sirius there are still some differences. 
+
+Figure~\ref{fig:concrete_syntax_feat_mod} shows an example product family created in \tool. The root of the model is shown in the grey box and the features of the model use white circles. The mandatory reference uses the black diamond at the source and an arrow at the target. The optional relationship uses no decorator at the source and a triangle at the target. This is to represent OR relationships. The alternative reference uses a white diamond at the source and a triangle at the target. This is to represent XOR relationships. As this is a top-down modelling layout, the reference source is towards the top and the reference target is towards the bottom. The optional and alternative references share the diamond at the target to show that the target is optional. In contrast, the white diamond at the source differentiates the two types of references. Thus while they have some common semantics in the options, the alternative has more syntax to represent its extended semantics.
+
+\begin{figure}[hbt!]
+	\centering
+	\includegraphics[width=\columnwidth]{Figures/FeatureModel_acc.jpg}
+	\caption{An example of the concrete syntax for the feature model using features for an adaptive cruise control system from the automotive domain.}
+	\label{fig:concrete_syntax_feat_mod}
+\end{figure}
+
+Along with the graphical portion of \tool, we also implemented an Xtext-based~\cite{eysholdt2010xtext} specification language. The implemented specification language is based on the Gherkin specification language~\cite{nicieja2017writing, cucumberdocs}. We chose this as the specification language for our requirements for a few reasons. Gherkin uses a structured natural language for specifications, thus making it relatively approachable for users when defining their requirements. Further, despite using natural language, it uses keywords to provide a predicate logic structure to the specifications. The keyword `Given' is used for preconditions, `When' is used for events, and `Then' is used for postconditions. The combined approach of adding predicate structure to natural language makes it relatively easy to specify requirements and to implement the language within \tool. 
+
+\begin{figure}
+	\begin{lstlisting}
+		Given{
+			Precond FeatureExists: "Steering wheel has heating feature."
+			Precond CarIsOn: "Vehicle is on."
+		}
+		When{
+			Event UserTurnsOnHeating: "User interacts with heating interface to turn on/off wheel heating."
+		}
+		Then{
+			Postcond StateChange: "Wheel heating boolean changes state to on or off depending on current state."
+		}
+	\end{lstlisting}
+	\caption{Gherkin specification for Wheel Heating on/off functional requirement. The high-level requirement description is: User shall be able to turn wheel heating on/off.}
+	\label{fig:specification}
+\end{figure}
+
+\section{Design Decisions}
+
+A major design decision for \tool\ was using our own implementation for feature modelling. Other tools such as FeatureIDE already exist and are native to Eclipse. We decided to use our own implementation to remove possible constraints of having to work with an existing tool so that we can focus on the traceability aspects of the tool. Another reason was to allow us some flexibility in how to implement the compositional relationship between features and requirements. As we were not sure how best to implement the relationship to support. Further, this gave us flexibility to explore how we might want to navigate the created models and traceability matrices. 
+
+
+
+
+
+
+\subsection{Composition Implementations}
+
+The relationship between features and requirements makes traditional composition techniques for \ac{PLE} a challenge. Given the convention that a requirements variant necessitates a new feature, composing features and requirements to a product is relatively straightforward at this time. Currently, the approach focuses on the features themselves for the composition, with the assumption that each feature has unique requirements. If a requirement applies to multiple features then it is meant to be abstracted up a level in the tree to a higher feature. This currently reduces cross cutting concerns and dependencies between requirements. This allows users to define the necessary constraints and rules for how the features within a model are allowed to compose to a product (every car needs 4 wheels for example). As of the time of writing more complex analysis is planned for future work, however for a proof of concept this is currently feasible in \tool.
 

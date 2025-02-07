@@ -57,6 +57,26 @@
 \usepackage{svg}
 \svgpath{{Figures/}}
 \usepackage{pdfpages}
+\usepackage{listings}
+
+\lstset{frame=tb,
+	language=Java,
+	aboveskip=3mm,
+	belowskip=3mm,
+	showstringspaces=false,
+	columns=flexible,
+	basicstyle={\small\ttfamily},
+	numbers=none,
+	numberstyle=\tiny\color{gray},
+	keywordstyle=\color{blue},
+	commentstyle=\color{dkgreen},
+	stringstyle=\color{purple},
+	breaklines=true,
+	breakatwhitespace=true,
+	tabsize=3,
+	upquote=false
+}
+
 
 % -- For Math --
 \usepackage{amsmath}
@@ -201,6 +221,7 @@
 			\acro{FODA}{Feature-Oriented Domain Analysis}
 			\acro{FORM}{Feature-Oriented Reuse Method}
 			\acro{UCD}{Use Case Diagram}
+			\acro{ACC}{Adaptive Cruise Control}
 			%Define acronyms here
 			%Use intext with \ac{}. Look at reference for the acronym package for a full guide
 		\end{acronym}

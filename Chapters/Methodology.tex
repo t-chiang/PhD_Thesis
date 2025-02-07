@@ -1,6 +1,19 @@
 \chapter{Methodology}
 
-For this work we focus our attention on the automotive domain as it is both safety-critical and complex with many product variants. The overall methodology is heavily inspired by the Goals and Systems books from Meyer's requirement engineering book~\cite{meyer2022handbook}. The steps of the methodology are as follows:
+
+%TODO: Write a proper motivation for why use cases and features are equivalent. 
+
+A main pillar of contribution for this thesis is recognizing overlaps between several very different domains. In the world of \ac{MDE}, \ac{UCD}s are often used to capture high-level knowledge for how stakeholders will interact, in this case use, certain parts of a system. While the modelling approach is relatively informal in its semantics and syntax, it does a good enough job of allowing technical and non-technical people alike to describe how they want people to use their products.
+
+In the world of \ac{PLE}, a critical component comes from the identification of system features. In the original work introducing the concept of Feature-Oriented Domain Analysis (FODA) Kyo Huang et al. defined a feature as ``A prominent or distinctive user-visible aspect, quality, or characteristic of a software system or systems"~\cite{kang1990feature}. While this definition has evolved beyond its original scope, the spirit of what a feature is has remained largely the same; an identifiable aspect or artifact of a system that is interacted with. For software, this can be as small as a variable assignment or entire modules and components. In hardware system it can be the different materials and components used to build a base model versus and top model trim.
+
+Finally, in \ac{FDD} the concept of a feature is also heavily used as a means of organization and task setting. Features in this domain are typically client-focused tasks or actions that the software can perform. The features are used to scope the various tasks required to complete development of a product. 
+
+Thus the overlap becomes apparent; use cases from \ac{MDE}, features from \ac{PLE}, and features from \ac{FDD} all have some forms of equivalency. They all have an emphasis on user or stakeholder interactions. They all attempt to capture domain knowledge of what the interactions are. Therefore for this methodology we leverage this equivalency to develop strategies for feature/use case identification, requirement elicitation, and traceability.
+
+To demonstrate the process, we focus our attention on the automotive domain as it is both safety-critical and complex with many product variants. It is a domain that combines both software and hardware. There are interactions both at the stakeholder level and internal to the vehicles. Further it is a domain that already implements various versions of \ac{MDE}, \ac{PLE}, and \ac{FDD}. The examples shown are not complete and are focused on explaining the process involved for development.
+
+The overall methodology is heavily inspired by the Goals and Systems books from Meyer's requirement engineering book~\cite{meyer2022handbook}. While not a complete implementation, it leans heavily on the structures and concepts outlines by Meyer. The steps of the methodology are as follows:
 \begin{enumerate}
 	\item Identify stakeholders, users, and customers.
 	\item Identify stakeholder, user, and customer goals.
@@ -12,11 +25,7 @@ For this work we focus our attention on the automotive domain as it is both safe
 	\item Use features to encapsulate requirements.
 \end{enumerate}
 
-
-
-Once we have identified our stakeholders, we then consider their goals. This also ties into the categories we define. The goal of a pedestrian is different than that of a driver. While a stakeholder can be both a driver or a pedestrian, their goals will likely be very different based on their current role. However the goals between various stakeholder within a category, such as a 20-year-old male or a one-armed 25-year-old female may be quite similar. As such, by identifying the goals of the categories should facilitate eliciting requirements of the stakeholders in each role.
-
-
+In summary, once the stakeholders are identified, we want to capture what their goals are when interacting with our system. Those goals are used to guide and justify system use cases. They are also used to reason about and refine system requirements. Finally, by equating features and use cases, we use the features to contain our identified requirements to guide development and support traceability efforts.
 
 \section{Domain Analysis}
 
@@ -197,8 +206,36 @@ This relationship allows for several key benefits. First, it allows for direct t
 
 Some anticipated downsides to this extension is that it might not be compatible with existing feature model composition approaches. Since every feature element now doubles as a requirement canvas this can break conventional feature composition strategies forcing us to create new ones. Another downside is handling requirements that can be related to multiple features. Due to the encapsulation strategy we are proposing, cross-cutting requirements across features is not supported at this time. There might be ways that users circumvent this which can lead to duplicated or inconsistent requirement across several features. 
 
-\section{Requirement Refinement}
+\begin{figure}
+	\centering
+	\includesvg[width=\textwidth]{feature-requirement}
+	\caption{Example of how a feature can be opened up to display encapsulated requirements.}
+	\label{fig:feature-requirement}
+\end{figure}
 
-\section{Feature Composition}
+In figure \ref{fig:feature-requirement} we show the intention of having the features encapsulate the requirements. There is an explicit method for information hiding, and access to the requirements necessitates diving into a feature. This is where we transition from feature modelling to the requirement canvas. Within the canvas we can then define our requirements and specifications for the owning feature. 
 
-\section{Requirement Composition}
+\section{Requirement Specification}
+
+Between the goal diagrams and use case diagrams we showed how we can do requirement refinement. In the requirement canvas we intend to express these requirements as well. This is beyond just refinement however, as part of the requirement canvas we also enable requirement specification. Currently we support behavioral specification through a loose implementation of Gherkin syntax~\cite{cucumberdocs}. Gherkin style of specification is a structured natural language approach to specifying behaviors. It follows a pseudo predicate logic system using three main keywords; GIVEN, WHEN, and THEN. The GIVEN keyword is used to express behavioral preconditions. The WHEN keyword is used to express events that trigger some new behavior. These triggers can be either internal or external to the specified system. Finally, the THEN keyword is meant to specify behavioral postconditions. 
+
+The reasons for using Gherkin style specifications in the requirement canvas is two-fold. We want to specification environment to be both easy to use and read. This provides a low barrier for entry to specify requirements and reading them. This increased flexibility is meant to both technical and non-technical people to specify system requirements. Secondly, while the flexibility is good, we still wanted some constraints for how specifications can be written. Rather than introducing some arbitrary constraints ourselves, Gherkin provided a nice off the shelf solution. Despite our current implementation not being completely to specification, it is enough for a proof of concept.
+
+\section{Requirement Based Feature Identification}
+
+Due to the relationship between features and requirements outlined in this methodology there are alternative ways to identify features. The variation points that exist in this approach are the requirements held in the features. As a result, variant requirements can potentially identify new features previously missed by the \ac{UCD}. Thus far this methodology has been primarily top-down in the approach to identifying features using the domain analysis. However, it is expected that variant requirements will be identified during the elicitation process. This introduces the possibility for a bottom-up approach to identify features. Variant requirements elicited should still be supported by the goal diagram. Naturally, through this bottom-up portion of the methodology, it is encouraged to iterate on previous steps as engineers incrementally follow the approach.
+
+\begin{figure}
+	\centering
+	\includesvg[width=\textwidth]{acc_fm}
+	\caption{Simplified example of an adaptive cruise control feature model.}
+	\label{fig:acc_fm}
+\end{figure}
+
+In figure~\ref{fig:acc_fm}, we can see a simplified feature model of an Adaptive Cruise Control (ACC) system. For the auto braking feature there are two alternative features available underneath denoted with the aggregation symbol at the source and open circle at the target. Sensor fusion requirements based on possible variant products (such as radar and camera versus lidar and sonar implementations) generate alternative features under the auto braking feature. Any requirements that can apply to both are expected to be abstracted up a feature to auto braking. This scoping is meant to reduce cross cutting concerns between features due to requirement dependencies.
+
+
+
+
+
+
