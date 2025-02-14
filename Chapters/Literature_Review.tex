@@ -30,11 +30,68 @@ In order to deem a resulting publication to be relevant to this body of work the
 	\item The publication should have tool support for traceability, \ac{PLE}, or/and requirement modelling. 
 \end{itemize}
 
+
+Traceability is a highly studied topic in both academia and industry. For the scope of this paper, we are looking at related work that handles traceability through product lines, approaches that support some ability to iterate on traceability, and previously defined templates for traceability matrices. We include product lines in our related work because they are commonly used to support iterative and incremental development. We also include some previous work around requirement engineering.
+
+
+
+
+One pattern we found within the literature is that traceability is most commonly considered a retrospective task to be completed after development. However we firmly believe that traceability should not be reserved for retrospective documentation, it should be a part of development itself. Thus we created the traceability matrix in a requirement modelling environment. The traceability matrix was loosely inspired by the matrix of the CDC~\cite{tmat_cdc}.
+
+For one, \tool\ is a Domain-Specific Language (DSL) developed using Epsilon~\cite{kolovos2010epsilon}, Xtext~\cite{eysholdt2010xtext}, Sirius~\cite{viyovic2014sirius}, and the Eclipse Modelling Framework (EMF). Another difference is that the traceability matrix representation created in \tool\ has more detail relative to the former as we connected requirements with design elements and testing elements. More information about the mechanisms and matrices in \tool\ are shown in section~\ref{section:tool_impl}. The biggest difference is that the traceability matrices generated are part of a much larger system that will integrate feature modelling with our requirements canvases to generate feature-requirement traceability. 
+
+
+%Cleland-Huang and colleagues have an extensive body of work focused on developing methods and tools for automated and automating traceability, \textit{e.g.}, \cite{Cleland-HuangBCSR07}. Some of this work targets safety-critical domains and explores traceability between assurance cases and system design artifacts \cite{AgrawalC23}. She has also tackled traceability in a product line for her Dronology project~\cite{DBLP:conf/splc/Cleland-HuangAI20}.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 \section{Product Line Engineering}
+
+\ac{PLE} has become a well established approach to handling diversity in a companies product portfolio. We scoped the related work to the fundamentals of \ac{PLE} and some concrete implementations. One of the objectives for this thesis is to add little extensions to the existing theories of product families.
+
+Many tools exist for feature modelling. FeatureIDE~\cite{kastner2009featureide, thum2014featureide} by K\"{a}stner and Th{\"u}m et al. is an extremely well-polished feature modelling plugin tool for Eclipse that lets a user define their product structure as a feature model, write feature code, and seamlessly integrate said features together to form an executable product. Another tool example for feature modelling and PLE is GEARS~\cite{GEARS}, which emphasizes its 3-tiered software product line methodology. As a formal method for engineering, feature modelling can also be defined through algebraic methods as shown in the work of Peter H\"{o}fner et al.~\cite{hofner2006feature,hofner2011algebra} which uses set theory as the basis for proving how their algebra works. This algebra can be extremely useful for tool development that implements feature modelling as it allows for the computability of feature models, thus allowing for easier implementations of feature modelling and product line engineering tools.
+
+Another direction that feature modelling has taken can be found in the work of Czarnecki et al.~\cite{czarnecki2004staged}. While still involving formalisms for the development of feature models, there is more focus on the graphical modelling of feature models as opposed to mathematical specification and computability. They expand on the original syntax defined in FODA and show by using context-free grammar (in this case metamodelling) how to add cardinality to feature models and their relevance to feature modelling paradigms. This specification's main benefit is handling feature duplication in contrast to the work of H\"{o}fner et al.
 
 \section{Requirement Engineering and Modelling}
 
+Requirement engineering is a critical portion of this research. Part of the contribution of this thesis is the advancement of requirement modelling. As such we look for related works that have come before with efforts to combine \ac{MDE} with requirement engineering.
+
+We also have Axel Van Lamsweerde's style of requirements~\cite{lamsweerde2009requirements}. There is a lot of overlap that exists between Meyer requirements and Van Lamsweerde requirements, however, there exist some key differences in the ease of implementation of the requirements processes. Van Lamsweerde's requirement style dives deeper into the formalism and MDE approaches to requirement engineering, in contrast to Meyer's requirement style. Another difference is in the definition of a goal. Van Lamsweerde defines a goal as a ``prescriptive statement of intent that the system should satisfy through the cooperation of its agents." In contrast, a goal is defined by Meyer as the ``needs of the target organization, which the system will address". To generalize, Van Lamsweerde's style requirements are a more in-depth version of Meyer's requirements. 
+
+We focused on MDE requirement engineering techniques, feature modelling strategies and approaches, and other work related to traceability in product lines. To remain within the scope of requirement engineering, we focused on requirement engineering resources that focus more on general requirement engineering than specific requirement notations. Suzanne and James Robertson~\cite{robertson2012mastering, robertson2000volere}, heavily emphasize stakeholder identification and involvement early on in the project. There is more emphasis on business use cases and functional vs. non-functional requirements in contrast to Meyer's requirements which focuses more on the use cases for requirements concerning stakeholders. Meyer's requirements style is also structured with four `books' and each book represents a different portion of the requirement engineering process, each with a suggested structure for organizing their respective section. By contrast, Robertson's requirement engineering approach focuses more on how requirements are written, and their specific categorizations. The requirement engineering process of Sawyer and Sommerville~\cite{sommerville1997requirements, sommerville1997viewpoints} discusses the different viewpoints within system requirements. Their work stresses that not all stakeholders are people, and could be anything from an organization to another system to be integrated/interacted with. There are many more that could be talked about, however, we can generalize a pattern:
+\begin{itemize}
+	\item Identify who/what you are developing for.
+	\item Identify what/how the stakeholder interacts with a target system.
+	\item Specify the behaviour around that interaction.
+\end{itemize}
+
+While requirements diagrams are a helpful modelling approach for requirements engineering, other techniques are also helpful. Use case diagrams from UML~\cite{fowler2018uml}, have been explored by many people for their value in requirements engineering. Siau and Lee ultimately concluded that use case diagrams helped communicate requirements compared to other modelling~\cite{siau2004use}, but have limited usability beyond communication. They have been used by von der Ma{\ss}en and Horst Lichter~\cite{von2002modeling} for software product line development, having to customize the metamodel to make it work. Wegmann and Genilloud~\cite{wegmann2000role} formalize use cases for functional requirements for systems, though they faced difficulty in scaling the model to handle more complex systems in detail and demonstrate limitations for use case diagrams. FORML, a Feature Oriented Requirement Modelling Language by Joanne Atlee and colleagues~\cite{Beidu2019, 6345799}, is another approach to feature scoped requirement based on product families. They use superimposed state machines to express behavioral requirements of the features that compose a product line.
+
+The idea of using feature models to encapsulate requirements was partially inspired by the requirement engineering book by Bertrand Meyer~\cite{meyer2022handbook}. His requirement style emphasizes a lot of stakeholder analysis for determining their use cases and scoping system requirements around user interactions. Another related requirement engineering approach includes the work from Suzanne and James Robertson~\cite{robertson2012mastering, robertson2000volere}, which has many helpful definitions for functional and non-functional requirements and their relation to business cases, which are similar to Meyer's use cases. Pete Sawyer and Ian Sommerville~\cite{sommerville1997requirements, sommerville1997viewpoints} have another requirement engineering approach which discusses how system viewpoints affect the scope and definitions of requirements. Finally, Axel Van Lamsweerde's requirement engineering style~\cite{lamsweerde2009requirements} uses a similar approach to requirement engineering as Meyer's but has a much greater emphasis on the use of formal methods for requirement elicitation and specification. While useful for proving requirement specification, this goes beyond the goal of this paper as we focus primarily on the implementation of \tool\ and the methodology that it supports.
+
+
 \section{Traceability}
 
+Traceability is a commonly studied topic in academia and industry. For the scope of this thesis, we explore traceability as it is used in \ac{PLE} and \ac{MDE}. We further scope related work based on how traceability is used with requirements. 
 
+The concept behind this paper shares some similarities to the work done by Marques \textit{\textit{et al}}~\cite{6945504}. While we both aim to automate traceability matrix generation and maintenance by using requirements diagrams, there are distinct differences in our implementations and end goals. 
 
+Dronology, the work of Cleland-Huang and colleagues, is a project that has produced comprehensive work around and including traceability. They cover automation and tooling for drone development and use traceability artifacts as part of their safety assurance activities~\cite{Cleland-HuangBCSR07, AgrawalC23, DBLP:conf/splc/Cleland-HuangAI20, mirakhorli2011tracing}.
+
+The work of Heisig et al~\cite{heisig2019generic} proposes a generic traceability metamodel for end-to-end traceability in software product lines. Their proposed method is supposed to facilitate and enable comprehensive traceability throughout the development process from requirements to implementation across multiple MDE tools. As such they developed a traceability metamodel to handle a variety of artifacts they anticipate will require traceability links. In contrast, our work does not focus on developing a traceability metamodel. Instead, we focus on mapping requirements to features and generating traceability from the mappings. Another example of traceability in product lines is in the work of Tsuchiya et al.~\cite{tsuchiya2013recovering}. Their work focuses on recovering lost traceability links due to incremental development. They propose a framework and implement a tool that shows potential in recovering lost traceability links due to natural software maintenance over time. This is relevant as it is another approach to traceability maintenance through incremental software changes. Where they focus on recovering lost links, we attempt to update the links parallel to changes.
+
+Heisig \textit{\textit{et al}}~\cite{heisig2019generic} focused on using a generic traceability metamodel for software product lines. They concluded that using a metamodel facilitated the traceability of various artifacts throughout development. Similarly, the work of Kelleher~\cite{kelleher2005reusable} also required the definition of a traceability metamodel, though this was developed as a means to handle complexity in software systems as opposed to product lines. Another approach can be found in the work of Maletic \textit{\textit{et al}}~\cite{maletic2005xml}, whose primary focus was flexibility and interoperability of traceability artifacts, allowing for the direct modelling of artifacts through model transformations using XML. Asuncion \textit{\textit{et al}}~\cite{asuncion2010software} used machine learning to generate traceability prospectively and retrospectively; during development and after development.
