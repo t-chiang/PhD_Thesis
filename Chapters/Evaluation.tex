@@ -120,6 +120,72 @@ Thus far with the goal diagrams we have identified two more stakeholders that we
 
 The next step we want to take is identify the use cases for each of these stakeholders, if they have uses, and compare them with the identified uses of the original requirement document. Many of the tasks that we have identified for the stakeholders do not require the pacemaker system to complete, but the goals do. According to the proposed methodology, we want to identify the use cases that the stakeholders will need the pacemaker system for. These use cases should also be traceable to one or more goals for the stakeholders. This traceability is important to justify the identified use cases.
 
+In chapter 2: System Definition for the pacemaker requirements document it defines the various components that compose the pacemaker system; the pacemaker device (AKA pulse generator or PG), the Device Controller-Monitor and associated software, and the device leads that are implanted in the patient. Those three components become the boundaries of our UCDs. The document does not explicitly state what the features or use cases are for each of the devices, but there are overview sections that we can use as a starting point for determining what the use cases are.
+
+The PD device overview provides the following information:
+\begin{itemize}
+	\item Monitor and regulate patient heart rate.
+	\item Detect and provide therapy for bradycardia conditions.
+	\item Provide programmable, single- and dual-chamber, rate-adaptive pacing, both permanent and temporary.
+	\item In adaptive rate modes, an accelerometer is used to measure the physical activity resulting in a sensor indicated rate for pacing the heart.
+	\item Programming and interrogation bia bi-directional telemetry from the DCM. Allows physician to change operating mode of parameters of the device non-invasively after implantation.
+	\item Provide the following historical data:
+	\begin{itemize}
+		\item Sensor output data.
+		\item Atrial and ventricular rate histograms.
+	\end{itemize}
+	\item In conjunction with DCM, provide diagnostic features including:
+	\begin{itemize}
+		\item Real time telemetry markers
+		\item EGMs
+		\item P and R wave measurements
+		\item Lead impedance
+		\item Battery status tests
+	\end{itemize}
+\end{itemize}
+
+The overview for the DCM contains two sub-systems; a hardware platform and pacemaker application software. The DCM overview provides the following information:
+\begin{itemize}
+	\item Program and interrogate a pacemaker.
+	\item Command delivery of ``Pace-Now" pace.
+	\item Acquire and show diagnostics (history) and lead signal measurement information.
+	\item Acquire and show sensor history and trending information.
+	\item Show visible and audible indications of communication between the DCM and PG device, including beeping and LED's for alerting the operator to error conditions.
+	\item Acquire and show multi-channel monitoring including surface electrogardiogram and telemetered signals (e.g. EGM, annotated event markers).
+	\item Print reports and strip charts.
+	\item Monitor battery status.
+	\item Output to external strip chart recorders.
+	\item Manage windows for display of text and graphics.
+	\item Set the data and time.
+\end{itemize}
+
+The lead system overview provides the following information:
+\begin{itemize}
+	\item The lead system implanted in the patient allows the device to sense intrinsic activity of the heart's electrical signals and delivers pacing therapy to the patient's heart.
+	\item The leads are connected to the PG via its header. All IS-1 bipolar leads are supported.
+\end{itemize}
+
+Taking into account the various overviews we can begin to create the UCDs. A helpful insight that the overviews provide that has been missed thus far is the way the sub-systems will interact with each other. In the scope of the UCDs, we can model this by treating the various sub-systems as stakeholders in the diagram environment. Interpreting the overview for the PG device we can have the UCD shown in figure~\ref{fig:pg_device_UCD_original_spec}. There are three actors explicitly outlined in the original specifications; the doctor, the patient, and the DCM. Further, two of the use cases are broken down into smaller, mandatory use cases to define the full scope of the usage. This is modelled using the various \texttt{include} relationships to capture The mandatory use cases. We also capture the reuse of the Rate-adaptive use case for both single and dual-chamber pacing.
+
+\begin{figure}
+	\centering
+	\includesvg[width=\textwidth]{pg_device_UCD_original_spec}
+	\caption{Use Case Diagram for the PG device based on the original pacemaker specification.}
+	\label{fig:pg_device_UCD_original_spec}
+\end{figure}
+
+
+In figure~\ref{fig:pg_device_UCD} we have created another UCD enhanced by the knowledge gained from the goal diagram. We identified an additional actor that has use cases; the nurse. The nurse is never explicitly stated as an actor when using the PG device in the original specification. In our goal diagram we have identified that there is a lot of overlap between the nurse and the doctor stakeholders however. Aside from programming the pacemaker, which has been explicitly stated in the specification to be done by the doctor. The nurse also has their unique task of patient follow-up that requires they be able to access the historic and diagnostic data from the patient. 
+
+
+
+\begin{figure}
+	\centering
+	\includesvg[width=\textwidth]{pg_device_UCD}
+	\caption{Use Case Diagram for the PG device based on the original pacemaker specification enhanced with information from the goal diagram knowledge capture.}
+	\label{fig:pg_device_UCD}
+\end{figure}
+
 \subsection{Coherence in Medical Device Development}
 
 \subsection{Relevance in Medical Device Development}
