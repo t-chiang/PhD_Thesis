@@ -120,15 +120,15 @@ Thus far with the goal diagrams we have identified two more stakeholders that we
 
 The next step we want to take is identify the use cases for each of these stakeholders, if they have uses, and compare them with the identified uses of the original requirement document. Many of the tasks that we have identified for the stakeholders do not require the pacemaker system to complete, but the goals do. According to the proposed methodology, we want to identify the use cases that the stakeholders will need the pacemaker system for. These use cases should also be traceable to one or more goals for the stakeholders. This traceability is important to justify the identified use cases.
 
-In chapter 2: System Definition for the pacemaker requirements document it defines the various components that compose the pacemaker system; the pacemaker device (AKA pulse generator or PG), the Device Controller-Monitor and associated software, and the device leads that are implanted in the patient. Those three components become the boundaries of our UCDs. The document does not explicitly state what the features or use cases are for each of the devices, but there are overview sections that we can use as a starting point for determining what the use cases are.
+In chapter 2: System Definition for the pacemaker requirements document it defines the various components that compose the pacemaker system; the pacemaker device (also known as the pulse generator or PG), the Device Controller-Monitor and associated software, and the device leads that are implanted in the patient. Those three components become the boundaries of our UCDs. The document does not explicitly state what the features or use cases are for each of the devices, but there are overview sections that we can use as a starting point for determining what the use cases are.
 
-The PD device overview provides the following information:
+The PG device overview provides the following information:
 \begin{itemize}
 	\item Monitor and regulate patient heart rate.
 	\item Detect and provide therapy for bradycardia conditions.
 	\item Provide programmable, single- and dual-chamber, rate-adaptive pacing, both permanent and temporary.
 	\item In adaptive rate modes, an accelerometer is used to measure the physical activity resulting in a sensor indicated rate for pacing the heart.
-	\item Programming and interrogation bia bi-directional telemetry from the DCM. Allows physician to change operating mode of parameters of the device non-invasively after implantation.
+	\item Programming and interrogation via bi-directional telemetry from the DCM. Allows physician to change operating mode of parameters of the device non-invasively after implantation.
 	\item Provide the following historical data:
 	\begin{itemize}
 		\item Sensor output data.
@@ -144,7 +144,7 @@ The PD device overview provides the following information:
 	\end{itemize}
 \end{itemize}
 
-The overview for the DCM contains two sub-systems; a hardware platform and pacemaker application software. The DCM overview provides the following information:
+The overview for the DCM contains two sub-systems; a hardware platform and pacemaker application software. It also outlines what role the DCM plays. The DCm is the primary implant, pre-discharge EP support, and follow-up device for the pacemaker system. It is capable of being used in the OR, the doctor's office and the EP lab. The DCM communicates with the PG using its software and hardware sub-systems. The DCM overview provides the following information:
 \begin{itemize}
 	\item Program and interrogate a pacemaker.
 	\item Command delivery of ``Pace-Now" pace.
@@ -156,7 +156,7 @@ The overview for the DCM contains two sub-systems; a hardware platform and pacem
 	\item Monitor battery status.
 	\item Output to external strip chart recorders.
 	\item Manage windows for display of text and graphics.
-	\item Set the data and time.
+	\item Set the date and time.
 \end{itemize}
 
 The lead system overview provides the following information:
@@ -165,7 +165,7 @@ The lead system overview provides the following information:
 	\item The leads are connected to the PG via its header. All IS-1 bipolar leads are supported.
 \end{itemize}
 
-Taking into account the various overviews we can begin to create the UCDs. A helpful insight that the overviews provide that has been missed thus far is the way the sub-systems will interact with each other. In the scope of the UCDs, we can model this by treating the various sub-systems as stakeholders in the diagram environment. Interpreting the overview for the PG device we can have the UCD shown in figure~\ref{fig:pg_device_UCD_original_spec}. There are three actors explicitly outlined in the original specifications; the doctor, the patient, and the DCM. Further, two of the use cases are broken down into smaller, mandatory use cases to define the full scope of the usage. This is modelled using the various \texttt{include} relationships to capture The mandatory use cases. We also capture the reuse of the Rate-adaptive use case for both single and dual-chamber pacing.
+Taking into account the various overviews we can begin to create the UCDs. A helpful insight that the overviews provide that has been missed thus far is the way the sub-systems will interact with each other. In the scope of the UCDs, we can model this by treating the various sub-systems as stakeholders in the diagram environment. Interpreting the overview for the PG device we can have the UCD shown in figure~\ref{fig:pg_device_UCD_original_spec}. There are three actors explicitly outlined in the original specifications; the doctor, the patient, and the DCM. In this interpretation we treated sub-bullet points as mandatory use cases of the original use case. This is shown in the `Provide diagnostic features' use case and its various included use cases. The same strategy is repeated for the `Provide historical data' use case.
 
 \begin{figure}
 	\centering
@@ -174,10 +174,7 @@ Taking into account the various overviews we can begin to create the UCDs. A hel
 	\label{fig:pg_device_UCD_original_spec}
 \end{figure}
 
-
-In figure~\ref{fig:pg_device_UCD} we have created another UCD enhanced by the knowledge gained from the goal diagram. We identified an additional actor that has use cases; the nurse. The nurse is never explicitly stated as an actor when using the PG device in the original specification. In our goal diagram we have identified that there is a lot of overlap between the nurse and the doctor stakeholders however. Aside from programming the pacemaker, which has been explicitly stated in the specification to be done by the doctor. The nurse also has their unique task of patient follow-up that requires they be able to access the historic and diagnostic data from the patient. 
-
-
+In the original specification the programmable pacing is listed within a single bullet point. However, when we attempted to model that point as a use case we noticed it was a heavily overloaded use case. It inadvertently hid a lot of information behind a single use case. By deciding to break it up and modelling it in a UCD we explicit the information that was originally hidden in the specification. We can identify that both single and dual chamber pacing will reuse the rate adaptive part of the use case. We took a further liberty with the following `an accelerometer is used to measure the physical activity resulting in a sensor indicated rate for pacing the heart' use case. Since it is still related to rate adaptive pacing, we model it as another included use case along the chain. Thus we can show how the doctor interacts with the `Provide programmable pacing' use case and all of its included use cases along the relationship chain. These connections are not obvious from just the natural language requirements in the original document but becomes much more clear by introducing the UCD as part of the process. It forced us to consider who was interacting with the use cases, and how the use cases identified may have implied knowledge hidden within that can be beneficial to further requirement specification or design. We have identified a possibility for reusable artifacts extremely early in the development life-cycle. We have also refined our use cases with minimal overhead to the original document.
 
 \begin{figure}
 	\centering
@@ -185,6 +182,19 @@ In figure~\ref{fig:pg_device_UCD} we have created another UCD enhanced by the kn
 	\caption{Use Case Diagram for the PG device based on the original pacemaker specification enhanced with information from the goal diagram knowledge capture.}
 	\label{fig:pg_device_UCD}
 \end{figure}
+
+In figure~\ref{fig:pg_device_UCD} we have created another UCD enhanced by the knowledge gained from the goal diagram. We identified an additional actor that has use cases; the nurse. The nurse is never explicitly stated as an actor when using the PG device in the original specification. In our goal diagram we have identified that there is a lot of overlap between the nurse and the doctor stakeholders however. Aside from programming the pacemaker, which has been explicitly stated in the specification to be done by the doctor. The nurse also has their unique task of patient follow-up that requires they be able to access the historic and diagnostic data from the patient. 
+
+\begin{figure}
+	\centering
+	\includesvg[width=\textwidth]{DCM_UCD_original_spec}
+	\caption{Use Case Diagram for the DCM based on the original pacemaker specification.}
+	\label{fig:DCM_UCD_original_spec}
+\end{figure}
+
+Next we see in figure~\ref{fig:DCM_UCD_original_spec} a possible interpretation of the information in the DCM overview in a UCD. While the original specification does specify that the DCM sub-system is further decomposed into a hardware platform and software application, it does not make a distinction between the two when specifying the use cases. In this initial modelling attempt, we try to define the use cases for the DCM with its components combined within the system boundary. We also discovered another new actor when creating this UCD: the Strip Chart Recorder. This actor is related to the singleton use case `output to external strip-chart recorders'. UCD was particularly challenging to create due to all the conjunctive sentences in the specified features. In particular, the `Acquire and show diagnostics (history) and lead signal measurement information' use case is difficult to fully capture who this use case is for. The language used is confusing as by using the word diagnostics it makes it seem like this feature is for the Technician. However, because it then specifies history in brackets, similar to what is specified in the `Acquire and show sensor history and trending information' use case, we ultimately decided it is more likely to be used by the doctor and nurse actors. Interestingly, likely due to the overlap between the two stakeholders, the doctor and nurse actors in this model are associated to all the same use cases. As this is supported by their overlapping goals we have a stronger confidence in the correctness of this model.
+
+
 
 \subsection{Coherence in Medical Device Development}
 
