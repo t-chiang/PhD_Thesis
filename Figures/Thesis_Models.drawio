@@ -1,4 +1,4 @@
-<mxfile host="Electron" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) draw.io/26.0.9 Chrome/128.0.6613.186 Electron/32.2.5 Safari/537.36" version="26.0.9" pages="4">
+<mxfile host="Electron" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) draw.io/26.0.16 Chrome/132.0.6834.196 Electron/34.2.0 Safari/537.36" version="26.0.16" pages="5">
   <diagram name="Goal_Diagram" id="YQDAjjqWB8EMjMGpJ8fG">
     <mxGraphModel dx="2017" dy="1897" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
       <root>
@@ -932,6 +932,457 @@
             <mxPoint x="484" y="1318" as="sourcePoint" />
             <mxPoint x="455" y="1390" as="targetPoint" />
           </mxGeometry>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+  <diagram id="rCMah2naaoA7TJUYY-oy" name="Pacemaker Req">
+    <mxGraphModel dx="3888" dy="1986" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="hLV1K3ovAMc8QCFwSeUu-159" value="" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="3640" y="380" width="1520" height="710" as="geometry" />
+        </mxCell>
+        <mxCell id="hLV1K3ovAMc8QCFwSeUu-94" value="Doctor" style="ellipse;whiteSpace=wrap;html=1;verticalAlign=top;dashed=1;fillColor=none;" vertex="1" parent="1">
+          <mxGeometry x="3980" y="470" width="1030" height="550" as="geometry" />
+        </mxCell>
+        <mxCell id="hLV1K3ovAMc8QCFwSeUu-109" value="Nurse" style="ellipse;whiteSpace=wrap;html=1;dashed=1;verticalAlign=top;fillColor=none;" vertex="1" parent="1">
+          <mxGeometry x="3840" y="490" width="610" height="480" as="geometry" />
+        </mxCell>
+        <mxCell id="It_8sLlzIprhIxURvdti-1" value="Patient" style="ellipse;whiteSpace=wrap;html=1;verticalAlign=top;dashed=1;" vertex="1" parent="1">
+          <mxGeometry x="-640" y="300" width="840" height="490" as="geometry" />
+        </mxCell>
+        <mxCell id="It_8sLlzIprhIxURvdti-2" value="Doctor" style="ellipse;whiteSpace=wrap;html=1;verticalAlign=top;dashed=1;" vertex="1" parent="1">
+          <mxGeometry x="940" y="380" width="990" height="550" as="geometry" />
+        </mxCell>
+        <mxCell id="hLV1K3ovAMc8QCFwSeUu-1" value="Belief" style="ellipse;shape=cloud;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="20" y="130" width="120" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="hLV1K3ovAMc8QCFwSeUu-2" value="Task" style="shape=hexagon;perimeter=hexagonPerimeter2;whiteSpace=wrap;html=1;fixedSize=1;" vertex="1" parent="1">
+          <mxGeometry x="160" y="130" width="120" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="hLV1K3ovAMc8QCFwSeUu-3" value="Hard goal" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="310" y="140" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="hLV1K3ovAMc8QCFwSeUu-4" value="Soft goal" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="470" y="140" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="hLV1K3ovAMc8QCFwSeUu-5" value="Resource" style="shape=parallelogram;perimeter=parallelogramPerimeter;whiteSpace=wrap;html=1;fixedSize=1;" vertex="1" parent="1">
+          <mxGeometry x="620" y="140" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="hLV1K3ovAMc8QCFwSeUu-6" value="Stakeholder" style="ellipse;whiteSpace=wrap;html=1;dashed=1;" vertex="1" parent="1">
+          <mxGeometry x="770" y="130" width="120" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="hLV1K3ovAMc8QCFwSeUu-9" style="rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="hLV1K3ovAMc8QCFwSeUu-7" target="hLV1K3ovAMc8QCFwSeUu-8">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="hLV1K3ovAMc8QCFwSeUu-7" value="Stay alive" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="-340" y="360" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="hLV1K3ovAMc8QCFwSeUu-11" style="edgeStyle=none;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="hLV1K3ovAMc8QCFwSeUu-8" target="hLV1K3ovAMc8QCFwSeUu-57">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="-283.33333333333303" y="600" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="hLV1K3ovAMc8QCFwSeUu-8" value="Improve/resolve heart health issues" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="-390" y="490" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="hLV1K3ovAMc8QCFwSeUu-12" value="Maintain/regain quality of life" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="-90" y="370" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="hLV1K3ovAMc8QCFwSeUu-13" value="Be healthy" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="-200" y="470" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="hLV1K3ovAMc8QCFwSeUu-18" style="edgeStyle=none;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="hLV1K3ovAMc8QCFwSeUu-14" target="hLV1K3ovAMc8QCFwSeUu-16">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="hLV1K3ovAMc8QCFwSeUu-14" value="Keep patient alive" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="1330" y="520" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="hLV1K3ovAMc8QCFwSeUu-17" style="edgeStyle=none;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="hLV1K3ovAMc8QCFwSeUu-15" target="hLV1K3ovAMc8QCFwSeUu-16">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="hLV1K3ovAMc8QCFwSeUu-52" style="edgeStyle=none;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="hLV1K3ovAMc8QCFwSeUu-15" target="hLV1K3ovAMc8QCFwSeUu-50">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="hLV1K3ovAMc8QCFwSeUu-15" value="Monitor patient health" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="1150" y="490" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="hLV1K3ovAMc8QCFwSeUu-16" value="Pacemaker" style="shape=parallelogram;perimeter=parallelogramPerimeter;whiteSpace=wrap;html=1;fixedSize=1;" vertex="1" parent="1">
+          <mxGeometry x="1240" y="670" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="hLV1K3ovAMc8QCFwSeUu-19" value="Make patient care easier to do" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="1440" y="440" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="hLV1K3ovAMc8QCFwSeUu-20" value="Hippocratic oath" style="ellipse;shape=cloud;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="1250" y="400" width="140" height="100" as="geometry" />
+        </mxCell>
+        <mxCell id="hLV1K3ovAMc8QCFwSeUu-21" value="Nurse" style="ellipse;whiteSpace=wrap;html=1;dashed=1;verticalAlign=top;" vertex="1" parent="1">
+          <mxGeometry x="-580" y="1060" width="650" height="480" as="geometry" />
+        </mxCell>
+        <mxCell id="hLV1K3ovAMc8QCFwSeUu-22" style="edgeStyle=none;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="hLV1K3ovAMc8QCFwSeUu-23" target="hLV1K3ovAMc8QCFwSeUu-26">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="hLV1K3ovAMc8QCFwSeUu-23" value="Keep patient alive" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="-290" y="1160" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="hLV1K3ovAMc8QCFwSeUu-24" style="edgeStyle=none;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="hLV1K3ovAMc8QCFwSeUu-25" target="hLV1K3ovAMc8QCFwSeUu-26">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="hLV1K3ovAMc8QCFwSeUu-25" value="Monitor patient health" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="-460" y="1160" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="hLV1K3ovAMc8QCFwSeUu-26" value="Pacemaker" style="shape=parallelogram;perimeter=parallelogramPerimeter;whiteSpace=wrap;html=1;fixedSize=1;" vertex="1" parent="1">
+          <mxGeometry x="-380" y="1310" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="hLV1K3ovAMc8QCFwSeUu-27" value="Perform patiant follow-up" style="shape=hexagon;perimeter=hexagonPerimeter2;whiteSpace=wrap;html=1;fixedSize=1;" vertex="1" parent="1">
+          <mxGeometry x="-130" y="1150" width="120" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="hLV1K3ovAMc8QCFwSeUu-28" value="Technician" style="ellipse;whiteSpace=wrap;html=1;dashed=1;verticalAlign=top;" vertex="1" parent="1">
+          <mxGeometry x="855" y="1000" width="360" height="190" as="geometry" />
+        </mxCell>
+        <mxCell id="hLV1K3ovAMc8QCFwSeUu-29" value="Maintain pacemaker system" style="shape=hexagon;perimeter=hexagonPerimeter2;whiteSpace=wrap;html=1;fixedSize=1;" vertex="1" parent="1">
+          <mxGeometry x="910" y="1070" width="120" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="hLV1K3ovAMc8QCFwSeUu-30" value="Patient Family" style="ellipse;whiteSpace=wrap;html=1;dashed=1;verticalAlign=top;" vertex="1" parent="1">
+          <mxGeometry x="-880" y="740" width="390" height="290" as="geometry" />
+        </mxCell>
+        <mxCell id="hLV1K3ovAMc8QCFwSeUu-90" style="edgeStyle=none;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="hLV1K3ovAMc8QCFwSeUu-31" target="hLV1K3ovAMc8QCFwSeUu-39">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="hLV1K3ovAMc8QCFwSeUu-31" value="Help patient achieve health goals" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="1610" y="440" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="hLV1K3ovAMc8QCFwSeUu-32" value="Bradycardic Arrythmia" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="-380" y="180" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="hLV1K3ovAMc8QCFwSeUu-34" value="Prevent fainting" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="-100" y="530" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="hLV1K3ovAMc8QCFwSeUu-82" style="edgeStyle=none;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="hLV1K3ovAMc8QCFwSeUu-36" target="hLV1K3ovAMc8QCFwSeUu-77">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="hLV1K3ovAMc8QCFwSeUu-36" value="Pre-Implant" style="shape=step;perimeter=stepPerimeter;whiteSpace=wrap;html=1;fixedSize=1;" vertex="1" parent="1">
+          <mxGeometry x="-110" y="-60" width="120" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="hLV1K3ovAMc8QCFwSeUu-38" value="Help patient maintain/regain functional independence" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="1480" y="530" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="hLV1K3ovAMc8QCFwSeUu-39" value="Prevent disease harm" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="1610" y="550" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="hLV1K3ovAMc8QCFwSeUu-40" value="Assess pacemaker necessity" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="1420" y="620" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="hLV1K3ovAMc8QCFwSeUu-42" value="Assess pacemaker necessity" style="shape=hexagon;perimeter=hexagonPerimeter2;whiteSpace=wrap;html=1;fixedSize=1;" vertex="1" parent="1">
+          <mxGeometry x="1050" y="750" width="120" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="hLV1K3ovAMc8QCFwSeUu-43" value="Assess patient risk tolerance" style="shape=hexagon;perimeter=hexagonPerimeter2;whiteSpace=wrap;html=1;fixedSize=1;" vertex="1" parent="1">
+          <mxGeometry x="1160" y="790" width="120" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="hLV1K3ovAMc8QCFwSeUu-44" value="Discuss risk and benefits to the patient" style="shape=hexagon;perimeter=hexagonPerimeter2;whiteSpace=wrap;html=1;fixedSize=1;" vertex="1" parent="1">
+          <mxGeometry x="1270" y="750" width="120" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="hLV1K3ovAMc8QCFwSeUu-45" value="Get informed consent" style="shape=hexagon;perimeter=hexagonPerimeter2;whiteSpace=wrap;html=1;fixedSize=1;" vertex="1" parent="1">
+          <mxGeometry x="1380" y="790" width="120" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="hLV1K3ovAMc8QCFwSeUu-46" value="Implant device safely and effectively" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="1740" y="555" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="hLV1K3ovAMc8QCFwSeUu-47" value="Implant surgery" style="shape=hexagon;perimeter=hexagonPerimeter2;whiteSpace=wrap;html=1;fixedSize=1;" vertex="1" parent="1">
+          <mxGeometry x="1490" y="750" width="120" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="hLV1K3ovAMc8QCFwSeUu-49" value="Verify surgery safety" style="shape=hexagon;perimeter=hexagonPerimeter2;whiteSpace=wrap;html=1;fixedSize=1;" vertex="1" parent="1">
+          <mxGeometry x="1600" y="790" width="120" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="hLV1K3ovAMc8QCFwSeUu-50" value="Ensure ongoing&amp;nbsp; pacemaker function" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="1110" y="600" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="hLV1K3ovAMc8QCFwSeUu-53" value="Remove pacemaker" style="shape=hexagon;perimeter=hexagonPerimeter2;whiteSpace=wrap;html=1;fixedSize=1;" vertex="1" parent="1">
+          <mxGeometry x="1710" y="750" width="120" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="hLV1K3ovAMc8QCFwSeUu-54" value="Pacemaker disposal" style="shape=hexagon;perimeter=hexagonPerimeter2;whiteSpace=wrap;html=1;fixedSize=1;" vertex="1" parent="1">
+          <mxGeometry x="1050" y="1060" width="120" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="hLV1K3ovAMc8QCFwSeUu-55" value="Help family navigate health system" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="1560" y="635" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="hLV1K3ovAMc8QCFwSeUu-56" value="Help family navigate health system" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="-190" y="1260" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="hLV1K3ovAMc8QCFwSeUu-57" value="&lt;span style=&quot;color: rgb(0, 0, 0); font-family: Helvetica; font-size: 12px; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: 400; letter-spacing: normal; orphans: 2; text-align: center; text-indent: 0px; text-transform: none; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; white-space: normal; background-color: rgb(251, 251, 251); text-decoration-thickness: initial; text-decoration-style: initial; text-decoration-color: initial; display: inline !important; float: none;&quot;&gt;Resolve bradycardia symptoms&lt;/span&gt;" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="-330" y="610" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="hLV1K3ovAMc8QCFwSeUu-58" value="Cardiac rehab" style="shape=hexagon;perimeter=hexagonPerimeter2;whiteSpace=wrap;html=1;fixedSize=1;" vertex="1" parent="1">
+          <mxGeometry x="-290" y="685" width="120" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="hLV1K3ovAMc8QCFwSeUu-59" value="Make patient care easier to do" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="-200" y="1350" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="hLV1K3ovAMc8QCFwSeUu-60" value="Help patient achieve health goals" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="-380" y="1420" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="hLV1K3ovAMc8QCFwSeUu-61" value="Ensure ongoing&amp;nbsp; pacemaker function" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="-530" y="1275" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="hLV1K3ovAMc8QCFwSeUu-63" value="Keep patient alive" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="-820" y="800" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="hLV1K3ovAMc8QCFwSeUu-64" value="Support patient emotional and physical health" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="-660" y="820" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="hLV1K3ovAMc8QCFwSeUu-66" value="Patient care" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="-800" y="900" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="hLV1K3ovAMc8QCFwSeUu-67" value="Navigate helath system" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="-650" y="900" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="hLV1K3ovAMc8QCFwSeUu-68" value="Navigate helath system" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="30" y="510" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="hLV1K3ovAMc8QCFwSeUu-69" value="Patient time" style="shape=parallelogram;perimeter=parallelogramPerimeter;whiteSpace=wrap;html=1;fixedSize=1;" vertex="1" parent="1">
+          <mxGeometry x="-70" y="440" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="hLV1K3ovAMc8QCFwSeUu-70" value="Health care resources" style="shape=parallelogram;perimeter=parallelogramPerimeter;whiteSpace=wrap;html=1;fixedSize=1;" vertex="1" parent="1">
+          <mxGeometry x="-610" y="550" width="160" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="hLV1K3ovAMc8QCFwSeUu-71" value="Hospital" style="ellipse;whiteSpace=wrap;html=1;dashed=1;verticalAlign=top;" vertex="1" parent="1">
+          <mxGeometry x="390" y="600" width="450" height="210" as="geometry" />
+        </mxCell>
+        <mxCell id="hLV1K3ovAMc8QCFwSeUu-72" value="Good reviews" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="560" y="640" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="hLV1K3ovAMc8QCFwSeUu-73" value="Doctor time" style="shape=parallelogram;perimeter=parallelogramPerimeter;whiteSpace=wrap;html=1;fixedSize=1;" vertex="1" parent="1">
+          <mxGeometry x="700" y="695" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="hLV1K3ovAMc8QCFwSeUu-74" value="Nurse time" style="shape=parallelogram;perimeter=parallelogramPerimeter;whiteSpace=wrap;html=1;fixedSize=1;" vertex="1" parent="1">
+          <mxGeometry x="550" y="710" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="hLV1K3ovAMc8QCFwSeUu-75" value="Technician time" style="shape=parallelogram;perimeter=parallelogramPerimeter;whiteSpace=wrap;html=1;fixedSize=1;" vertex="1" parent="1">
+          <mxGeometry x="420" y="690" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="hLV1K3ovAMc8QCFwSeUu-76" value="Get referral to cardiologist" style="shape=hexagon;perimeter=hexagonPerimeter2;whiteSpace=wrap;html=1;fixedSize=1;" vertex="1" parent="1">
+          <mxGeometry x="-490" y="650" width="120" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="hLV1K3ovAMc8QCFwSeUu-79" value="" style="edgeStyle=none;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="hLV1K3ovAMc8QCFwSeUu-77" target="hLV1K3ovAMc8QCFwSeUu-78">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="hLV1K3ovAMc8QCFwSeUu-77" value="Implant" style="shape=step;perimeter=stepPerimeter;whiteSpace=wrap;html=1;fixedSize=1;" vertex="1" parent="1">
+          <mxGeometry x="30" y="-60" width="120" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="hLV1K3ovAMc8QCFwSeUu-81" value="" style="edgeStyle=none;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="hLV1K3ovAMc8QCFwSeUu-78" target="hLV1K3ovAMc8QCFwSeUu-80">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="hLV1K3ovAMc8QCFwSeUu-78" value="Follow-up" style="shape=step;perimeter=stepPerimeter;whiteSpace=wrap;html=1;fixedSize=1;" vertex="1" parent="1">
+          <mxGeometry x="170" y="-60" width="120" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="hLV1K3ovAMc8QCFwSeUu-84" value="" style="edgeStyle=none;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="hLV1K3ovAMc8QCFwSeUu-80" target="hLV1K3ovAMc8QCFwSeUu-83">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="hLV1K3ovAMc8QCFwSeUu-80" value="Ambulatory" style="shape=step;perimeter=stepPerimeter;whiteSpace=wrap;html=1;fixedSize=1;" vertex="1" parent="1">
+          <mxGeometry x="305" y="-60" width="120" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="hLV1K3ovAMc8QCFwSeUu-86" value="" style="edgeStyle=none;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="hLV1K3ovAMc8QCFwSeUu-83" target="hLV1K3ovAMc8QCFwSeUu-85">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="hLV1K3ovAMc8QCFwSeUu-83" value="Explant" style="shape=step;perimeter=stepPerimeter;whiteSpace=wrap;html=1;fixedSize=1;" vertex="1" parent="1">
+          <mxGeometry x="440" y="-60" width="120" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="hLV1K3ovAMc8QCFwSeUu-85" value="Disposal" style="shape=step;perimeter=stepPerimeter;whiteSpace=wrap;html=1;fixedSize=1;" vertex="1" parent="1">
+          <mxGeometry x="570" y="-60" width="120" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="hLV1K3ovAMc8QCFwSeUu-89" style="edgeStyle=none;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="hLV1K3ovAMc8QCFwSeUu-87" target="hLV1K3ovAMc8QCFwSeUu-88">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="hLV1K3ovAMc8QCFwSeUu-87" value="We all die eventually" style="ellipse;shape=cloud;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="-530" y="360" width="165" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="hLV1K3ovAMc8QCFwSeUu-88" value="Right to refuse care" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="-590" y="470" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="hLV1K3ovAMc8QCFwSeUu-92" value="Family care" style="shape=parallelogram;perimeter=parallelogramPerimeter;whiteSpace=wrap;html=1;fixedSize=1;" vertex="1" parent="1">
+          <mxGeometry x="-150" y="615" width="160" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="hLV1K3ovAMc8QCFwSeUu-93" value="Patient" style="ellipse;whiteSpace=wrap;html=1;verticalAlign=top;dashed=1;" vertex="1" parent="1">
+          <mxGeometry x="2440" y="390" width="840" height="490" as="geometry" />
+        </mxCell>
+        <mxCell id="hLV1K3ovAMc8QCFwSeUu-95" style="rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="hLV1K3ovAMc8QCFwSeUu-96" target="hLV1K3ovAMc8QCFwSeUu-98">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="hLV1K3ovAMc8QCFwSeUu-96" value="Stay alive" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="2740" y="450" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="hLV1K3ovAMc8QCFwSeUu-97" style="edgeStyle=none;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="hLV1K3ovAMc8QCFwSeUu-98" target="hLV1K3ovAMc8QCFwSeUu-137">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="2796.666666666667" y="690" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="hLV1K3ovAMc8QCFwSeUu-98" value="Improve/resolve heart health issues" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="2690" y="580" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="hLV1K3ovAMc8QCFwSeUu-99" value="Maintain/regain quality of life" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="2990" y="460" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="hLV1K3ovAMc8QCFwSeUu-100" value="Be healthy" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="2880" y="560" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="hLV1K3ovAMc8QCFwSeUu-101" style="edgeStyle=none;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="hLV1K3ovAMc8QCFwSeUu-102" target="hLV1K3ovAMc8QCFwSeUu-106">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="hLV1K3ovAMc8QCFwSeUu-102" value="Keep patient alive" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="4220" y="600" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="hLV1K3ovAMc8QCFwSeUu-103" style="edgeStyle=none;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="hLV1K3ovAMc8QCFwSeUu-105" target="hLV1K3ovAMc8QCFwSeUu-106">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="hLV1K3ovAMc8QCFwSeUu-104" style="edgeStyle=none;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="hLV1K3ovAMc8QCFwSeUu-105" target="hLV1K3ovAMc8QCFwSeUu-132">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="hLV1K3ovAMc8QCFwSeUu-105" value="Monitor patient health" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="4080" y="620" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="hLV1K3ovAMc8QCFwSeUu-106" value="Pacemaker" style="shape=parallelogram;perimeter=parallelogramPerimeter;whiteSpace=wrap;html=1;fixedSize=1;" vertex="1" parent="1">
+          <mxGeometry x="4200" y="740" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="hLV1K3ovAMc8QCFwSeUu-108" value="Hippocratic oath" style="ellipse;shape=cloud;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="4370" y="500" width="140" height="100" as="geometry" />
+        </mxCell>
+        <mxCell id="hLV1K3ovAMc8QCFwSeUu-110" style="edgeStyle=none;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" target="hLV1K3ovAMc8QCFwSeUu-114">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="3741.999999999999" y="950" as="sourcePoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="hLV1K3ovAMc8QCFwSeUu-112" style="edgeStyle=none;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" target="hLV1K3ovAMc8QCFwSeUu-114">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="3606.000000000001" y="950" as="sourcePoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="hLV1K3ovAMc8QCFwSeUu-115" value="Perform patiant follow-up" style="shape=hexagon;perimeter=hexagonPerimeter2;whiteSpace=wrap;html=1;fixedSize=1;fillColor=none;" vertex="1" parent="1">
+          <mxGeometry x="3870" y="630" width="120" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="hLV1K3ovAMc8QCFwSeUu-116" value="Technician" style="ellipse;whiteSpace=wrap;html=1;dashed=1;verticalAlign=top;" vertex="1" parent="1">
+          <mxGeometry x="2580" y="1190" width="360" height="190" as="geometry" />
+        </mxCell>
+        <mxCell id="hLV1K3ovAMc8QCFwSeUu-117" value="Maintain pacemaker system" style="shape=hexagon;perimeter=hexagonPerimeter2;whiteSpace=wrap;html=1;fixedSize=1;" vertex="1" parent="1">
+          <mxGeometry x="2635" y="1260" width="120" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="hLV1K3ovAMc8QCFwSeUu-118" value="Patient Family" style="ellipse;whiteSpace=wrap;html=1;dashed=1;verticalAlign=top;" vertex="1" parent="1">
+          <mxGeometry x="2200" y="830" width="390" height="290" as="geometry" />
+        </mxCell>
+        <mxCell id="hLV1K3ovAMc8QCFwSeUu-119" style="edgeStyle=none;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="hLV1K3ovAMc8QCFwSeUu-120" target="hLV1K3ovAMc8QCFwSeUu-123">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="hLV1K3ovAMc8QCFwSeUu-120" value="Help patient achieve health goals" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="4690" y="530" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="hLV1K3ovAMc8QCFwSeUu-121" value="Prevent fainting" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="2980" y="620" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="hLV1K3ovAMc8QCFwSeUu-122" value="Help patient maintain/regain functional independence" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="4560" y="620" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="hLV1K3ovAMc8QCFwSeUu-123" value="Prevent disease harm" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="4690" y="640" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="hLV1K3ovAMc8QCFwSeUu-124" value="Assess pacemaker necessity" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="4475" y="710" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="hLV1K3ovAMc8QCFwSeUu-125" value="Assess pacemaker necessity" style="shape=hexagon;perimeter=hexagonPerimeter2;whiteSpace=wrap;html=1;fixedSize=1;" vertex="1" parent="1">
+          <mxGeometry x="4430" y="780" width="120" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="hLV1K3ovAMc8QCFwSeUu-126" value="Assess patient risk tolerance" style="shape=hexagon;perimeter=hexagonPerimeter2;whiteSpace=wrap;html=1;fixedSize=1;" vertex="1" parent="1">
+          <mxGeometry x="4430" y="880" width="120" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="hLV1K3ovAMc8QCFwSeUu-127" value="Discuss risk and benefits to the patient" style="shape=hexagon;perimeter=hexagonPerimeter2;whiteSpace=wrap;html=1;fixedSize=1;" vertex="1" parent="1">
+          <mxGeometry x="4560" y="780" width="120" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="hLV1K3ovAMc8QCFwSeUu-128" value="Get informed consent" style="shape=hexagon;perimeter=hexagonPerimeter2;whiteSpace=wrap;html=1;fixedSize=1;" vertex="1" parent="1">
+          <mxGeometry x="4560" y="880" width="120" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="hLV1K3ovAMc8QCFwSeUu-129" value="Implant device safely and effectively" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="4530" y="535" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="hLV1K3ovAMc8QCFwSeUu-130" value="Implant surgery" style="shape=hexagon;perimeter=hexagonPerimeter2;whiteSpace=wrap;html=1;fixedSize=1;" vertex="1" parent="1">
+          <mxGeometry x="4690" y="780" width="120" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="hLV1K3ovAMc8QCFwSeUu-131" value="Verify surgery safety" style="shape=hexagon;perimeter=hexagonPerimeter2;whiteSpace=wrap;html=1;fixedSize=1;" vertex="1" parent="1">
+          <mxGeometry x="4690" y="880" width="120" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="hLV1K3ovAMc8QCFwSeUu-132" value="Ensure ongoing&amp;nbsp; pacemaker function" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="4060" y="760" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="hLV1K3ovAMc8QCFwSeUu-133" value="Remove pacemaker" style="shape=hexagon;perimeter=hexagonPerimeter2;whiteSpace=wrap;html=1;fixedSize=1;" vertex="1" parent="1">
+          <mxGeometry x="4820" y="780" width="120" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="hLV1K3ovAMc8QCFwSeUu-134" value="Pacemaker disposal" style="shape=hexagon;perimeter=hexagonPerimeter2;whiteSpace=wrap;html=1;fixedSize=1;" vertex="1" parent="1">
+          <mxGeometry x="2775" y="1250" width="120" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="hLV1K3ovAMc8QCFwSeUu-136" value="Help family navigate health system" style="rounded=1;whiteSpace=wrap;html=1;fillColor=none;" vertex="1" parent="1">
+          <mxGeometry x="4290" y="675" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="hLV1K3ovAMc8QCFwSeUu-137" value="&lt;span style=&quot;color: rgb(0, 0, 0); font-family: Helvetica; font-size: 12px; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: 400; letter-spacing: normal; orphans: 2; text-align: center; text-indent: 0px; text-transform: none; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; white-space: normal; background-color: rgb(251, 251, 251); text-decoration-thickness: initial; text-decoration-style: initial; text-decoration-color: initial; display: inline !important; float: none;&quot;&gt;Resolve bradycardia symptoms&lt;/span&gt;" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="2750" y="700" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="hLV1K3ovAMc8QCFwSeUu-138" value="Cardiac rehab" style="shape=hexagon;perimeter=hexagonPerimeter2;whiteSpace=wrap;html=1;fixedSize=1;" vertex="1" parent="1">
+          <mxGeometry x="2790" y="775" width="120" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="hLV1K3ovAMc8QCFwSeUu-139" value="Make patient care easier to do" style="rounded=1;whiteSpace=wrap;html=1;fillColor=none;" vertex="1" parent="1">
+          <mxGeometry x="4110" y="840" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="hLV1K3ovAMc8QCFwSeUu-140" value="Help patient achieve health goals" style="rounded=1;whiteSpace=wrap;html=1;fillColor=none;" vertex="1" parent="1">
+          <mxGeometry x="4250" y="810" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="hLV1K3ovAMc8QCFwSeUu-142" value="Keep patient alive" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="2260" y="890" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="hLV1K3ovAMc8QCFwSeUu-143" value="Support patient emotional and physical health" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="2420" y="910" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="hLV1K3ovAMc8QCFwSeUu-144" value="Patient care" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="2280" y="990" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="hLV1K3ovAMc8QCFwSeUu-145" value="Navigate helath system" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="2430" y="990" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="hLV1K3ovAMc8QCFwSeUu-146" value="Navigate helath system" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="3110" y="600" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="hLV1K3ovAMc8QCFwSeUu-147" value="Patient time" style="shape=parallelogram;perimeter=parallelogramPerimeter;whiteSpace=wrap;html=1;fixedSize=1;" vertex="1" parent="1">
+          <mxGeometry x="3010" y="530" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="hLV1K3ovAMc8QCFwSeUu-148" value="Health care resources" style="shape=parallelogram;perimeter=parallelogramPerimeter;whiteSpace=wrap;html=1;fixedSize=1;" vertex="1" parent="1">
+          <mxGeometry x="2470" y="640" width="160" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="hLV1K3ovAMc8QCFwSeUu-149" value="Hospital" style="ellipse;whiteSpace=wrap;html=1;dashed=1;verticalAlign=top;" vertex="1" parent="1">
+          <mxGeometry x="3160" y="290" width="450" height="210" as="geometry" />
+        </mxCell>
+        <mxCell id="hLV1K3ovAMc8QCFwSeUu-150" value="Good reviews" style="rounded=1;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="3330" y="330" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="hLV1K3ovAMc8QCFwSeUu-151" value="Doctor time" style="shape=parallelogram;perimeter=parallelogramPerimeter;whiteSpace=wrap;html=1;fixedSize=1;" vertex="1" parent="1">
+          <mxGeometry x="3470" y="385" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="hLV1K3ovAMc8QCFwSeUu-152" value="Nurse time" style="shape=parallelogram;perimeter=parallelogramPerimeter;whiteSpace=wrap;html=1;fixedSize=1;" vertex="1" parent="1">
+          <mxGeometry x="3320" y="400" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="hLV1K3ovAMc8QCFwSeUu-153" value="Technician time" style="shape=parallelogram;perimeter=parallelogramPerimeter;whiteSpace=wrap;html=1;fixedSize=1;" vertex="1" parent="1">
+          <mxGeometry x="3190" y="380" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="hLV1K3ovAMc8QCFwSeUu-154" value="Get referral to cardiologist" style="shape=hexagon;perimeter=hexagonPerimeter2;whiteSpace=wrap;html=1;fixedSize=1;" vertex="1" parent="1">
+          <mxGeometry x="2590" y="740" width="120" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="hLV1K3ovAMc8QCFwSeUu-155" style="edgeStyle=none;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="hLV1K3ovAMc8QCFwSeUu-156" target="hLV1K3ovAMc8QCFwSeUu-157">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="hLV1K3ovAMc8QCFwSeUu-156" value="We all die eventually" style="ellipse;shape=cloud;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="2550" y="450" width="165" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="hLV1K3ovAMc8QCFwSeUu-157" value="Right to refuse care" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="2490" y="560" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="hLV1K3ovAMc8QCFwSeUu-158" value="Family care" style="shape=parallelogram;perimeter=parallelogramPerimeter;whiteSpace=wrap;html=1;fixedSize=1;" vertex="1" parent="1">
+          <mxGeometry x="2930" y="705" width="160" height="70" as="geometry" />
         </mxCell>
       </root>
     </mxGraphModel>

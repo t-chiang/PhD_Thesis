@@ -1,18 +1,124 @@
 \chapter{Evaluation}
 
-\section{Automotive}
+Throughout this thesis we have been using the automotive domain to tell the story of how to use this methodology and \tool. This is because within the automotive domain we can find two of the main issues we are addressing with this proposal; how to handle variants within a product family and maintaining traceability throughout the product stacks. For automotive manufacturers there are variants in the customer facing product, evident in the different vehicles that are offered, the different model years between vehicles, and the various trims that are available within a single vehicle model. There are also variants that can exist internal to the manufacturer as they go through development and decompose the vehicle into it's components; engine, transmission, cooling, heating variants that are used across platforms for example. Managing these portfolios, across multiple levels of abstraction necessitates product family traceability in order to keep track of requirements constraints that lead to the various design and implementation decisions. 
 
-\subsection{Coherence in Automotive Development}
+For the evaluation portion of this thesis, we look towards the medical domain and medical device development. There is a lot of overlap between medical device development and automotive manufacturing. Specifically, we are looking at a requirement set from Boston Scientific for a pacemaker~\ref{apdx: Req}. This requirement set is often used as part of the undergraduate curriculum at McMaster University for teaching product life-cycle development and safety-critical development.
 
-\subsection{Relevance in Automotive Development}
+From the perspective of safety criticality, medical devices and a pacemaker especially, tend to have a greater impact on individual health and safety. Regional legislation may affect product development and the products themselves may have variants based on the capabilities of target stakeholders, in this case individual patients. For this thesis we focus on medical device guidelines and classifications based on Health Canada legislation~\cite{CanadaGuidanceDocument}. 
 
-\subsection{Impact in Automotive Development}
+\section{Knowledge Capture \& Domain Analysis}
 
-\subsection{Efficiency in Automotive Development}
+Method works for automotive requirements. Will show using pacemaker. Do not show generality. Just show that it works in two domains. Would be interesting to explore generality. 
 
-\subsection{Effectiveness in Automotive Development}
+\begin{itemize}
+	\item Want to show benefit of methodology for capturing knowledge prior to requirement elicitation process. Benefit around requirement justification, communication, and stakeholder confirmation (last two are difficult to show, but easy to claim). Future work for proving this claim. Maybe make assurance case for this claim?
+	\item Want to show uncertainty and incompleteness management/control/mitigation of requirements using the scenario breakdowns of the requirement refinements. Might want to argue more about potential to better manage incompleteness and uncertainty. Can provide clarity on requirements, requirement refinement, and requirement decomposition. Evaluates characteristic of methodology rather than empirical property.
+	\item Want to show cost savings of modelling requirements compared to in other tools when it comes to requirement traceability
+	\item Want to show benefits of using product family to contain requirements.
+	\item Want to show benefits of tying development strategies of FDD with product family.
+	\item Want to show how scenario breakdown for refinement helps with specification using Gherkin.
+	
+\end{itemize}
 
-\section{Medical Device}
+\subsection{Goal Diagrams}
+
+The full requirement set by Boston Scientific for a pacemaker is available in the Appendix~\ref{apdx:Req}. Though not explicitly stated as domain analysis, there is some knowledge capture that occurs in chapters 1 and 2 of the pacemaker requirements all captured in natural language. In fact, all the requirements specified by Boston Scientific are captured in natural language. These two chapters do a good job of introducing the scope of the requirements, stakeholder identification, and system definitions. Enough for the engineers to have an idea of why the system is needed, who they are building it for, where its intended usage environment is, and why it is needed. We have found however that we can improve upon this domain analysis with the usage of goal diagrams and use case diagrams introduced by our proposed methodology.
+
+\begin{figure}
+	\centering
+	\includesvg[width=\textwidth]{Pacemaker_lifecycle}
+	\caption{Pacemaker lifecycle as outlined by Boston Scientific requirements.}
+	\label{fig:Pacemaker_lifecycle}
+\end{figure}
+
+We follow the same pacemaker lifecycle outlined the requirement document shown in figure~\ref{fig:Pacemaker_lifecycle}. The lifecycle provides context for what the goals of our stakeholders would be throughout the life of the pacemaker. We find that the document explains what is necessary from the pacemaker during each stage. The document does not however explain what each stage actually is or what the stakeholder roles, use cases, or goals might be in each stage. While perhaps not directly relevant to the requirements of the pacemaker, the lack of knowledge capture provides uncertainty. As such, the engineer doe not know what information might be missing and therefore would not know if the missing information is relevant to the requirements. As part of this domain analysis we performed a casual interview with a doctor to provide some perspective and insight to what some stakeholder goals might be outside of the perspective of the engineer responsible for development.
+
+The first step we took in this domain analysis is to provide some more information around what happens in each stage of the pacemaker lifecycle.
+
+\begin{enumerate}
+	\item \textbf{Pre-Implant:} This stage is where the patient is assessed if a pacemaker is required for their benefit. This stage includes risk/benefit discussion, patient risk tolerance, and informed patient consent. The patient has right to refuse care and may deny getting a pacemaker altogether. 
+	\item \textbf{Implant:} This stage is the surgery. Straightforward stage, the patient undergoes surgery to implant the pacemaker.
+	\item \textbf{Follow-up:} This stage occurs directly after the pacemaker is implanted. The patient is assessed for surgery safety (correct implantation of the pacemaker, no infection, no other surgical complications etc).
+	\item \textbf{Ambulatory:} This stage is the regular day-to-day life of the patient post-surgery. This include regular check-ups with the patient's medical team. Regular assessment of the pacemaker is performed at this stage. If necessary, pacemaker maintenance or updates may be required. In extreme or unusual cases, pacemaker removal may be required or refused.
+	\item \textbf{Explant:} This stage is where a pacemaker is removed from the patient. Extremely unlikely to be assessed as needed and even less likely to occur during the patients lifetime. However the pacemaker may still be removed after patients death.
+	\item \textbf{Disposal:} This stage is when a pacemaker has reached end of life and is safely disposed.
+\end{enumerate}
+
+These extra definitions are both informed by some of the stakeholder goals, and help expose some other goals that are not as obvious. We identify as stakeholders of the pacemaker system. Compared to the original pacemaker document we have identified more stakeholders of the pacemaker system. 
+
+\begin{itemize}
+	\item Patient (from Pacemaker requirements)
+	\item Patient Family
+	\item Doctor (from Pacemaker requirements)
+	\item Hospital
+	\item Nurse (from Pacemaker requirements)
+	\item Technician (from Pacemaker requirements)
+\end{itemize}
+
+The patient family was identified as another stakeholder of the pacemaker system due to some of the goals that were identified for both the patient and doctor stakeholders. One of the goals for doctors is to help the patient family navigate the health care system. Which informed us that the patients family are also stakeholders of the pacemaker system as they are likely to be involved with the patient quality of life. This ties into another goal we identified for the patient which is to regain or maintain a desired quality of life. The goals of the doctor and the patient stakeholders can be found in figures~\ref{fig:doctor_goals} and~\ref{fig:patient_goals} respectively.
+
+\begin{figure}
+	\centering
+	\includesvg[width=\textwidth]{doctor_goals}
+	\caption{Doctor goals in the context of the pacemaker system.}
+	\label{fig:doctor_goals}
+\end{figure}
+
+One important belief that is important to identify is the patient belief \texttt{We all die eventually}. This leads to the patient goal of right to refuse care. This is critical to recognize patient autonomy in general. In the specific case around the pacemaker it presents itself twice; a patient can refuse to implant the pacemaker and can refuse to explant the pacemaker. Refusal to implant the pacemaker is less common, but informed consent is an important part of the process before a doctor can implant the pacemaker. More commonly, especially with pacemaker failure, the patient can refuse to have the pacemaker explanted. This can be for a multitude of reasons, but often it is simply because the patient is old and does not want surgery.
+
+\begin{figure}
+	\centering
+	\includesvg[width=\textwidth]{patient_goals}
+	\caption{Patient goals in the context of the pacemaker system.}
+	\label{fig:patient_goals}
+\end{figure}
+
+We also identify what the goals are for the nurse and technician stakeholder. This helps to clarify what roles they would play in the context of the pacemaker lifecycle. During the ambulatory stage, the patient will be spending a lot of time with the nurse to monitor health and functionality of the pacemaker. The technician may be called if there is a bug detected for troubleshooting, and in the extreme cases, disposal of the pacemaker. We also add clarify what the goals of the hospital could be as well, though the hospital is mostly where the resources are found. There can be more goals for the hospital in general, but the goals are limited in the scope of a patient with bradycardia and the pacemaker lifecycle.
+
+\begin{figure}
+	\centering
+	\includesvg[scale=0.7]{hospital_goals}
+	\caption{Hospital goals in the context of the pacemaker system.}
+	\label{fig:hospital_goals}
+\end{figure}
+
+\begin{figure}
+	\centering
+	\includesvg[scale=0.6]{nurse_goals}
+	\caption{Nurse goals in the context of the pacemaker system.}
+	\label{fig:nurse_goals}
+\end{figure}
+
+\begin{figure}
+	\centering
+	\includesvg[scale=0.7]{patient_family_goals}
+	\caption{Patient family goals in the context of the pacemaker system.}
+	\label{fig:patient_family_goals}
+\end{figure}
+
+Along with the hospital, we found another stakeholder beyond the scope of the original pacemaker requirement; patient family. The reason we include the patient family as a stakeholder is because they are also relevant to the pacemaker lifecycle as a potential resource for the patient. The patient family also will likely have a goal to help care for the patient in ways that the medical team is unable to; help in the day-to-day activities of the patient and in the community.
+
+\begin{figure}
+	\centering
+	\includesvg[scale=0.7]{technician_goals}
+	\caption{Technician goals in the context of the pacemaker system.}
+	\label{fig:technician_goals}
+\end{figure}
+
+\begin{figure}
+	\centering
+	\includesvg[width=\textwidth]{nurse_doctor_combined}
+	\caption{Combined nurse and doctor goals.}
+	\label{fig:nurse_doctor_combined}
+\end{figure}
+
+There are many goals that are shared across stakeholders. We have them as separate bubbles for the sake of displaying in this thesis, but another potential benefit of the goal diagrams is that we can create venn diagrams that explicitly show the overlap between stakeholders and reduce copied goals. We show the combined goals of the doctor and nurse stakeholders in figure~\ref{fig:nurse_doctor_combined}.
+
+Thus far with the goal diagrams we have identified two more stakeholders that were not identified in the original requirement document. We have provided insight into what some of the goals are for each of the stakeholders, along with supporting beliefs, tasks, and resources. We can claim that we have reduced some uncertainty around what goals the stakeholders would have in regards to the pacemaker product lifecycle. We also claim that we have provided some extra context around the stages of the pacemaker lifecycle that can help inform or support decisions for the requirements and subsequent development.
+
+\subsection{Use Case Diagrams}
+
+The next step we want to take is identify the use cases for each of these stakeholders, if they have uses, and compare them with the identified uses of the original requirement document. Many of the tasks that we have identified for the stakeholders do not require the pacemaker system to complete, but the goals do. According to the proposed methodology, we want to identify the use cases that the stakeholders will need the pacemaker system for. These use cases should also be traceable to one or more goals for the stakeholders. This traceability is important to justify the identified use cases.
 
 \subsection{Coherence in Medical Device Development}
 
