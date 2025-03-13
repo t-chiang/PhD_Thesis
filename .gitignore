@@ -266,6 +266,9 @@ TSWLatexianTemp*
 *.bak
 *.sav
 
+#drawio backup temp files
+*.bkp
+
 # Texpad
 .texpadtmp
 
