@@ -114,11 +114,11 @@ The design decisions towards the development of the concrete syntax for the requ
 
 For the feature modelling portion of \tool, we maintained as close to traditional syntax as possible. This is due to the objective of maintaining the original specification for feature modelling to our best ability during implementation. Given some of the default limitations of Sirius there are still some differences. 
 
-Figure~\ref{fig:concrete_syntax_feat_mod} shows an example product family created in \tool. The root of the model is shown in the grey box and the features of the model use white circles. The mandatory reference uses the black diamond at the source and an arrow at the target. The optional relationship uses no decorator at the source and a triangle at the target. This is to represent OR relationships. The alternative reference uses a white diamond at the source and a triangle at the target. This is to represent XOR relationships. As this is a top-down modelling layout, the reference source is towards the top and the reference target is towards the bottom. The optional and alternative references share the diamond at the target to show that the target is optional. In contrast, the white diamond at the source differentiates the two types of references. Thus while they have some common semantics in the options, the alternative has more syntax to represent its extended semantics.
+Figure~\ref{fig:concrete_syntax_feat_mod} shows an example product family created in \tool. The root of the model is shown in the grey box and the features of the model use white circles. The mandatory reference uses an arrow and black diamond at the target to represent the AND relationship. The optional relationship uses circle with a plus at the target to represent OR relationships. The alternative reference uses an arrow and white diamond at the target to represent XOR relationships. As this is a top-down modelling layout, the reference source is towards the top and the reference target is towards the bottom. We aimed to maintain a syntax that was as similar as possible to feature modelling convention and maintain a bijective relationship between the syntax and semantics.
 
 \begin{figure}[hbt!]
 	\centering
-	\includegraphics[width=\columnwidth]{Figures/FeatureModel_acc.jpg}
+	\includegraphics[width=\textwidth]{feature_model_acc.png}
 	\caption{An example of the concrete syntax for the feature model using features for an adaptive cruise control system from the automotive domain.}
 	\label{fig:concrete_syntax_feat_mod}
 \end{figure}
@@ -145,11 +145,6 @@ Along with the graphical portion of \tool, we also implemented an Xtext-based~\c
 \section{Design Decisions}
 
 A major design decision for \tool\ was using our own implementation for feature modelling. Other tools such as FeatureIDE already exist and are native to Eclipse. We decided to use our own implementation to remove possible constraints of having to work with an existing tool so that we can focus on the traceability aspects of the tool. Another reason was to allow us some flexibility in how to implement the compositional relationship between features and requirements. As we were not sure how best to implement the relationship to support. Further, this gave us flexibility to explore how we might want to navigate the created models and traceability matrices. 
-
-
-
-
-
 
 \subsection{Composition Implementations}
 

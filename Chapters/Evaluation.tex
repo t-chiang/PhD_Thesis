@@ -174,7 +174,14 @@ Taking into account the various overviews we can begin to create the UCDs. A hel
 	\label{fig:pg_device_UCD_original_spec}
 \end{figure}
 
-In the original specification the programmable pacing is listed within a single bullet point. However, when we attempted to model that point as a use case we noticed it was a heavily overloaded use case. It inadvertently hid a lot of information behind a single use case. By deciding to break it up and modelling it in a UCD we explicit the information that was originally hidden in the specification. We can identify that both single and dual chamber pacing will reuse the rate adaptive part of the use case. We took a further liberty with the following `an accelerometer is used to measure the physical activity resulting in a sensor indicated rate for pacing the heart' use case. Since it is still related to rate adaptive pacing, we model it as another included use case along the chain. Thus we can show how the doctor interacts with the `Provide programmable pacing' use case and all of its included use cases along the relationship chain. These connections are not obvious from just the natural language requirements in the original document but becomes much more clear by introducing the UCD as part of the process. It forced us to consider who was interacting with the use cases, and how the use cases identified may have implied knowledge hidden within that can be beneficial to further requirement specification or design. We have identified a possibility for reusable artifacts extremely early in the development life-cycle. We have also refined our use cases with minimal overhead to the original document.
+In the original specification the programmable pacing is listed within a single bullet point. However, when we attempted to model that point as a use case we noticed it was a heavily overloaded use case. It inadvertently hid a lot of information behind a single use case. By deciding to break it up and modelling it in a UCD we explicit the information that was originally hidden in the specification. We can identify that both single and dual chamber pacing will reuse by the rate adaptive part of the use case. Though not explicitly stated in this section of the specification, it implies that the pacemaker should allow for both rate-adaptive and non rate-adaptive pacing. This is further supported by the table on page 17 (shown in figure~\ref{fig:Operating_modes}) of the original specification that outlines the various operating modes for the pacemaker. We took a further liberty with the following `an accelerometer is used to measure the physical activity resulting in a sensor indicated rate for pacing the heart' use case. Since it is still related to rate adaptive pacing, we model it as another included use case along the chain. Thus we can show how the doctor interacts with the `Provide programmable pacing' use case and all of its included use cases along the relationship chain. These connections are not obvious from just the natural language requirements in the original document but becomes much more clear by introducing the UCD as part of the process. It forced us to consider who was interacting with the use cases, and how the use cases identified may have implied knowledge hidden within that can be beneficial to further requirement specification or design. We have identified a possibility for reusable artifacts extremely early in the development life-cycle. We have also refined our use cases with minimal overhead to the original document.
+
+\begin{figure}
+	\centering
+	\includegraphics[width=\textwidth]{Operating_modes.png}
+	\caption{Intended operation modes for the pacemaker system.}
+	\label{fig:Operating_modes}
+\end{figure}
 
 \begin{figure}
 	\centering
@@ -188,20 +195,140 @@ In figure~\ref{fig:pg_device_UCD} we have created another UCD enhanced by the kn
 \begin{figure}
 	\centering
 	\includesvg[width=\textwidth]{DCM_UCD_original_spec}
-	\caption{Use Case Diagram for the DCM based on the original pacemaker specification.}
+	\caption{Use Case Diagram for the DCM based on the original pacemaker specification. This diagram combines the hardware and software sub-systems into a single boundary.}
 	\label{fig:DCM_UCD_original_spec}
 \end{figure}
 
 Next we see in figure~\ref{fig:DCM_UCD_original_spec} a possible interpretation of the information in the DCM overview in a UCD. While the original specification does specify that the DCM sub-system is further decomposed into a hardware platform and software application, it does not make a distinction between the two when specifying the use cases. In this initial modelling attempt, we try to define the use cases for the DCM with its components combined within the system boundary. We also discovered another new actor when creating this UCD: the Strip Chart Recorder. This actor is related to the singleton use case `output to external strip-chart recorders'. UCD was particularly challenging to create due to all the conjunctive sentences in the specified features. In particular, the `Acquire and show diagnostics (history) and lead signal measurement information' use case is difficult to fully capture who this use case is for. The language used is confusing as by using the word diagnostics it makes it seem like this feature is for the Technician. However, because it then specifies history in brackets, similar to what is specified in the `Acquire and show sensor history and trending information' use case, we ultimately decided it is more likely to be used by the doctor and nurse actors. Interestingly, likely due to the overlap between the two stakeholders, the doctor and nurse actors in this model are associated to all the same use cases. As this is supported by their overlapping goals we have a stronger confidence in the correctness of this model.
 
+The DCM system is more challenging to have confidence in the UCD due to the combined nature of the hardware and software sub-systems specified in the requirements. They are heavily coupled which makes identifying what is a software use case and what is a hardware use case difficult as they are currently written. More information may come to light during the refinement however at this point in development it is difficult to gain more insight into how the sub-systems could be decoupled.
 
+\begin{figure}
+	\centering
+	\includesvg[scale=0.7]{Leads_UCD_original_spec}
+	\caption{Use Case Diagram for the leads based on the original pacemaker specification.}
+	\label{fig:Leads_UCD_original_spec}
+\end{figure}
 
-\subsection{Coherence in Medical Device Development}
+The leads sub-system is relatively straightforward to model given the limited use cases that were identified. It identified two actors that will use it, the patient and the PG device. However, we have included the DCM as an actor for this system as well. We justify this due to the fact that the DCM being the interface that allows human actors like the doctor or nurse to program or interrogate the pacemaker. 
 
-\subsection{Relevance in Medical Device Development}
+Overall the exercise of creating the UCDs for the pacemaker has given us a lot of insight that would have otherwise been overlooked using just the original specification. We have identified potentially reusable parts of the system in the rate adaptive pacing. We have identified additional actors that were otherwise implied or overlooked in the original specification. We have discovered potential pain points in the high coupling of the DCM sub-systems. Finally we have identified interactions between the various components of the pacemaker system overall.
 
-\subsection{Impact in Medical Device Development}
+\section{Product Family Development}
 
-\subsection{Efficiency in Medical Device Development}
+\begin{figure}
+	\centering
+	\includegraphics[angle=90, height=\textheight]{pacemaker_fm.png}
+	\caption{Feature model based on the UCD for the \pgd.}
+	\label{fig:pacemaker_fm}
+\end{figure}
 
-\subsection{Effectiveness in Medical Device Development}
+One of the benefits of this methodology becomes apparent at this stage of development. Leveraging the equivalency definition we have between use cases and features, all of the use cases that we used in our UCDs are also the features that we will use in our feature models. In figure~\ref{fig:pacemaker_fm} we show a potential product family based on the UCD for the \pgd. We say potential due to the possibility of variability in how engineers can interpret the information from the UCD and goal diagram to create the feature model. For example, single and dual chamber pacing appears twice within the product family due to the necessity to have both rate-adaptive and non-rate-adaptive pacing. There is overlap between the two features, but we put the rate-adaptive versions of the pacing under that feature and the non-rate-adaptive pacing on another level of the model.
+
+Based on the UCD for the \pgd, every use case is necessary for the system, and we identified the reuse of single and dual pacing between rate-adaptive modes. As a result, there is no potential for variability in the final product since all the features are mandatory to complete the system. This provides an excellent starting point for developing the product. We do not take this model as complete as we expect to learn more about the system through the requirement refinement process. The refinement process will allow us to iterate and increment on this model.
+
+\section{Requirement Engineering and Refinement}
+
+With a prototype product family created from the UCD, we can start to explore the use cases and refining them towards more proper requirements. We do this by taking the use cases and refining them as a user story. We use the following structure when refining a use case to a user story:
+
+\begin{itemize}
+	\item \textbf{Use case}: Provide programmable pacing
+	\item \textbf{Actor}: Doctor, DCM
+	\item \textbf{Precondition}: Pacemaker \pgd\ is active and can connect to the DCM.
+	\item \textbf{Trigger}: Doctor wants to program pacemaker to mitigate patient bradycardia symptoms via DCM interface.
+	\item \textbf{Success Scenario}:
+	\begin{enumerate}
+		\item Doctor accesses \pgd\ via DCM.
+		\item Doctor verifies they are connected to correct \pgd.
+		\item Doctor selects the desired pacing operation mode.
+		\item Doctor sets the various parameters based on the chosen pacing operation mode (pace pulse characteristics, rate sensing settings, delays etc).
+		\item Doctor pushes programmed mode and parameters to the \pgd.
+		\item Doctor disconnects DCM from \pgd.
+		\item Doctor logs off from DCM.
+	\end{enumerate}
+	\item \textbf{Secondary Scenarios}:
+	\begin{itemize}
+		\item Doctor connects to the wrong \pgd via DCM.
+		\item Doctor makes a mistake programming the \pgd via DCM.
+		\item Communication fails or is interrupted during push from DCM to \pgd.
+		\item Doctor is unable to access the \pgd\ via DCM.
+	\end{itemize}
+	\item \textbf{Success postcondition}: \pgd\ is correctly programmed and pacing the patients heart correctly and safely.
+\end{itemize}
+
+The steps outlined in the success scenario are the functional requirements for the use case. They outline what needs to happen for the actor to accomplish whatever task is outlined. The scenarios outlined in the secondary scenario section are specify alternative outcomes that can represent alternative outcomes for the actor. These alternative outcomes can be safety hazards, security hazards, or system malfunctions. The secondary scenarios outline the need to mitigating requirements in order to improve the chance that the actor will arrive to the success post condition, in this case that the \pgd\ is correctly programmed and pacing the patients heart correctly and safely. The mitigating requirement can be safety, constraint, or qualitative requirements. While we cannot declare that none of the secondary scenarios could lead to a functional requirement, by convention it is best to attempt to classify them in one of the non-functional types first. With these requirement identified, we can begin modelling the requirements in the requirement canvas. In \tool, the requirement canvas is embedded in the features of the product family. This is the feature-requirement encapsulation that we outlined in the methodology. In figure~\ref{fig:req_canvas_creation_UI}, we show how a user can create an embedded requirement canvas.
+
+\begin{figure}
+	\centering
+	\includegraphics[width=\textwidth]{req_canvas_creation_UI.png}
+	\caption{When right-clicking on a feature, a context menu appears allowing users to create a requirement canvas that is embedded in the selected feature.}
+	\label{fig:req_canvas_creation_UI}
+\end{figure}
+
+\begin{figure}
+	\centering
+	\includegraphics[width=\textwidth]{pacing_reqs.png}
+	\caption{Requirements for the `Provide programmable pacing' use case.}
+	\label{fig:pacing_reqs}
+\end{figure}
+
+In figure~\ref{fig:pacing_reqs} we show all the requirements as created to match the refinement of the user story. In figure~\ref{fig:req1_spec}, figure~\ref{fig:req2_spec}, and figure~\ref{fig:req3_spec} we also show the Gherkin specifications for the expected behavior of the first three requirements.
+
+\begin{figure}
+	\begin{lstlisting}
+		Given{
+			Precond one: "The pacemaker PG_Device is active and can connect to the DCM"
+		}
+		When{
+			Event one: "Doctor wants to program pacemaker to mitigate patient bradycardia symptoms via DCM interface"
+			Event two: "The doctor attempts to access the PG_Device via DCM"
+		}
+		Then{
+			Postcond one: "The doctor is able to connect to a PG_Device"
+		}
+	\end{lstlisting}
+	\caption{Gherkin specification for the first requirement of the \pgd.}
+	\label{fig:req1_spec}
+\end{figure}
+
+\begin{figure}
+	\begin{lstlisting}
+		Given{
+			Precond one: "The doctor is able to connect to a PG_Device"
+		}
+		When{
+			Event one: "The doctor wants to verify they are connected to the correct device"
+		}
+		Then{
+			Postcond one: "The PG_Device shall communicate to doctor via DCM identification to allow doctor to verify device identity"
+		}
+	\end{lstlisting}
+	\caption{Gherkin specification for the second requirement of the \pgd.}
+	\label{fig:req2_spec}
+\end{figure}
+
+\begin{figure}
+	\begin{lstlisting}
+		Given{
+			Precond one: "The doctor has verified they are connected to the correct device"
+		}
+		When{
+			Event one: "The doctor wants to change or select the desired pacing mode"
+		}
+		Then{
+			Postcond one: "The doctor shall be able to select from the available pacing options"
+		}
+	\end{lstlisting}
+	\caption{Gherkin specification for the third requirement of the \pgd.}
+	\label{fig:req3_spec}
+\end{figure}
+
+%\subsection{Coherence in Medical Device Development}
+%
+%\subsection{Relevance in Medical Device Development}
+%
+%\subsection{Impact in Medical Device Development}
+%
+%\subsection{Efficiency in Medical Device Development}
+%
+%\subsection{Effectiveness in Medical Device Development}
