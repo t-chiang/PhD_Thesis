@@ -350,6 +350,15 @@ Another part of the requirement canvas is the ability to assign test cases and r
 	\label{fig:pacing_reqs_tests_reviews_trace}
 \end{figure}
 
+\subsection{Iterations and Incrementation}
+
+For the purpose of this methodology, iterative changes are thought of as cycles between development phases (requirements and design, design and implementation). Incremental changes are thought of as changes within a single development phase. Currently, \tool\ supports maintenance of the traceability matrices through incremental changes as we have defined them.
+
+There are three traceability matrices that are supported in \tool; project traceability, feature-feature traceability, and feature-requirement traceability. Project traceability and feature-requirement traceability are defined to focus on traceability of the requirement entities. Project traceability is the traceability matrix for the entire project. Feature-requirement traceability is a traceability matrix that is scoped to a single feature. The Feature-feature traceability matrix is a tabular representation of the feature model that is defined within the project.
+
+These are a second syntactic representation of the modelling environments present within the tool. Since they are semantically equivalent, any change to the requirements in the requirement canvas or features in the feature modelling environment are automatically reflected in their respective traceability matrix. The tabular environments, though somewhat limited, are also capable of defining new requirements. The limitations are that test cases and reviewers cannot be created in the tabular environment. This is by design as it forces users to manually create those traces explicit in the modelling environment and reflect on what test cases are being created and who is approving of the requirements.
+
+We currently have limited support for iterative changes according to our definition. 
 
 %\subsection{Coherence in Medical Device Development}
 %
