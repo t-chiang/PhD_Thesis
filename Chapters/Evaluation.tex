@@ -327,6 +327,30 @@ The requirement boxes allow us to specify our requirements in greater details. D
 
 Another benefit for this ordering of the requirements is that it can help with planning feature development. Engineers can identify dependencies between requirements within a feature more easily and plan what stages of development need to be completed sequentially and which ones can happen in parallel. This lends credence to the claim of this methodology helping with FDD. The feature becomes well defined by the requirements, each requirement has the opportunity to be well specified by the engineers, and plans can be made to tackle the order of development in order to complete the feature. This includes the satisfaction of functional, qualitative, constraint, and safety requirements alike.
 
+Another part of the requirement canvas is the ability to assign test cases and reviewers to specified requirements. At this point in development, the purpose of those model elements is primarily bookkeeping. Another benefit of using the Gherkin are they many existing libraries that support it both for requirement specification and testing. At this time, we do not natively support testing in the tool. We do however, want to be able to keep track of which requirements have been satisfied and which ones have not. Further, we also want to keep track of which ones have been reviewed and approved. As part of the requirement elicitation process it is important to keep track of which requirements are ready to development, and which ones are still undergoing refinement. We show how this can appear for the pacemaker in figure~\ref{fig:pacing_reqs_tests_reviews_export}. Naturally, once these model elements are added and connected to requirements, they are automatically updated in the traceability matrix as well.
+
+%\begin{figure}
+%	\centering
+%	\includegraphics[width=\textwidth]{pacing_reqs_tests_reviews.png}
+%	\caption{Requirements for the `Provide programmable pacing' use case.}
+%	\label{fig:pacing_reqs_tests_reviews}
+%\end{figure}
+
+\begin{figure}
+	\centering
+	\includegraphics[width=\textwidth]{pacing_reqs_tests_reviews_export.png}
+	\caption{Various stages of approval and testing for the requirements.}
+	\label{fig:pacing_reqs_tests_reviews_export}
+\end{figure}
+
+\begin{figure}
+	\centering
+	\includegraphics[width=\textwidth]{pacing_reqs_tests_reviews_trace.png}
+	\caption{Showing how traceability is automatically maintained throughout requirement approval and testing.}
+	\label{fig:pacing_reqs_tests_reviews_trace}
+\end{figure}
+
+
 %\subsection{Coherence in Medical Device Development}
 %
 %\subsection{Relevance in Medical Device Development}
