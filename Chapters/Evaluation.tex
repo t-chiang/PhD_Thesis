@@ -248,8 +248,8 @@ With a prototype product family created from the UCD, we can start to explore th
 	\end{enumerate}
 	\item \textbf{Secondary Scenarios}:
 	\begin{itemize}
-		\item Doctor connects to the wrong \pgd via DCM.
-		\item Doctor makes a mistake programming the \pgd via DCM.
+		\item Doctor connects to the wrong \pgd\ via DCM.
+		\item Doctor makes a mistake programming the \pgd\ via DCM.
 		\item Communication fails or is interrupted during push from DCM to \pgd.
 		\item Doctor is unable to access the \pgd\ via DCM.
 	\end{itemize}
@@ -327,7 +327,7 @@ The requirement boxes allow us to specify our requirements in greater details. D
 
 Another benefit for this ordering of the requirements is that it can help with planning feature development. Engineers can identify dependencies between requirements within a feature more easily and plan what stages of development need to be completed sequentially and which ones can happen in parallel. This lends credence to the claim of this methodology helping with FDD. The feature becomes well defined by the requirements, each requirement has the opportunity to be well specified by the engineers, and plans can be made to tackle the order of development in order to complete the feature. This includes the satisfaction of functional, qualitative, constraint, and safety requirements alike.
 
-Another part of the requirement canvas is the ability to assign test cases and reviewers to specified requirements. At this point in development, the purpose of those model elements is primarily bookkeeping. Another benefit of using the Gherkin are they many existing libraries that support it both for requirement specification and testing. At this time, we do not natively support testing in the tool. We do however, want to be able to keep track of which requirements have been satisfied and which ones have not. Further, we also want to keep track of which ones have been reviewed and approved. As part of the requirement elicitation process it is important to keep track of which requirements are ready to development, and which ones are still undergoing refinement. We show how this can appear for the pacemaker in figure~\ref{fig:pacing_reqs_tests_reviews_export}. Naturally, once these model elements are added and connected to requirements, they are automatically updated in the traceability matrix as well.
+Another part of the requirement canvas is the ability to assign test cases and reviewers to specified requirements. At this point in development, the purpose of those model elements is primarily bookkeeping. Another benefit of using the Gherkin are they many existing libraries that support it both for requirement specification and testing. At this time, we do not natively support testing in the tool. We do however, want to be able to keep track of which requirements have been satisfied and which ones have not. Further, we also want to keep track of which ones have been reviewed and approved. As part of the requirement engineering process it is important to keep track of which requirements are ready to development, and which ones are still undergoing refinement. We show how this can appear for the pacemaker in figure~\ref{fig:pacing_reqs_tests_reviews_export}. Naturally, once these model elements are added and connected to requirements, they are automatically updated in the traceability matrix as well.
 
 %\begin{figure}
 %	\centering
@@ -352,13 +352,15 @@ Another part of the requirement canvas is the ability to assign test cases and r
 
 \subsection{Iterations and Incrementation}
 
-For the purpose of this methodology, iterative changes are thought of as cycles between development phases (requirements and design, design and implementation). Incremental changes are thought of as changes within a single development phase. Currently, \tool\ supports maintenance of the traceability matrices through incremental changes as we have defined them.
+For the purpose of this methodology, iterative changes are thought of as cycles between development phases (requirements and design, design and implementation). The idea for this definition is that there are lessons learned when working through a subsequent development phase that can inform and create cause for repeating a process from a previous phase. In the case of this methodology, if there is a need identified during the design phase, it may create a cause for repeating one of the processes in requirement phase. 
+
+Incremental changes are thought of as changes within a single development phase. Currently, \tool\ supports maintenance of the traceability matrices through incremental changes as we have defined them. As engineers work through the various steps within a development phase, they will be constantly adding, modifying, or removing artifacts until they reach a satisfactory result. We consider all of these incremental changes until they get enough completed to move onto the next phase of development.
 
 There are three traceability matrices that are supported in \tool; project traceability, feature-feature traceability, and feature-requirement traceability. Project traceability and feature-requirement traceability are defined to focus on traceability of the requirement entities. Project traceability is the traceability matrix for the entire project. Feature-requirement traceability is a traceability matrix that is scoped to a single feature. The Feature-feature traceability matrix is a tabular representation of the feature model that is defined within the project.
 
 These are a second syntactic representation of the modelling environments present within the tool. Since they are semantically equivalent, any change to the requirements in the requirement canvas or features in the feature modelling environment are automatically reflected in their respective traceability matrix. The tabular environments, though somewhat limited, are also capable of defining new requirements. The limitations are that test cases and reviewers cannot be created in the tabular environment. This is by design as it forces users to manually create those traces explicit in the modelling environment and reflect on what test cases are being created and who is approving of the requirements.
 
-We currently have limited support for iterative changes according to our definition. 
+We currently have limited support for iterative changes according to our definition. The metamodel for \tool\, however, was defined to support iterative changes. Leveraging the \ac{AQL} and the \ac{EVL} that are present in the \ac{EMF}, we can query models created to perform \ac{CIA}.
 
 %\subsection{Coherence in Medical Device Development}
 %
