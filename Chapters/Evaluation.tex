@@ -227,6 +227,10 @@ One of the benefits of this methodology becomes apparent at this stage of develo
 
 Based on the UCD for the \pgd, every use case is necessary for the system, and we identified the reuse of single and dual pacing between rate-adaptive modes. As a result, there is no potential for variability in the final product since all the features are mandatory to complete the system. This provides an excellent starting point for developing the product. We do not take this model as complete as we expect to learn more about the system through the requirement refinement process. The refinement process will allow us to iterate and increment on this model.
 
+\subsection{Composition}
+
+Due to the current definition of the metamodel for \tool, feature composition is slightly different. Since we state that all requirements are scoped by their owned features, we do not support cross cutting requirements at this time. When a feature composition is required to define a product based on the feature model, it becomes more of a checklist rather than more traditional composition weaving. This is by design as we want each feature to be self contained with respect to their requirements. This does not exclude dependencies between features however. The validation of feature dependencies can still happen during the composition process if properly implemented.
+
 \section{Requirement Engineering and Refinement}
 
 With a prototype product family created from the UCD, we can start to explore the use cases and refining them towards more proper requirements. We do this by taking the use cases and refining them as a user story. We use the following structure when refining a use case to a user story:
@@ -350,7 +354,7 @@ Another part of the requirement canvas is the ability to assign test cases and r
 	\label{fig:pacing_reqs_tests_reviews_trace}
 \end{figure}
 
-\subsection{Iterations and Incrementation}
+\section{Iterations and Incrementation}
 
 For the purpose of this methodology, iterative changes are thought of as cycles between development phases (requirements and design, design and implementation). The idea for this definition is that there are lessons learned when working through a subsequent development phase that can inform and create cause for repeating a process from a previous phase. In the case of this methodology, if there is a need identified during the design phase, it may create a cause for repeating one of the processes in requirement phase. 
 
@@ -360,7 +364,11 @@ There are three traceability matrices that are supported in \tool; project trace
 
 These are a second syntactic representation of the modelling environments present within the tool. Since they are semantically equivalent, any change to the requirements in the requirement canvas or features in the feature modelling environment are automatically reflected in their respective traceability matrix. The tabular environments, though somewhat limited, are also capable of defining new requirements. The limitations are that test cases and reviewers cannot be created in the tabular environment. This is by design as it forces users to manually create those traces explicit in the modelling environment and reflect on what test cases are being created and who is approving of the requirements.
 
-We currently have limited support for iterative changes according to our definition. The metamodel for \tool\, however, was defined to support iterative changes. Leveraging the \ac{AQL} and the \ac{EVL} that are present in the \ac{EMF}, we can query models created to perform \ac{CIA}.
+We currently have limited support for iterative changes according to our definition. While changes that are made to an existing model will naturally be automatically reflected in the traceability diagrams, the impact of the change cannot currently be assessed. Based on the metamodel for \tool, however, the mechanisms to support change impact analysis are all present. This is due to the nature of traceability that is inherently built into the model and the way we require explicit connections between elements in order for a model to be what is consider syntactically valid by our current conventions. 
+
+
+
+
 
 %\subsection{Coherence in Medical Device Development}
 %

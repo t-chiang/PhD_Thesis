@@ -32,6 +32,7 @@ In order to deem a resulting publication to be relevant to this body of work the
 
 We parse the results and separate them into the three domains; \ac{PLE}, traceability, and requirement engineering. Ties to the \ac{MDE} is one of the boundaries for the results. There is a combination of formalism and informal approaches to analyzing and solving the problem of traceability between product families and requirements. We also include some fundamental works to support definitions and understandings within the various domains. This is to help support one of our hypothesizes that various definitions across the domains are synonymous. 
 
+As part of this work we explore two domains; the automotive domain and medical device domain. We want to show that the proposed methodology and implementation can be effective in those two domains as they have safety-critical requirements. As such we also include some literature for development in the automotive industry and medical devices, specifically pacemakers for the latter.
 
 %Traceability is a highly studied topic in both academia and industry. For the scope of this paper, we are looking at related work that handles traceability through product lines, approaches that support some ability to iterate on traceability, and previously defined templates for traceability matrices. We include product lines in our related work because they are commonly used to support iterative and incremental development. We also include some previous work around requirement engineering.
 
@@ -44,18 +45,6 @@ We parse the results and separate them into the three domains; \ac{PLE}, traceab
 
 
 %Cleland-Huang and colleagues have an extensive body of work focused on developing methods and tools for automated and automating traceability, \textit{e.g.}, \cite{Cleland-HuangBCSR07}. Some of this work targets safety-critical domains and explores traceability between assurance cases and system design artifacts \cite{AgrawalC23}. She has also tackled traceability in a product line for her Dronology project~\cite{DBLP:conf/splc/Cleland-HuangAI20}.
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -97,3 +86,10 @@ Dronology, the work of Cleland-Huang and colleagues, is a project that has produ
 The work of Heisig et al~\cite{heisig2019generic} proposes a generic traceability metamodel for end-to-end traceability in software product lines. Their proposed method is supposed to facilitate and enable comprehensive traceability throughout the development process from requirements to implementation across multiple MDE tools. As such they developed a traceability metamodel to handle a variety of artifacts they anticipate will require traceability links. In contrast, our work does not focus on developing a traceability metamodel. Instead, we focus on mapping requirements to features and generating traceability from the mappings. Another example of traceability in product lines is in the work of Tsuchiya et al.~\cite{tsuchiya2013recovering}. Their work focuses on recovering lost traceability links due to incremental development. They propose a framework and implement a tool that shows potential in recovering lost traceability links due to natural software maintenance over time. This is relevant as it is another approach to traceability maintenance through incremental software changes. Where they focus on recovering lost links, we attempt to update the links parallel to changes.
 
 Heisig \textit{\textit{et al}}~\cite{heisig2019generic} focused on using a generic traceability metamodel for software product lines. They concluded that using a metamodel facilitated the traceability of various artifacts throughout development. Similarly, the work of Kelleher~\cite{kelleher2005reusable} also required the definition of a traceability metamodel, though this was developed as a means to handle complexity in software systems as opposed to product lines. Another approach can be found in the work of Maletic \textit{\textit{et al}}~\cite{maletic2005xml}, whose primary focus was flexibility and interoperability of traceability artifacts, allowing for the direct modelling of artifacts through model transformations using XML. Asuncion \textit{\textit{et al}}~\cite{asuncion2010software} used machine learning to generate traceability prospectively and retrospectively; during development and after development.
+
+%\section{Automotive}
+%
+%\ac{PLE} is a relatively new methodology for the automotive industry. 
+%
+%\section{Medical Devices}
+
