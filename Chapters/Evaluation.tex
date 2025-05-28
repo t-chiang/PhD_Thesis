@@ -2,23 +2,24 @@
 
 Throughout this thesis we have been using the automotive domain to tell the story of how to use this methodology and \tool. This is because within the automotive domain we can find two of the main issues we are addressing with this proposal; how to handle variants within a product family and maintaining traceability throughout the product stacks. For automotive manufacturers there are variants in the customer facing product, evident in the different vehicles that are offered, the different model years between vehicles, and the various trims that are available within a single vehicle model. There are also variants that can exist internal to the manufacturer as they go through development and decompose the vehicle into it's components; engine, transmission, cooling, heating variants that are used across platforms for example. Managing these portfolios, across multiple levels of abstraction necessitates product family traceability in order to keep track of requirements constraints that lead to the various design and implementation decisions. 
 
-For the evaluation portion of this thesis, we look towards the medical domain and medical device development. There is a lot of overlap between medical device development and automotive manufacturing. Specifically, we are looking at a requirement set from Boston Scientific for a pacemaker~\ref{apdx: Req}. This requirement set is often used as part of the undergraduate curriculum at McMaster University for teaching product life-cycle development and safety-critical development.
+For the evaluation portion of this thesis, we look towards the medical domain and medical device development. There is a lot of overlap between medical device development and automotive manufacturing. Specifically, we are looking at a requirement set from Boston Scientific for a pacemaker~\ref{apdx:Req}. This requirement set is often used as part of the undergraduate curriculum at McMaster University for teaching product life-cycle development and safety-critical development.
 
 From the perspective of safety criticality, medical devices and a pacemaker especially, tend to have a greater impact on individual health and safety. Regional legislation may affect product development and the products themselves may have variants based on the capabilities of target stakeholders, in this case individual patients. For this thesis we focus on medical device guidelines and classifications based on Health Canada legislation~\cite{CanadaGuidanceDocument}. 
 
 \section{Knowledge Capture \& Domain Analysis}
 
-Method works for automotive requirements. Will show using pacemaker. Do not show generality. Just show that it works in two domains. Would be interesting to explore generality. 
+%Method works for automotive requirements. Will show using pacemaker. Do not show generality. Just show that it works in two domains. Would be interesting to explore generality. 
+%
+%\begin{itemize}
+%	\item Want to show benefit of methodology for capturing knowledge prior to requirement elicitation process. Benefit around requirement justification, communication, and stakeholder confirmation (last two are difficult to show, but easy to claim). Future work for proving this claim. Maybe make assurance case for this claim?
+%	\item Want to show uncertainty and incompleteness management/control/mitigation of requirements using the scenario breakdowns of the requirement refinements. Might want to argue more about potential to better manage incompleteness and uncertainty. Can provide clarity on requirements, requirement refinement, and requirement decomposition. Evaluates characteristic of methodology rather than empirical property.
+%	\item Want to show cost savings of modelling requirements compared to in other tools when it comes to requirement traceability
+%	\item Want to show benefits of using product family to contain requirements.
+%	\item Want to show benefits of tying development strategies of FDD with product family.
+%	\item Want to show how scenario breakdown for refinement helps with specification using Gherkin.
+%\end{itemize}
 
-\begin{itemize}
-	\item Want to show benefit of methodology for capturing knowledge prior to requirement elicitation process. Benefit around requirement justification, communication, and stakeholder confirmation (last two are difficult to show, but easy to claim). Future work for proving this claim. Maybe make assurance case for this claim?
-	\item Want to show uncertainty and incompleteness management/control/mitigation of requirements using the scenario breakdowns of the requirement refinements. Might want to argue more about potential to better manage incompleteness and uncertainty. Can provide clarity on requirements, requirement refinement, and requirement decomposition. Evaluates characteristic of methodology rather than empirical property.
-	\item Want to show cost savings of modelling requirements compared to in other tools when it comes to requirement traceability
-	\item Want to show benefits of using product family to contain requirements.
-	\item Want to show benefits of tying development strategies of FDD with product family.
-	\item Want to show how scenario breakdown for refinement helps with specification using Gherkin.
-	
-\end{itemize}
+The first step in this proposal is examining how the domain analysis is conducted. This part of the evaluation examines how we can enhance existing knowledge capture methods by introducing \ac{MDE} concepts to support later stages of development, including traceability and iteration.
 
 \subsection{Goal Diagrams}
 
@@ -44,7 +45,7 @@ The first step we took in this domain analysis is to provide some more informati
 	\item \textbf{Disposal:} This stage is when a pacemaker has reached end of life and is safely disposed.
 \end{enumerate}
 
-These extra definitions are both informed by some of the stakeholder goals, and help expose some other goals that are not as obvious. We identify as stakeholders of the pacemaker system. Compared to the original pacemaker document we have identified more stakeholders of the pacemaker system. 
+These extra definitions are both informed by some of the stakeholder goals, and help expose some other goals that are not as obvious. Compared to the original pacemaker document we have identified more stakeholders of the pacemaker system. 
 
 \begin{itemize}
 	\item Patient (from Pacemaker requirements)
