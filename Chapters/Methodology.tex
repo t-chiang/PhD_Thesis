@@ -218,10 +218,17 @@ With these in mind, a metamodel was created to provide a specification for how t
 
 The requirement canvas portion of the metamodel was created after several iterations of identifying what elements are needed to facilitate the three main objectives for the modelling environment. An important distinction that separates this specification from the requirement model specification for SysML is the requirement types that we have defined. For the requirements in the requirement canvas, we identified four requirement categories; \texttt{Functional}, \texttt{Qualitative}, \texttt{Constraint}, and \texttt{Safety}. Functional requirements follow their traditional definition; things that a product or system must do. Qualitative requirements are identified as requirements that affect the way a product or system accomplishes its function. These include the look, feel, usability, humanity, and some performance requirements that are not categorized as functional. Constraint requirements are identified as requirements that add limitations of some type to a product or system. These include operational, environmental, maintainability, support, security, cultural, political, and legal requirements. These requirement definitions can be found in James and Suzanne Robertson Volere requirements~\cite{robertson2000volere}. Finally, safety requirements are critical as they identify all requirements that have to do with the safety of users or stakeholders involved in the function of a product or system. We highlight safety requirements as a separate requirement category as our target domain for \tool\ is safety-critical development. It is important to note that requirement categorization relies heavily upon system, or in \tool, feature scoping. For a safety feature, a safety requirement may be considered a functional requirement due to the feature scope. A functional feature, however, may contain safety requirements that are distinctly different from the functional requirements. This distinction relies heavily upon the capabilities of the engineer creating the models.
 
+%\begin{figure}
+%	\centering
+%	\includegraphics[width=\textwidth]{rmdl.pdf}
+%	\caption{CyclicL metamodel. Shows the specification for both the requirment canvas and feature modelling portions of CyclicL.}
+%	\label{fig:metamodel}
+%\end{figure}
+
 \begin{figure}
 	\centering
-	\includegraphics[width=\textwidth]{rmdl.pdf}
-	\caption{CyclicL metamodel. Shows the specification for both the requirment canvas and feature modelling portions of CyclicL.}
+	\includegraphics[width=\textwidth]{metamodel.pdf}
+	\caption{CyclicL metamodel. Shows the specification for both the requirement canvas and feature modelling portions of CyclicL.}
 	\label{fig:metamodel}
 \end{figure}
 
