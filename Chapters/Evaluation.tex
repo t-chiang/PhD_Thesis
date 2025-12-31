@@ -1,10 +1,10 @@
 \chapter{Evaluation}
 
-Throughout this thesis we have been using the automotive domain to tell the story of how to use this methodology and \tool. This is because within the automotive domain we can find two of the main issues we are addressing with this proposal; how to handle variants within a product family and maintaining traceability throughout the product stacks. For automotive manufacturers there are variants in the customer facing product, evident in the different vehicles that are offered, the different model years between vehicles, and the various trims that are available within a single vehicle model. There are also variants that can exist internal to the manufacturer as they go through development and decompose the vehicle into it's components; engine, transmission, cooling, heating variants that are used across platforms for example. Managing these portfolios, across multiple levels of abstraction necessitates product family traceability in order to keep track of requirements constraints that lead to the various design and implementation decisions. 
+Throughout this thesis we have used the automotive domain as the basis for illustrative examples and to motivate the design of \tool\ and its features. This is because within the automotive domain we can find two of the main issues we are addressing with this methodology; how to handle variants within a product family and maintain traceability throughout the product family. For automotive manufacturers there are variants in the customer facing product, evident in the different vehicles that are offered, the different model years between vehicles, and the various trims that are available within a single vehicle model. There are also variants that can exist internal to the manufacturer as they go through development and decompose the vehicle into its components: engine, transmission, cooling, heating variants that are used across platforms for example. Managing these product families, across multiple levels of abstraction necessitates product family traceability in order to keep track of requirements constraints that lead to the various design and implementation decisions. 
 
-For the evaluation portion of this thesis, we look towards the medical domain and medical device development. There is a lot of overlap between medical device development and automotive manufacturing. The medical device we will be using for this evaluation is a pacemaker. From the perspective of safety criticality, medical devices such as a pacemaker tend to have a greater impact on individual health and safety which is often reflected in medical regulations. Regional legislation may affect product development and the products themselves may have variants based on the capabilities of target stakeholders, in this case individual patients. For this thesis we keep in mind medical device guidelines and classifications based on Health Canada regulations~\cite{CanadaGuidanceDocument, VerifyDevices} as we are from a Canadian institution. This means that a pacemaker would be a class 4 medical device.
+For the evaluation portion of this thesis, we look towards the medical domain and medical device development. There is significant overlap overlap between medical device development and automotive manufacturing as they both represent safety critical systems and have to follow various standards and regulations across geographic regions to sell their products to customers. The medical device we will be using for this evaluation is a pacemaker. From the perspective of safety criticality, medical devices such as a pacemaker tend to have a greater impact on individual health and safety which is often reflected in medical regulations. Regional legislation may affect product development and the products themselves may have variants based on the capabilities of target stakeholders, in this case individual patients. As this research has been carried out in Canada, we reference medical device guidelines and classifications based on Health Canada regulations~\cite{CanadaGuidanceDocument, VerifyDevices} as we are from a Canadian institution. According to these guidelines, an implantable rate responsive pacemaker is classified as a class 4 medical device. This is the most severe classification a medical device can receive as it is considered a closed loop system used to control the treatment of a patients condition. Thus, a pacemaker has high safety-critical implications. This justifies high levels of scrutiny for the requirements and potential variations as there must be a great deal of confidence in the product lifeycle before being implanted in a patient.
 
-This evaluation will use an existing requirement document from Boston Scientific~\ref{apdx:Req} for pacemaker development. The pacemaker requirement document we have chosen is often used as part of the undergraduate curriculum at McMaster University for teaching product life-cycle development and safety-critical development. We will be assessing how this methodology and tool can be used to improve an existing requirement set, create traceability between features and requirement, and potential integration points with a development process. 
+This evaluation will use an existing requirement document from Boston Scientific~\ref{apdx:Req} for pacemaker development. We will be assessing how this methodology and \tool\ can be used to improve an existing requirement set and create traceability between features and requirement. We will also potential integration points with development processes to evaluate the adaptability of the methodology and \tool\ to minimally disrupt existing documentation and development strategies. 
 
 %Specifically, we are looking at a requirement set from Boston Scientific for a pacemaker~\ref{apdx:Req}. This requirement set is often used as part of the undergraduate curriculum at McMaster University for teaching product life-cycle development and safety-critical development.
 
@@ -23,13 +23,26 @@ This evaluation will use an existing requirement document from Boston Scientific
 %	\item Want to show how scenario breakdown for refinement helps with specification using Gherkin.
 %\end{itemize}
 
-The first step in this proposal is examining how the domain analysis is conducted. This part of the evaluation examines how we can enhance existing knowledge capture approaches by introducing domain analysis techniques introduced in our methodology. Using the proposed processes, along with \tool, we will be assessing for the ability to find gaps in the original pacemaker requirement document, potential integration points for existing development process, and general enhancements for engineering practices.
+The first step in this thesis is examining how the domain analysis is conducted. This part of the evaluation examines how we can enhance existing knowledge capture approaches by introducing domain analysis techniques introduced in our methodology. Using the proposed processes, along with \tool, we will be assessing for the ability to find gaps in the original pacemaker requirement document, potential integration points for existing development process, and general enhancements for engineering practices.
+
+We also want to identify what a pacemaker is. As we have previously identified according to Canadian guidelines~\cite{CanadaGuidanceDocument, VerifyDevices}, and based on the requirements in the Boston Scientific requirements document~\ref{apdx:Req}, we have an implantable rate responsive pacemaker. The purpose of this pacemaker is to treat various forms of cardiac arrhythmia, atypical beatings of a heart. There are three types of arrhythmia:
+\begin{itemize}
+	\item \textbf{Arrhythmia:} A condition wherein the heart beat irregularly or abnormally
+	\item \textbf{Bradycardia Arrhythmia:} A condition one has a Resting Heart Rate (RHR) that is abnormally slow. The question of “how slow is abnormally slow?” may differ	from individual to individual because the heart’s RHR tends to decrease with age and 7 among individuals with higher fitness levels. For most adults, a slow RHR is less than 50 or 60 Beats per Minute (BPM). Symptoms of bradycardia may include fatigue, dizziness,	fainting, heart palpitations and breathing problems.
+	\item \textbf{Tachycardia Arrhythmia:} A condition wherein one has a RHR that is abnormally fast. For most adults, a fast RHR is above 100 BPM.
+\end{itemize}
+
+A pacemaker system is typically composed of two main sub-systems: the pulse generator and the leads. The pulse generator, also known as the "can", contains the battery of the pacemaker and the circuits that deliver the pacing stimuli. It provides protection for the internal circuits of the pacemaker and the patients heart from each other. There is a connector from the pulse generator to the leads sub-system. The leads are insulated wires that carry electrical stimuli from the pulse generator to the heart. They are the first component of the pacemaker that is implanted during surgery, usually through the subclavian vein. The electrodes on the end of the lead are they attached to the heart.
+
+Finally, as this is an implantable closed loop system, there is a Device Controller-Monitor system that is paired with the pacemaker. This device is used by the physicians, nurses, and technicians to interrogate and alter the behaviour of the pacemaker device according to patient needs. It provides a means of remotely transmitting programming data to the pacemaker while implanted and receiving transmitted telemetry data from the pacemaker.
+
+A more in-depth description of what a pacemaker is can be found in the appendix~\ref{apdx:What_Is_A_Pacemaker}. The document goes into greater detail of the Cardiac Conductive System and how it interacts with the pacemaker.
 
 %\ac{MDE} concepts to support later stages of development, including traceability and iteration.
 
 \subsection{Goal Diagrams}
 
-The full requirement set by Boston Scientific for a pacemaker is available in the Appendix~\ref{apdx:Req}. Though not explicitly stated as domain analysis, there is some knowledge capture that occurs in chapters 1 and 2 of the pacemaker requirements all captured in natural language. In fact, all the requirements specified by Boston Scientific are captured in natural language. These two chapters introduce the scope of the requirements, identify some of the stakeholders, and define the system and sub-systems. We found it sufficient for the engineers to have an idea of why the system is needed, who they are building it for, where its intended usage environment is, and why it is needed. We now attempt to improve this domain analysis using the goal diagram and  \ac{UCD} approaches outlined in our proposed methodology.
+The full requirement set by Boston Scientific for a pacemaker is available in the Appendix~\ref{apdx:Req}. Though not explicitly stated as domain analysis, there is some knowledge capture that occurs in chapters 1 and 2 of the pacemaker requirements all captured in natural language. In fact, all the requirements specified by Boston Scientific are captured in natural language. These two chapters introduce the scope of the requirements, identify some of the stakeholders, and define the system and sub-systems. We found it sufficient for the engineers to have an idea of why the system is needed, who they are building it for, and where its intended usage environment is. This comes from anecdotal accounts from engineers in industry. They want to be able to justify their time and effort into building a product that has a purpose, even if they do not have all the details on the finish product. We now attempt to improve this domain analysis using the goal diagram and \ac{UCD} approaches outlined in our proposed methodology.
 
 %do a good job of introducing the scope of the requirements, stakeholder identification, and system definitions. Enough for the engineers to have an idea of why the system is needed, who they are building it for, where its intended usage environment is, and why it is needed. We have found however that we can improve upon this domain analysis with the usage of goal diagrams and use case diagrams introduced by our proposed methodology.
 
@@ -42,7 +55,17 @@ The full requirement set by Boston Scientific for a pacemaker is available in th
 
 We follow the same pacemaker lifecycle outlined the requirement document shown in figure~\ref{fig:Pacemaker_lifecycle}. The lifecycle provides context for what the goals of our stakeholders would be throughout the life of the pacemaker. We find that the document explains what is necessary from the pacemaker during each stage of its lifecycle. The document does not however explain what each stage actually is. The stakeholder roles, use cases, or goals are also not defined our outlined for each stage throughout the product lifecycle. This can reduce the engineers' understanding of the product, and impact confidence in the requirements specified for product development.
 
-The lack of context and knowledge can become a source of uncertainty during development. The extra definitions or knowledge of the stakeholder goals may not always result in a direct impact on the product features or requirements, however the ability to draw this conclusion from a body of knowledge is important to increase confidence in creating more complete and correct sets of features and requirements. To accomplish part of this domain analysis we performed a casual interview with a doctor to provide some perspective and insight to what some stakeholder goals might be outside of the perspective of the engineer responsible for development. Ultimately, this was a benefit as the doctor helped to provide some context missing from the original pacemaker specification.
+The lack of context and knowledge can become a source of uncertainty during development. The extra definitions or knowledge of the stakeholder goals may not always result in a direct impact on the product features or requirements, however the ability to draw this conclusion from a body of knowledge is important to increase confidence in creating more complete and correct sets of features and requirements. To accomplish part of this domain analysis we performed a casual interview with a doctor to provide some perspective and insight to what some stakeholder goals might be outside of the perspective of the engineer responsible for development. Ultimately, this was a benefit as the doctor helped to provide some context missing from the original pacemaker specification. Some questions asked were the following:
+\begin{itemize}
+	\item From the perspective of the attending doctor, who are the stakeholders involved when a patient has a pacemaker?
+	\begin{itemize}
+		\item A follow-up question for was what goals the identified stakeholder would have?
+	\end{itemize}
+	\item What goals do you have as the attending doctor when caring for a patient with a pacemaker?
+	\item What are your goals as a doctor in general?
+	\item What goals would you share with the combined health care team for a patient with a pacemaker?
+	\item In your experience, what goals does a patient with a pacemaker typically have? Why would they want or not want a pacemaker?
+\end{itemize}
 
 %While perhaps not directly relevant to the requirements of the pacemaker, the lack of context can become a source of uncertainty during development. As such, the engineer may not know what information might be missing and therefore could become uncertain if the missing information is relevant to the requirements. As part of this domain analysis we performed a casual interview with a doctor to provide some perspective and insight to what some stakeholder goals might be outside of the perspective of the engineer responsible for development.
 
@@ -52,26 +75,35 @@ The lack of context and knowledge can become a source of uncertainty during deve
 The first step we took in this domain analysis is to provide some more information around what happens in each stage of the pacemaker lifecycle.
 
 \begin{enumerate}
-	\item \textbf{Pre-Implant:} This stage is where the patient is assessed if a pacemaker is required for their benefit. This stage includes risk/benefit discussion, patient risk tolerance, and informed patient consent. The patient has right to refuse care and may deny getting a pacemaker altogether. 
-	\item \textbf{Implant:} This stage is the surgery. Straightforward stage, the patient undergoes surgery to implant the pacemaker.
-	\item \textbf{Follow-up:} This stage occurs directly after the pacemaker is implanted. The patient is assessed for surgery safety (correct implantation of the pacemaker, no infection, no other surgical complications etc).
+	\item \textbf{Pre-Implant:} This stage is where the patient is assessed if a pacemaker is required for treatment. This stage includes risk/benefit discussion, patient risk tolerance, and informed patient consent. The patient has right to refuse care and may deny getting a pacemaker altogether. It may also be determined that though the patient may need a pacemaker, it would not be to their benefit to have it implanted.
+	\item \textbf{Implant:} This stage is the surgery. The patient undergoes surgery to implant the pacemaker.
+	\item \textbf{Follow-up:} This stage occurs directly after the pacemaker is implanted. The patient is assessed for surgery safety (correct implantation of the pacemaker, no infection, no other surgical complications etc). This is the follow-up assessment to make sure that the surgery was a success and there are no unforeseen complications after the surgery is complete.
 	\item \textbf{Ambulatory:} This stage is the regular day-to-day life of the patient post-surgery. This include regular check-ups with the patient's medical team. Regular assessment of the pacemaker is performed at this stage. If necessary, pacemaker maintenance or updates may be required. In extreme or unusual cases, pacemaker removal may be required or refused.
-	\item \textbf{Explant:} This stage is where a pacemaker is removed from the patient. Extremely unlikely to be assessed as needed and even less likely to occur during the patients lifetime. However the pacemaker may still be removed after patients death.
+	\item \textbf{Explant:} This stage is where a pacemaker is removed from the patient. A cost-benefit analysis is performed with the patient to assess if removal of the pacemaker is more beneficial instead of leaving it in. The pacemaker may also be removed after patients death.
 	\item \textbf{Disposal:} This stage is when a pacemaker has reached end of life and is safely disposed.
 \end{enumerate}
 
-These definitions are helpful to engineers to get a better understanding of the complete product lifecycle after development. It helps to inform some of the goals that the various stakeholders may have, providing some insight into why the requirements are specified as such. Further, these extra definitions also helped us to identify more stakholders of the system beyond the original specification. The new list of stakeholders is the following:
+These definitions are helpful to engineers to get a better understanding of the complete product lifecycle after development. It helps to inform some of the goals that the various stakeholders may have, providing some insight into why the requirements are specified as such. Further, these extra definitions also helped us to identify more stakholders of the system beyond the original specification. Some new stakeholders were also identified during the interview with a doctor that were not captured in the original pacemaker requirement document. The original list of stakeholder is the following:
 
 \begin{itemize}
-	\item Patient (from Pacemaker requirements)
-	\item Patient Family
-	\item Doctor (from Pacemaker requirements)
-	\item Hospital
-	\item Nurse (from Pacemaker requirements)
-	\item Technician (from Pacemaker requirements)
+	\item Patient
+	\item Doctor
+	\item Nurse
+	\item Technician
 \end{itemize}
 
-The patient family was identified as another stakeholder of the pacemaker system due to some of the goals that were identified for both the patient and doctor stakeholders. One of the goals for doctors is to help the patient family navigate the health care system. Which informed us that the patients family are also stakeholders of the pacemaker system as they are likely to be involved with the patient quality of life. This ties into another goal we identified for the patient which is to regain or maintain a desired quality of life. The goals of the doctor and the patient stakeholders can be found in figures~\ref{fig:doctor_goals} and~\ref{fig:patient_goals} respectively.
+After following through on the domain analysis, we produce an extended list of stakeholders:
+
+\begin{itemize}
+	\item Patient
+	\item Patient Family
+	\item Doctor
+	\item Hospital
+	\item Nurse
+	\item Technician
+\end{itemize}
+
+The patient family was identified as another stakeholder during our interview with the doctor. They also share some of the goals that were identified for both the patient and doctor stakeholders. One of the goals for doctors is to help the patient family navigate the health care system. Identifying this goal reinforced the idea that the patients family are also stakeholders of the pacemaker system as they are likely to be involved with the patient quality of life. This ties into another goal we identified for the patient which is to regain or maintain a desired quality of life. The goals of the doctor and the patient stakeholders can be found in figures~\ref{fig:doctor_goals} and~\ref{fig:patient_goals} respectively.
 
 \begin{figure}
 	\centering
