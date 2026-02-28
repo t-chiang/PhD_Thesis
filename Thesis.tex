@@ -37,6 +37,8 @@
 \usepackage[nottoc]{tocbibind}	%  Adds bib, list of figs, and list of tables to the table of contents
 \usepackage[linktocpage, colorlinks, linkcolor=blue, citecolor=blue]{hyperref}	% Links page numbers to their pages, and include page nuns in bib
 \usepackage[printonlyused,withpage]{acronym} 
+\usepackage[acronym,toc,automake]{glossaries}
+\makeglossaries
 \usepackage[toc,page]{appendix}
 \usepackage{booktabs}
 \usepackage{csquotes}
@@ -141,7 +143,7 @@
 %		     Macros for Writing
 %---------------------------------------------------------------------
 
-\newcommand{\ThesisTitle}{CyclicL - An Approach to Automating Requirement Traceability in Product Line Engineering}
+\newcommand{\ThesisTitle}{CyclicL - Automating Requirements Traceability in Product Line Engineering}
 \newcommand{\Author}{Thomas Chiang}
 \newcommand{\Supervisors}{Richard Paige, Alan Wassyng}
 \newcommand{\DegreeName}{PhD}
@@ -159,12 +161,61 @@
 
 
 
+%---------------------------------------------------------------------
+%			 Acronyms 
+%---------------------------------------------------------------------
+
+
+\newacronym{MDE}{MDE}{Model-Driven Engineering}
+
+\newacronym{UML}{UML}{Unified Modeling Language}
+
+\newacronym{EMF}{EMF}{Eclipse Modeling Framework}
+
+\newacronym{DSL}{DSL}{Domain Specific Language}
+
+\newacronym{EOL}{EOL}{Epsilon Object Language}
+
+\newacronym{MOF}{MOF}{Meta-Object Facility}
+
+\newacronym{OMG}{OMG}{Object Management Group}
+
+\newacronym{OCL}{OCL}{Object Constraint Language}
+
+\newacronym{ETL}{ETL}{Epsilon Transformation Language}
+
+\newacronym{EML}{EML}{Epsilon Merging Language}
+
+\newacronym{GMF}{GMF}{Graphical Modeling Framework}
+
+\newacronym{DSM}{DSM}{Domain Specific Model}
+
+\newacronym{PLE}{PLE}{Product Line Engineering}
+
+\newacronym{CIA}{CIA}{Change Impact Anlaysis}
+
+\newacronym{FDD}{FDD}{Feature-Driven Development}
+
+\newacronym{FODA}{FODA}{Feature-Oriented Domain Analysis}
+
+\newacronym{FORM}{FORM}{Feature-Oriented Reuse Method}
+
+\newacronym{UCD}{UCD}{Use Case Diagram}
+
+\newacronym{ACC}{ACC}{Adaptive Cruise Control}
+
+\newacronym{AQL}{AQL}{Acceleo Querying Language}
+
+\newacronym{EVL}{EVL}{Eclipse Validation Language}
+
 
 %---------------------------------------------------------------------
 %			 Document 
 %---------------------------------------------------------------------
 
 \begin{document}
+
+
 
 %---------------------------------------------------------------------
 %			Frontmatter
@@ -203,32 +254,36 @@
 	
 	\clearpage
 	
-	\section*{List of Acronyms}
-	\addcontentsline{toc}{chapter}{List of Acronyms}
-		\begin{acronym}
-			\acro{MDE}[MDE]{Model-Driven Engineering}
-			\acro{EMF}[EMF]{Eclipse Modeling Framework}
-			\acro{DSL}[DSL]{Domain Specific Language}
-			\acro{EOL}[EOL]{Epsilon Object Language}
-			\acro{MOF}[MOF]{Meta-Object Facility}
-			\acro{OMG}[OMG]{Object Management Group}
-			\acro{OCL}[OCL]{Object Constraint Language}
-			\acro{ETL}[ETL]{Epsilon Transformation Language}
-			\acro{EML}[EML]{Epsilon Merging Language}
-			\acro{GMF}[GMF]{Graphical Modeling Framework}
-			\acro{DSM}[DSM]{Domain Specific Model}
-			\acro{PLE}[PLE]{Product Line Engineering}
-			\acro{CIA}[CIA]{Change Impact Anlaysis}
-			\acro{FDD}[FDD]{Feature-Driven Development}
-			\acro{FODA}[FODA]{Feature-Oriented Domain Analysis}
-			\acro{FORM}[FORM]{Feature-Oriented Reuse Method}
-			\acro{UCD}[UCD]{Use Case Diagram}
-			\acro{ACC}[ACC]{Adaptive Cruise Control}
-			\acro{AQL}[AQL]{Acceleo Querying Language}
-			\acro{EVL}[EVL]{Eclipse Validation Language}
-			%Define acronyms here
-			%Use intext with \ac{}. Look at reference for the acronym package for a full guide
-		\end{acronym}
+	\printglossary[type=\acronymtype, title={List of Acronyms}] 
+
+	\clearpage
+	
+%	\section*{List of Acronyms}
+%	\addcontentsline{toc}{chapter}{List of Acronyms}
+%		\begin{acronym}
+%			\acro{MDE}[MDE]{Model-Driven Engineering}
+%			\acro{EMF}[EMF]{Eclipse Modeling Framework}
+%			\acro{DSL}[DSL]{Domain Specific Language}
+%			\acro{EOL}[EOL]{Epsilon Object Language}
+%			\acro{MOF}[MOF]{Meta-Object Facility}
+%			\acro{OMG}[OMG]{Object Management Group}
+%			\acro{OCL}[OCL]{Object Constraint Language}
+%			\acro{ETL}[ETL]{Epsilon Transformation Language}
+%			\acro{EML}[EML]{Epsilon Merging Language}
+%			\acro{GMF}[GMF]{Graphical Modeling Framework}
+%			\acro{DSM}[DSM]{Domain Specific Model}
+%			\acro{PLE}[PLE]{Product Line Engineering}
+%			\acro{CIA}[CIA]{Change Impact Anlaysis}
+%			\acro{FDD}[FDD]{Feature-Driven Development}
+%			\acro{FODA}[FODA]{Feature-Oriented Domain Analysis}
+%			\acro{FORM}[FORM]{Feature-Oriented Reuse Method}
+%			\acro{UCD}[UCD]{Use Case Diagram}
+%			\acro{ACC}[ACC]{Adaptive Cruise Control}
+%			\acro{AQL}[AQL]{Acceleo Querying Language}
+%			\acro{EVL}[EVL]{Eclipse Validation Language}
+%			%Define acronyms here
+%			%Use intext with \ac{}. Look at reference for the acronym package for a full guide
+%		\end{acronym}
 
 	\input{Declaration}
 	\addcontentsline{toc}{chapter}{Declaration of Academic Achievement}
