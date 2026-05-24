@@ -172,11 +172,11 @@ The next step is to identify the use cases for each of these stakeholders, and c
 \begin{figure}
 	\centering
 	\includegraphics[width=\textwidth]{pacemaker_device.png}
-	\caption{Image of a pacemaker pulse generator on the left. Diagram of a pacemaker device with leads. Extracted from the supplement document 'What Is A Pacemaker' found in \ref{apdx:What_Is_A_Pacemaker}.}
+	\caption{Image of a pacemaker pulse generator on the left. Diagram of a pacemaker device with leads. Extracted from the supplement document `What Is A Pacemaker' found in \ref{apdx:What_Is_A_Pacemaker}.}
 	\label{fig:pacemaker_device}
 \end{figure}
 
-In chapter 2: System Definition for the pacemaker requirements document it defines the various components that compose the pacemaker system; the pacemaker device (also known as the pulse generator or PG), the Device Controller-Monitor and associated software, and the device leads that are implanted in the patient. Those three components become the boundaries of our UCDs. This is an easy integration point between out methodology and the existing documentation. We can save some re-work by reusing the system and sub-system decompositions from the original document. The document does not explicitly state what the features or use cases are for each of the devices, but there are overview sections that we can use as a starting point for determining what the use cases are.
+In Chapter 2: System Definition for the pacemaker requirements document it defines the various components that compose the pacemaker system; the pacemaker device (also known as the pulse generator or PG), the Device Controller-Monitor and associated software, and the device leads that are implanted in the patient. Those three components become the boundaries of our UCDs. This is an easy integration point between out methodology and the existing documentation. We can save some re-work by reusing the system and sub-system decompositions from the original document. The document does not explicitly state what the features or use cases are for each of the devices, but there are overview sections that we can use as a starting point for determining what the use cases are.
 
 The PG device overview provides the following information~\cite{scientific2007pacemaker} summarized from the PACEMAKER document found in~\ref{apdx:Req}:
 \begin{itemize}
@@ -259,7 +259,7 @@ In Figure~\ref{fig:pg_device_UCD} we have created another UCD enhanced by the kn
 
 Next we see in Figure~\ref{fig:DCM_UCD_original_spec} a possible interpretation of the information in the DCM overview in a UCD. While the original specification does specify that the DCM sub-system is further decomposed into a hardware platform and software application, it does not make a distinction between the two when specifying the use cases. In this initial modelling attempt, we try to define the use cases for the DCM with its components combined within the system boundary. We also discovered another new actor when creating this UCD: the Strip Chart Recorder. This actor is related to the singleton use case `output to external strip-chart recorders'. This UCD was particularly challenging to create due to all the conjunctive sentences in the specified features. In particular, the `Acquire and show diagnostics (history) and lead signal measurement information' use case is difficult to fully capture who this use case is for. The language used is confusing as by using the word diagnostics the statement seems like this feature is for the Technician. However, because it then specifies history in brackets, similar to what is specified in the `Acquire and show sensor history and trending information' use case, we ultimately decided it is more likely to be used by the doctor and nurse actors. Interestingly, likely due to the overlap between the two stakeholders, the doctor and nurse actors in this model are associated to all the same use cases. As this is supported by their overlapping goals we have a stronger confidence in the correctness of this model.
 
-The DCM system is more challenging to have confidence in the UCD due to the combined nature of the hardware and software sub-systems specified in the requirements. They are heavily coupled which makes identifying what is a software use case and what is a hardware use case difficult as they are currently written. More information may come to light during the refinement however at this point in development it is difficult to gain more insight into how the sub-systems could be decoupled.
+It is more challenging to have confidence in the UCD of the DCM system due to the combined nature of the hardware and software sub-systems specified in the requirements. They are coupled in section 2.2.2 of the PACEMAKER document which makes identifying what is a software use case and what is a hardware use case difficult as they are currently written. More information may come to light during the refinement however at this point in development it is difficult to gain more insight into how the sub-systems could be decoupled.
 
 \begin{figure}
 	\centering
@@ -322,7 +322,9 @@ With a product family created from the UCD, we can start to explore the use case
 	\item \textbf{Success Postcondition}: \pgd\ is correctly programmed and pacing the patients heart correctly and safely.
 \end{itemize}
 
-The steps outlined in the success scenario are the functional requirements for the use case. They outline what needs to happen for the actor to accomplish whatever task is outlined. The outcomes in the secondary scenarios provide alternative results of actors actions. These alternative outcomes can be safety hazards, security hazards, system malfunctions, or user errors. The secondary scenarios outline the justifications for mitigating requirements in order to improve the chance that the actor will arrive to the success postcondition, in this case that the \pgd\ is correctly programmed and pacing the patients heart correctly and safely. In the context of our methodology, mitigating requirements are most commonly categorized into safety, constraint, or qualitative requirements. At this time we have not ruled out that a mitigating requirement may lead to a functional requirement, however based on our experiences we support the convention that they are a better fit for the non-functional requirement types.
+The steps outlined in the success scenario are the functional requirements for the use case. They outline what needs to happen for the actor to accomplish whatever task is outlined. The outcomes in the secondary scenarios provide alternative results of actors actions. These alternative outcomes can be safety hazards, security hazards, system malfunctions, or user errors. It is important for this step to make sure `what' the stakeholder has to do to achieve their goal is captured, not `how'.
+
+The secondary scenarios outline the justifications for mitigating requirements in order to improve the chance that the actor will arrive to the success postcondition, in this case that the \pgd\ is correctly programmed and pacing the patients heart correctly and safely. In the context of our methodology, mitigating requirements are most commonly categorized into safety, constraint, or qualitative requirements. At this time we have not ruled out that a mitigating requirement may lead to a functional requirement, however based on our experiences we support the convention that they are a better fit for the non-functional requirement types. The secondary scenarios come together to answer the question of `how' the stakeholder will accomplish their objective, typically by creating requirements that reduce the chances of a stakeholder reaching a secondary scenario.
 
 \section{Tool Supported Development}
 
@@ -342,7 +344,7 @@ With these requirements identified, we can begin modelling them in the requireme
 	\label{fig:req_canvas_creation_UI}
 \end{figure}
 
-\begin{figure}
+\begin{figure}[!hbt]
 	\centering
 	\includegraphics[width=\textwidth]{pacing_reqs.png}
 	\caption{Requirements for the `Provide programmable pacing' use case.}
@@ -351,7 +353,7 @@ With these requirements identified, we can begin modelling them in the requireme
 
 In Figure~\ref{fig:pacing_reqs} we show all the requirements created in the model as previously identified to match the refinement of the user story. In Figure~\ref{fig:req1_spec}, Figure~\ref{fig:req2_spec}, and Figure~\ref{fig:req3_spec} we also show the Gherkin specifications for the expected behavior of the first three requirements.
 
-\begin{figure}
+\begin{figure}[!hbt]
 	\begin{lstlisting}
 		Given{
 			Precond one: "The pacemaker PG_Device is active and can connect to the DCM"
@@ -368,7 +370,7 @@ In Figure~\ref{fig:pacing_reqs} we show all the requirements created in the mode
 	\label{fig:req1_spec}
 \end{figure}
 
-\begin{figure}
+\begin{figure}[!hbt]
 	\begin{lstlisting}
 		Given{
 			Precond one: "The doctor is able to connect to a PG_Device"
@@ -384,7 +386,7 @@ In Figure~\ref{fig:pacing_reqs} we show all the requirements created in the mode
 	\label{fig:req2_spec}
 \end{figure}
 
-\begin{figure}
+\begin{figure}[!hbt]
 	\begin{lstlisting}
 		Given{
 			Precond one: "The doctor has verified they are connected to the correct device"
@@ -404,7 +406,7 @@ The requirement entities in the canvas have facilities that allow us to specify 
 
 Another benefit of these ordered requirements is that it can help with planning feature development. Engineers can identify dependencies between requirements within a feature more easily and plan what stages of development need to be completed sequentially and which ones can happen in parallel. This lends confidence to the claim of this methodology helping with FDD. The feature becomes well defined by the requirements, each requirement has the opportunity to be well specified by the engineers, and plans can be made to tackle the order of development to complete the feature. This includes the satisfaction of functional, qualitative, constraint, and safety requirements alike. 
 
-Another part of the requirement canvas in our tool implementation is the ability to assign test cases and reviewers to specified requirements. At this point in development, the purpose of those model elements is primarily bookkeeping. A further benefit of using the Gherkin syntax are the many existing libraries that support it testing. At this time, we do not natively support testing in the tool. We do however, want to be able to keep track of which requirements have been satisfied and which ones have not. Additionally, we also want to keep track of which ones have been reviewed and approved. As part of the requirement engineering process it is important to keep track of which requirements are ready to development, and which ones are still undergoing refinement. We show, based on our tool implementation, how this can appear for the pacemaker in Figure~\ref{fig:pacing_reqs_tests_reviews_export}. Naturally, once these model elements are added and connected to requirements, they are automatically updated in the traceability matrix as well.
+Another part of the requirement canvas in our tool implementation is the ability to assign test cases and reviewers to specified requirements. At this point in development, the purpose of those model elements is primarily bookkeeping. A further benefit of using the Gherkin syntax is the many existing libraries that support it testing. At this time, we do not natively support testing in the tool. We do however, want to be able to keep track of which requirements have been satisfied and which ones have not. Additionally, we also want to keep track of which ones have been reviewed and approved. As part of the requirement engineering process it is important to keep track of which requirements are ready to development, and which ones are still undergoing refinement. We show, based on our tool implementation, how this can appear for the pacemaker in Figure~\ref{fig:pacing_reqs_tests_reviews_export}. Naturally, once these model elements are added and connected to requirements, they are automatically updated in the traceability matrix as well.
 
 %\begin{figure}
 %	\centering
@@ -435,28 +437,28 @@ For the purpose of this methodology, iterative changes are thought of as cycles 
 
 Incremental changes are thought of as changes within a single development phase. We used this definition for the sake of limiting the scope of what an incremental change entails. This was to help our development efforts for tool implementation, and simplify requirements around incremental changes compared to iterative changes. Currently, our tool implementation of \tool\ supports the maintenance of traceability matrices through incremental changes as we have defined them. As engineers work through the various steps within a development phase, they will be constantly adding, modifying, or removing artifacts until they reach a satisfactory result. We consider all of these incremental changes until they get enough completed to move onto the next phase of development.
 
-\begin{figure}
+\begin{sidewaysfigure}
 	\centering
-	\includegraphics[angle=90, height=\textheight]{pacemaker_traceability_1.png}
+	\includegraphics[width=\textwidth]{pacemaker_traceability_1.png}
 	\caption{Feature-requirement traceability during the middle of development for a pacemaker first half.}
 	\label{fig:pacemaker_traceabilit1}
-\end{figure}
+\end{sidewaysfigure}
 
-\begin{figure}
+\begin{sidewaysfigure}
 	\centering
-	\includegraphics[angle=90, height=\textheight]{pacemaker_traceability_2.png}
+	\includegraphics[width=\textwidth]{pacemaker_traceability_2.png}
 	\caption{Feature-requirement traceability during the middle of development for a pacemaker second half.}
 	\label{fig:pacemaker_traceability_2}
-\end{figure}
+\end{sidewaysfigure}
 
 There are three traceability matrices that are supported in our implementation for \tool; project traceability, feature-feature traceability, and feature-requirement traceability. Project traceability and feature-requirement traceability are defined to focus on traceability of the requirement entities. Project traceability is the traceability matrix for the entire project. Feature-requirement traceability is a traceability matrix that is scoped to a single feature. The Feature-feature traceability matrix is represents the feature model that is defined within the project.
 
-\begin{figure}
+\begin{sidewaysfigure}
 	\centering
-	\includegraphics[angle=90, height=\textheight]{pacemaker_feature_traceability.png}
+	\includegraphics[width=\textwidth]{pacemaker_feature_traceability.png}
 	\caption{Feature-feature traceability during the middle of development for a pacemaker.}
 	\label{fig:pacemaker_feature_traceability}
-\end{figure}
+\end{sidewaysfigure}
 
 These matrices are a second syntactic representation of the modelling environments present within the tool implementation. Since they are semantically equivalent, any change to the requirements in the requirement canvas or features in the feature modelling environment are automatically reflected in their respective traceability matrix. The tabular environments, though somewhat limited, are also capable of defining new requirements. The limitations are that test cases and reviewers cannot be created in the tabular environment. This is by design as it forces users to manually create those traces explicit in the modelling environment and reflect on what test cases are being created and who is approving of the requirements.
 
