@@ -27,14 +27,17 @@ One of the main contributions of our methodology is the encapsulation of feature
 
 Finally, CyclicL has demonstrated the potential benefits of a self-contained \gls{PLE} tool that embeds requirements, in the context of iterative and incremental development. We have shown that CyclicL can support incremental development of both feature and requirement models. By leveraging \gls{EMF} and Sirius, we demonstrated the possibilities enabled by a tool that maintains traceability across both requirement and product changes, without reliance on external support. While the current tool still has limitations in supporting iterative changes, we have demonstrated how future development can continue to address these shortcomings. Due to the current limitations in the tool, we conclude that we have partially satisfied~\ref{RQ3} with \tool\ as a tool that supports iterative and incremental traceability development in parallel with feature and requirement development. We give it a partial designation as there are still limitations on how \tool\ can support iterative changes under our current definition of a change between development phases.
 
-Overall, our methodology has demonstrated improvements in an existing requirement document, identified avenues for potential improvements in requirement engineering and feature modelling, and shown potential for integration with existing development practices. Our contributions include the following:
+Overall, the \tool\ methodology has made the following contributions:
 
 \begin{itemize}
-	\item The integration of automated traceability with domain space exploration, feature modelling, and requirement engineering.
-	\item The definition of a clear hierarchy between features and requirements.
-	\item A tool supported approach enabling incremental and iterative development of feature models and requirements.
-	\item A unified workflow between various \gls{MDE} and \gls{PLE} techniques for feature modelling and requirement engineering.
+	\item The definition of a hierarchy between features and requirements.
+	\item The integration of automated traceability with domain space exploration, feature modelling, and requirements engineering.
+	\item An incremental and iterative workflow for feature modelling and requirements engineering that builds on \gls{MDE}.
+	\item A tool-supported approach enabling incremental and iterative development of feature models and requirements.
+	\item The application of this methodology in the medical device and automotive domains.
 \end{itemize}
 
-\tool\ and its supporting methodology are ripe for further exploration and continued development to support safety-critical development in further domains and potentially as a more generalized approach to requirement engineering across industries.
+From these contributions, and the initial evaluation, we can claim that we have demonstrated the benefits of traceability when integrated as a fundamental part of product lifecycle development rather than a retrospective task to be completed once development is done. We have shown how this baked in traceability can allow for incrementation within a development stage, and how the traceability can facilitate iteration between development stages. As a by-product, we saw that we were able to improve the state of the requirements in the pacemaker example as discussed in section~\ref{sec:Eval-Discussion}.  
+
+Based on the results from the initial evaluation, \tool\ and its supporting methodology are ripe for further exploration and continued development to support safety-critical development in further domains and potentially as a more generalized approach to requirement engineering across industries.
 
