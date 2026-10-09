@@ -169,6 +169,7 @@ We identified many shared goals among stakeholders. We have them as separate bub
 Thus far, the process of modelling our goals has identified two additional stakeholders not identified in the original requirement document. We have provided insight into the goals for each stakeholder, along with supporting beliefs, tasks, and resources. We can claim that we have reduced some uncertainty about the goals stakeholders have for the pacemaker product lifecycle. We also claim that we have provided additional context on the stages of the pacemaker lifecycle to help inform and support decisions on the requirements and subsequent development. 
 
 \subsection{Use Case Diagrams}
+\label{subsec:UCD}
 
 The next step is to identify the use cases for each of these stakeholders and compare them with the uses identified in the original requirement document. We have identified a variety of tasks (from the goal diagrams) for the stakeholders, which loosely break down into two categories: tasks that require the pacemaker and those that are human-supplemented. According to the methodology and our primary objective of developing the product, we want to identify the use cases for which stakeholders will need the pacemaker system. These use cases should also be traceable to one or more goals for the stakeholders. This is critical to establishing end-to-end traceability for the entire product lifecycle. For our most immediate task, the traceability helps to justify the identified use cases based on stakeholder goals.
 
@@ -276,6 +277,7 @@ The leads subsystem is relatively straightforward to model given the limited use
 Overall, creating the UCDs for the pacemaker has given us insight that would have been overlooked if we had relied solely on the original specification. We have identified potentially reusable parts of the system in the rate adaptive pacing. We have identified additional actors that were otherwise implied or overlooked in the original specification. We have identified potential pain points due to high coupling among the DCM subsystems. Finally, we have identified interactions among the various components of the pacemaker system. We also noticed during this process that a lot of interpretation is required to create the models. This can introduce inconsistencies, as the results depend heavily on the engineers who execute this process. 
 
 \section{Product Family Development}
+\label{sec:Product_Family_Development}
 
 \begin{figure}
 	\centering
@@ -297,6 +299,7 @@ Composition is a key component of the modelling strategies for this methodology.
 Due to the current metamodel definition of \tool, feature composition differs slightly. Since we state that all requirements are scoped by their owned features, we do not support cross-cutting requirements. When a feature composition is required to define a product based on the feature model, it becomes more of a checklist rather than more traditional composition weaving. This is by design, as we want each feature to be self-contained with respect to its requirements. This does not exclude dependencies between features, however. Feature dependency validation can still occur during the composition process if properly implemented. At this time, feature composition is not an automated process in \tool. It requires the user to manually select which features from the product family to add to a product variant they define. Despite being a manual process, the tool specification helps ensure that when a feature is added to a product, all owned requirements are added as well to obtain a valid result, thanks to the natural semantics of composition in SysML~\cite{sysml2019omg}.
 
 \section{Requirement Engineering and Refinement}
+\label{sec:Req_Engineering_Refinement}
 
 With a product family derived from the UCD, we can start exploring use cases and refining them into more well-defined requirements. We do this by taking the use cases and refining them into user stories. A user story outlines the steps a user (a stakeholder) would need to take when using a product (a use case) to achieve a goal or task, as outlined in the goal diagrams. We use the following structure when refining a use case to a user story:
 
@@ -437,6 +440,7 @@ At this stage, we have created a functional behavioural specification for the ``
 As we have a minimum viable product as part of this methodology, we can also compare it against other existing technologies. In summary, FeatureIDE is typically an implementation-focused feature-modelling tool. GEARS is a design-focused feature modelling technology that emphasizes capturing variation points in design. DOORS is a requirement database technology that supports manual creation of traceability links and can generate graphical representations of those links. The tool for \tool\ differs from these tools in that it integrates requirement-modelling with feature-modelling in a way none of the previously mentioned technologies currently do. Compared to DOORS, the traceability links are a first-class citizen of \tool, while in DOORS they are optional. Unlike GEARS and FeatureIDE, \tool\ attempts to capture requirements variation before moving to design or implementation details. It tries to capture changes in rationale that could lead to variations in how to solve a problem for a customer, which ultimately result in different feature and requirement variants. Overall, \tool\ and its implementation fill in a niche in development that does not conflict with other existing technologies. 
 
 \section{Iterative and Incremental Change}
+\label{sec:Iterative_Incremental}
 
 For the purposes of this methodology, iterative changes are understood as cycles between development phases (features and requirements, requirements and design, and design and implementation). The idea behind this definition is that lessons learned during a subsequent development phase can inform and justify repeating a development task from a previous phase. In this methodology, if a need or gap is identified during the requirements phase, it may necessitate repeating a process in the feature modelling phase. A need or gap between the requirement modelling and feature modelling phases could be that some requirements do not fit into any features. It may require a review to ensure that the identified features are complete and correct. 
 
